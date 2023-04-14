@@ -30,6 +30,7 @@
 		EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */; };
 		EE366E1F29EA00590004ADA6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1E29EA00590004ADA6 /* LoadingView.swift */; };
 		EE366E2129EA00FB0004ADA6 /* NotFindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2029EA00FB0004ADA6 /* NotFindView.swift */; };
+		EE366E2429EA02410004ADA6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2329EA02410004ADA6 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderDateFormatter.swift; sourceTree = "<group>"; };
 		EE366E1E29EA00590004ADA6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EE366E2029EA00FB0004ADA6 /* NotFindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindView.swift; sourceTree = "<group>"; };
+		EE366E2329EA02410004ADA6 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		EE366E0F29E9F93A0004ADA6 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				EE366E2229EA01B20004ADA6 /* ErrorViews */,
 				EE366E1029E9F9C90004ADA6 /* DataModel */,
 				EE366E1529E9FAD20004ADA6 /* NetworkManager.swift */,
 			);
@@ -180,6 +183,14 @@
 				EE366E2029EA00FB0004ADA6 /* NotFindView.swift */,
 			);
 			path = EmployeesList;
+			sourceTree = "<group>";
+		};
+		EE366E2229EA01B20004ADA6 /* ErrorViews */ = {
+			isa = PBXGroup;
+			children = (
+				EE366E2329EA02410004ADA6 /* ErrorView.swift */,
+			);
+			path = ErrorViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +284,7 @@
 				EE366E0029E9E5940004ADA6 /* SearchTextField.swift in Sources */,
 				EE366DFE29E9E1A60004ADA6 /* CrossButton.swift in Sources */,
 				EE366DD929E9DAD40004ADA6 /* SceneDelegate.swift in Sources */,
+				EE366E2429EA02410004ADA6 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
