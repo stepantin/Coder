@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     
     //MARK: Lazy Private Properties
     private lazy var searchTextField = SearchTextField(placeholder: placeholder)
+    private lazy var cancelButton = CancelButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,8 @@ extension MainViewController {
 extension MainViewController {
     private func addSubviews() {
         view.addSubview(searchTextField)
+        view.addSubview(cancelButton)
+
     }
 }
 
@@ -46,6 +49,7 @@ extension MainViewController {
 extension MainViewController {
     private func setupLayouts() {
         searchTextField.frame = CGRect(x: 16, y: 60, width: view.bounds.width - 32, height: 40)
+        cancelButton.frame = CGRect(x: searchTextField.bounds.width + 40, y: 71, width: 54, height: 18)
     }
 }
 
@@ -53,6 +57,8 @@ extension MainViewController {
 extension MainViewController {
     private func applyViewsCustomization() {
         searchTextField.crossButton.addTarget(self, action: #selector(clear), for: .allTouchEvents)
+        cancelButton.addTarget(self, action: #selector(cancelEditing), for: .allTouchEvents)
+
     }
 }
 
@@ -61,6 +67,12 @@ extension MainViewController {
     
     @objc fileprivate func clear() {
         searchTextField.text = ""
+    }
+    
+    @objc fileprivate func cancelEditing() {
+        searchTextField.text = ""
+        searchTextField.placeholder = placeholder
+        searchTextField.endEditing(true)
     }
     
 }
@@ -77,6 +89,7 @@ extension MainViewController: UISearchTextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         searchTextField.placeholder = ""
         animation.decreaseTextFieldWidth(textField: searchTextField, view: view)
+        animation.move(cancelButton: cancelButton, bindXTo: searchTextField)
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -89,6 +102,7 @@ extension MainViewController: UISearchTextFieldDelegate {
         searchTextField.setup(rightView: .sortSettingsView)
         searchTextField.text = ""
         animation.restoreTextFieldWidth(textField: searchTextField, view: view)
+        animation.remove(cancelButton: cancelButton, bindXTo: searchTextField)
     }
     
     private func searchTextFieldDidChangeSelection() {

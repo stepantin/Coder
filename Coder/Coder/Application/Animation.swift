@@ -46,5 +46,21 @@ final class Animation {
         }
     }
     
+    func move(cancelButton: CancelButton, bindXTo view: UIView) {
+        
+        UIView.animate(withDuration: 0.4) {
+            cancelButton.frame = CGRect(x: view.bounds.width + 28, y: 71, width: 54, height: 18)
+            cancelButton.alpha = 1
+        }
+    }
+    
+    func remove(cancelButton: CancelButton, bindXTo view: UIView) {
+        
+        UIView.animate(withDuration: 0.2) {
+            cancelButton.frame = CGRect(x: view.bounds.width + 40, y: 71, width: 54, height: 18)
+            cancelButton.alpha = 0
+        }
+    }
+    
 }
 
