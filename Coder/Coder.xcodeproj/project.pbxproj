@@ -16,6 +16,7 @@
 		EE366DFC29E9E0530004ADA6 /* SortSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */; };
 		EE366DFE29E9E1A60004ADA6 /* CrossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */; };
 		EE366E0029E9E5940004ADA6 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFF29E9E5940004ADA6 /* SearchTextField.swift */; };
+		EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0129E9EEAE0004ADA6 /* Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSettingsView.swift; sourceTree = "<group>"; };
 		EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
 		EE366DFF29E9E5940004ADA6 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
+		EE366E0129E9EEAE0004ADA6 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +64,8 @@
 		EE366DD529E9DAD40004ADA6 /* Coder */ = {
 			isa = PBXGroup;
 			children = (
-				EE366DF229E9DDAE0004ADA6 /* Main VC */,
 				EE366DEA29E9DBC00004ADA6 /* Application */,
+				EE366DF229E9DDAE0004ADA6 /* Main VC */,
 				EE366DEB29E9DBD60004ADA6 /* Supporting files */,
 			);
 			path = Coder;
@@ -74,6 +76,7 @@
 			children = (
 				EE366DD629E9DAD40004ADA6 /* AppDelegate.swift */,
 				EE366DD829E9DAD40004ADA6 /* SceneDelegate.swift */,
+				EE366E0129E9EEAE0004ADA6 /* Animation.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			files = (
 				EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
+				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,
 				EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */,
 				EE366DFC29E9E0530004ADA6 /* SortSettingsView.swift in Sources */,
 				EE366E0029E9E5940004ADA6 /* SearchTextField.swift in Sources */,
