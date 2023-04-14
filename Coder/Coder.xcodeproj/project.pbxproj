@@ -17,6 +17,7 @@
 		EE366DFE29E9E1A60004ADA6 /* CrossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */; };
 		EE366E0029E9E5940004ADA6 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFF29E9E5940004ADA6 /* SearchTextField.swift */; };
 		EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0129E9EEAE0004ADA6 /* Animation.swift */; };
+		EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0329E9F1370004ADA6 /* CancelButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
 		EE366DFF29E9E5940004ADA6 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		EE366E0129E9EEAE0004ADA6 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		EE366E0329E9F1370004ADA6 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				EE366DF929E9DFBA0004ADA6 /* LensView.swift */,
 				EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */,
 				EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */,
+				EE366E0329E9F1370004ADA6 /* CancelButton.swift */,
 			);
 			path = SearchBar;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			files = (
 				EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
+				EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */,
 				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,
 				EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */,
 				EE366DFC29E9E0530004ADA6 /* SortSettingsView.swift in Sources */,
