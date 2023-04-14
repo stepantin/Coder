@@ -12,6 +12,7 @@
 		EE366DE029E9DAD50004ADA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE366DDF29E9DAD50004ADA6 /* Assets.xcassets */; };
 		EE366DE329E9DAD50004ADA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE366DE129E9DAD50004ADA6 /* LaunchScreen.storyboard */; };
 		EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */; };
+		EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DF929E9DFBA0004ADA6 /* LensView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EE366DE229E9DAD50004ADA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE366DE429E9DAD50004ADA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EE366DF929E9DFBA0004ADA6 /* LensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +85,18 @@
 		EE366DF229E9DDAE0004ADA6 /* Main VC */ = {
 			isa = PBXGroup;
 			children = (
+				EE366DF829E9DFA50004ADA6 /* SearchBar */,
 				EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */,
 			);
 			path = "Main VC";
+			sourceTree = "<group>";
+		};
+		EE366DF829E9DFA50004ADA6 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				EE366DF929E9DFBA0004ADA6 /* LensView.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			files = (
 				EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
+				EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */,
 				EE366DD929E9DAD40004ADA6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
