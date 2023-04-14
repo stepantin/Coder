@@ -22,6 +22,8 @@
 		EE366E0A29E9F4380004ADA6 /* DepartmentSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */; };
 		EE366E0C29E9F5680004ADA6 /* DepartmentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0B29E9F5680004ADA6 /* DepartmentsContentView.swift */; };
 		EE366E0E29E9F5D40004ADA6 /* DepartmentScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0D29E9F5D40004ADA6 /* DepartmentScrollView.swift */; };
+		EE366E1229E9F9DC0004ADA6 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1129E9F9DC0004ADA6 /* Employee.swift */; };
+		EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1329E9FA120004ADA6 /* Employees.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentSegmentedControl.swift; sourceTree = "<group>"; };
 		EE366E0B29E9F5680004ADA6 /* DepartmentsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsContentView.swift; sourceTree = "<group>"; };
 		EE366E0D29E9F5D40004ADA6 /* DepartmentScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentScrollView.swift; sourceTree = "<group>"; };
+		EE366E1129E9F9DC0004ADA6 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		EE366E1329E9FA120004ADA6 /* Employees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employees.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +80,6 @@
 			children = (
 				EE366DEA29E9DBC00004ADA6 /* Application */,
 				EE366DF229E9DDAE0004ADA6 /* Main VC */,
-				EE366DEB29E9DBD60004ADA6 /* Supporting files */,
 			);
 			path = Coder;
 			sourceTree = "<group>";
@@ -107,6 +110,8 @@
 				EE366E0629E9F3550004ADA6 /* DepartmentsNavigation */,
 				EE366DF829E9DFA50004ADA6 /* SearchBar */,
 				EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */,
+				EE366E0F29E9F93A0004ADA6 /* NetworkService */,
+				EE366DEB29E9DBD60004ADA6 /* Supporting files */,
 			);
 			path = "Main VC";
 			sourceTree = "<group>";
@@ -132,6 +137,23 @@
 				EE366E0D29E9F5D40004ADA6 /* DepartmentScrollView.swift */,
 			);
 			path = DepartmentsNavigation;
+			sourceTree = "<group>";
+		};
+		EE366E0F29E9F93A0004ADA6 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				EE366E1029E9F9C90004ADA6 /* DataModel */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		EE366E1029E9F9C90004ADA6 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				EE366E1129E9F9DC0004ADA6 /* Employee.swift */,
+				EE366E1329E9FA120004ADA6 /* Employees.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,9 +229,11 @@
 				EE366E0C29E9F5680004ADA6 /* DepartmentsContentView.swift in Sources */,
 				EE366E0A29E9F4380004ADA6 /* DepartmentSegmentedControl.swift in Sources */,
 				EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */,
+				EE366E1229E9F9DC0004ADA6 /* Employee.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
 				EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */,
 				EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */,
+				EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */,
 				EE366E0E29E9F5D40004ADA6 /* DepartmentScrollView.swift in Sources */,
 				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,
 				EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */,
