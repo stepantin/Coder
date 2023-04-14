@@ -32,6 +32,7 @@
 		EE366E2129EA00FB0004ADA6 /* NotFindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2029EA00FB0004ADA6 /* NotFindView.swift */; };
 		EE366E2429EA02410004ADA6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2329EA02410004ADA6 /* ErrorView.swift */; };
 		EE366E2629EA02EE0004ADA6 /* HeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */; };
+		EE366E2829EA06330004ADA6 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2729EA06330004ADA6 /* SectionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		EE366E2029EA00FB0004ADA6 /* NotFindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindView.swift; sourceTree = "<group>"; };
 		EE366E2329EA02410004ADA6 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionView.swift; sourceTree = "<group>"; };
+		EE366E2729EA06330004ADA6 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				EE366E1E29EA00590004ADA6 /* LoadingView.swift */,
 				EE366E2029EA00FB0004ADA6 /* NotFindView.swift */,
 				EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */,
+				EE366E2729EA06330004ADA6 /* SectionModel.swift */,
 			);
 			path = EmployeesList;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				EE366E1B29E9FDB20004ADA6 /* EmployeesTableViewCell.swift in Sources */,
 				EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */,
 				EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */,
+				EE366E2829EA06330004ADA6 /* SectionModel.swift in Sources */,
 				EE366E0E29E9F5D40004ADA6 /* DepartmentScrollView.swift in Sources */,
 				EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */,
 				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,

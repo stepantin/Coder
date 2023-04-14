@@ -43,6 +43,8 @@ class EmployeesTableView: UITableView {
         tableViewRefreshControl.tintColor = .black
         refreshControl = tableViewRefreshControl
         
+        configStackView()
+
         addSubview(notFindView)
         addSubview(loadingView)
         
@@ -58,7 +60,6 @@ class EmployeesTableView: UITableView {
         loadingView.bottomAnchor.constraint(equalTo: listLoadingStackView.bottomAnchor).isActive = true
         loadingView.backgroundColor = .white
 
-        configStackView()
     }
     
     private func configStackView() {
