@@ -68,5 +68,12 @@ final class Animation {
         }
     }
     
+    func listLoadingAnimation(view: UIStackView) {
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat]) {
+            for v in view.arrangedSubviews {
+                v.alpha = 0.2
+            }
+        }
+    }
 }
 
