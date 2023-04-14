@@ -24,7 +24,7 @@ class NetworkManager {
     private let urlString = "https://stoplight.io/mocks/kode-education/trainee-test/25143926/users"
     
     // MARK: - Methods
-    func fetchData(successComplition: @escaping (Employees) -> Void, errorComplition: @escaping () -> Void, complitionInternetError: @escaping () -> Void) {
+    func fetchData(successComplition: @escaping (Employees) -> Void, errorComplition: @escaping () -> Void) {
         let url = URL(string: urlString)
         guard let url = url else { return }
         
@@ -44,10 +44,7 @@ class NetworkManager {
         }
         
         session.dataTask(with: request) { data, _, error in
-            guard let data = data else {
-                complitionInternetError()
-                return
-            }
+            guard let data = data else { return }
                 
             do {
                 let workers = try decoder.decode(Employees.self, from: data)

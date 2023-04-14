@@ -9,14 +9,26 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    // MARK: Private Properties
+    // MARK: - Properties
+    var defaultEmployeeList = [Employee]()
+    var filteredEmployeesList = [Employee]()
+    var defaultTableViewSections = [SectionModel]()
+    var filteredTableViewSections = [SectionModel]()
+    
+    // MARK: - Private Properties
     private let placeholder = "Введи имя, тег, почту..."
     private let animation = Animation()
+    private let sectionLine = CALayer()
+    private let networkManager = NetworkManager()
+    private let curentDate = CoderDateFormatter()
     
-    //MARK: Lazy Private Properties
+    //MARK: - Lazy Private Properties
     private lazy var searchTextField = SearchTextField(placeholder: placeholder)
     private lazy var cancelButton = CancelButton()
     private lazy var departmentScrollView = DepartmentScrollView()
+    private lazy var employeesTableView = EmployeesTableView()
+    private lazy var headerSectionView = HeaderSectionView()
+    private lazy var currentYear = Int(curentDate.year!)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +55,9 @@ extension MainViewController {
         view.addSubview(searchTextField)
         view.addSubview(cancelButton)
         view.addSubview(departmentScrollView)
+        view.addSubview(employeesTableView)
 
+        view.layer.addSublayer(sectionLine)
     }
 }
 
@@ -53,6 +67,9 @@ extension MainViewController {
         searchTextField.frame = CGRect(x: 16, y: 60, width: view.bounds.width - 32, height: 40)
         cancelButton.frame = CGRect(x: searchTextField.bounds.width + 40, y: 71, width: 54, height: 18)
         departmentScrollView.frame = CGRect(x: 0, y: 114, width: view.frame.width, height: 38)
+        sectionLine.frame = CGRect(x: 0, y: departmentScrollView.frame.maxY, width: view.frame.width, height: 0.33)
+        employeesTableView.frame = CGRect(x: 0, y: sectionLine.frame.maxY, width: view.frame.width, height: view.frame.height - sectionLine.frame.maxY)
+
     }
 }
 
@@ -61,6 +78,8 @@ extension MainViewController {
     private func applyViewsCustomization() {
         searchTextField.crossButton.addTarget(self, action: #selector(clear), for: .allTouchEvents)
         cancelButton.addTarget(self, action: #selector(cancelEditing), for: .allTouchEvents)
+        sectionLine.backgroundColor = UIColor.lightGray.cgColor
+        employeesTableView.refreshControl?.addTarget(self, action: #selector(reloadEmployeeTableView), for: .valueChanged)
 
     }
 }
@@ -78,7 +97,47 @@ extension MainViewController {
         searchTextField.endEditing(true)
     }
     
+    @objc private func reloadEmployeeTableView() {
+        employeesTableView.loadingView.isHidden = false
+        employeesTableView.notFindView.isHidden = true
+        headerSectionView.isHidden = true
+        fetchDataForATableViewCell()
+    }
 }
+
+// MARK: - Network
+extension MainViewController {
+    func fetchDataForATableViewCell() {
+        networkManager.requestValue = .dynamicTrue
+        employeesTableView.loadingView.isHidden = false
+        employeesTableView.notFindView.isHidden = true
+        headerSectionView.isHidden = true
+        
+        networkManager.fetchData(successComplition: { employees in
+            self.defaultEmployeeList = employees.items
+            self.filteredEmployeesList = self.defaultEmployeeList
+            
+            var firstSection = SectionModel(yearSection: "", sectionEmployees: self.defaultEmployeeList)
+            var secondSection = SectionModel(yearSection: "\(self.currentYear + 1)", sectionEmployees: self.defaultEmployeeList)
+            firstSection.sectionEmployees = firstSection.getCurrentBirthdayYear()
+            secondSection.sectionEmployees = secondSection.getNextBirthdayYearList()
+            
+            self.defaultTableViewSections.removeAll()
+            self.defaultTableViewSections.append(firstSection)
+            self.defaultTableViewSections.append(secondSection)
+            
+            self.filteredTableViewSections = self.defaultTableViewSections
+                                    
+            DispatchQueue.main.async {
+                self.employeesTableView.reloadData()
+                self.headerSectionView.isHidden = false
+            }
+        }, errorComplition: {
+            
+        })
+    }
+}
+
 
 // MARK: - UISearchTextFieldDelegate
 extension MainViewController: UISearchTextFieldDelegate {
