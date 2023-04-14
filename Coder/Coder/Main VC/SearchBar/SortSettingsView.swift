@@ -17,8 +17,7 @@ class SortSettingsView: UIView {
     private let frameView = CGRect(x: 0, y: 0, width: 44, height: 40)
     private let frameImageView = CGRect(x: 10, y: 14, width: 20, height: 12)
     
-    //MARK: - Initializers
-    
+    // MARK: - Initializers
     init() {
         super.init(frame: .zero)
         
@@ -58,7 +57,6 @@ class SortSettingsView: UIView {
     }
     
     // MARK: - Private Methods
-    
     private func setupView() {
         setImage()
         imageView.frame = frameImageView

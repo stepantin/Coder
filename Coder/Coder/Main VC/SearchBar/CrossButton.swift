@@ -9,11 +9,11 @@ import UIKit
 
 class CrossButton: UIButton {
 
-    // MARK:  - Properties
+    // MARK: - Properties
     private let frameButton = CGRect(x: 14.22, y: 12.22, width: 15.56, height: 15.56)
     private let image = UIImage(named: "cross")
 
-    // MARK:  - Methods
+    // MARK: - Methods
     func toView() -> UIView {
         let view = UIView()
         let frameView = CGRect(x: 0, y: 0, width: 40, height: 40)
@@ -24,7 +24,7 @@ class CrossButton: UIButton {
         return view
     }
     
-    //MARK: - Initializers
+    // MARK: - Initializers
     init() {
         super.init(frame: .zero)
         
@@ -36,7 +36,7 @@ class CrossButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK:  - Private Methods
+    // MARK: - Private Methods
     private func setupButton() {
         setImage(image?.withTintColor(.lightGray), for: .normal)
         frame = frameButton

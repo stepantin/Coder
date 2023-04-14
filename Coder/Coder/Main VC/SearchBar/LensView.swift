@@ -14,7 +14,7 @@ class LensView: UIView {
     private let frameImageView = CGRect(x: 14, y: 10, width: 20.01, height: 20)
     private let imageView = UIImageView()
     
-    //MARK: - Initializers
+    // MARK: - Initializers
     init() {
         super.init(frame: .zero)
         
