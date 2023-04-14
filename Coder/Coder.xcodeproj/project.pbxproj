@@ -26,6 +26,8 @@
 		EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1329E9FA120004ADA6 /* Employees.swift */; };
 		EE366E1629E9FAD20004ADA6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1529E9FAD20004ADA6 /* NetworkManager.swift */; };
 		EE366E1929E9FCF50004ADA6 /* EmployeesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1829E9FCF50004ADA6 /* EmployeesTableView.swift */; };
+		EE366E1B29E9FDB20004ADA6 /* EmployeesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */; };
+		EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		EE366E1329E9FA120004ADA6 /* Employees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employees.swift; sourceTree = "<group>"; };
 		EE366E1529E9FAD20004ADA6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		EE366E1829E9FCF50004ADA6 /* EmployeesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableView.swift; sourceTree = "<group>"; };
+		EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableViewCell.swift; sourceTree = "<group>"; };
+		EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderDateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 				EE366DD629E9DAD40004ADA6 /* AppDelegate.swift */,
 				EE366DD829E9DAD40004ADA6 /* SceneDelegate.swift */,
 				EE366E0129E9EEAE0004ADA6 /* Animation.swift */,
+				EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				EE366E1829E9FCF50004ADA6 /* EmployeesTableView.swift */,
+				EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */,
 			);
 			path = EmployeesList;
 			sourceTree = "<group>";
@@ -247,9 +253,11 @@
 				EE366E1629E9FAD20004ADA6 /* NetworkManager.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
 				EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */,
+				EE366E1B29E9FDB20004ADA6 /* EmployeesTableViewCell.swift in Sources */,
 				EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */,
 				EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */,
 				EE366E0E29E9F5D40004ADA6 /* DepartmentScrollView.swift in Sources */,
+				EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */,
 				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,
 				EE366E1929E9FCF50004ADA6 /* EmployeesTableView.swift in Sources */,
 				EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */,

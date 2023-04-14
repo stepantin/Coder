@@ -62,5 +62,11 @@ final class Animation {
         }
     }
     
+    func viewAppearWithAnimating(view: UIView, duration: Double) {
+        UIView.animate(withDuration: duration) {
+            view.alpha = 1
+        }
+    }
+    
 }
 
