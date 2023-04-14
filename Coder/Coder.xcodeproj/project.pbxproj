@@ -31,6 +31,7 @@
 		EE366E1F29EA00590004ADA6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1E29EA00590004ADA6 /* LoadingView.swift */; };
 		EE366E2129EA00FB0004ADA6 /* NotFindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2029EA00FB0004ADA6 /* NotFindView.swift */; };
 		EE366E2429EA02410004ADA6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2329EA02410004ADA6 /* ErrorView.swift */; };
+		EE366E2629EA02EE0004ADA6 /* HeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		EE366E1E29EA00590004ADA6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		EE366E2029EA00FB0004ADA6 /* NotFindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindView.swift; sourceTree = "<group>"; };
 		EE366E2329EA02410004ADA6 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */,
 				EE366E1E29EA00590004ADA6 /* LoadingView.swift */,
 				EE366E2029EA00FB0004ADA6 /* NotFindView.swift */,
+				EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */,
 			);
 			path = EmployeesList;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				EE366E0029E9E5940004ADA6 /* SearchTextField.swift in Sources */,
 				EE366DFE29E9E1A60004ADA6 /* CrossButton.swift in Sources */,
 				EE366DD929E9DAD40004ADA6 /* SceneDelegate.swift in Sources */,
+				EE366E2629EA02EE0004ADA6 /* HeaderSectionView.swift in Sources */,
 				EE366E2429EA02410004ADA6 /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
