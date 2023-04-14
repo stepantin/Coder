@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     //MARK: Lazy Private Properties
     private lazy var searchTextField = SearchTextField(placeholder: placeholder)
     private lazy var cancelButton = CancelButton()
+    private lazy var departmentScrollView = DepartmentScrollView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ extension MainViewController {
     private func addSubviews() {
         view.addSubview(searchTextField)
         view.addSubview(cancelButton)
+        view.addSubview(departmentScrollView)
 
     }
 }
@@ -50,6 +52,7 @@ extension MainViewController {
     private func setupLayouts() {
         searchTextField.frame = CGRect(x: 16, y: 60, width: view.bounds.width - 32, height: 40)
         cancelButton.frame = CGRect(x: searchTextField.bounds.width + 40, y: 71, width: 54, height: 18)
+        departmentScrollView.frame = CGRect(x: 0, y: 114, width: view.frame.width, height: 38)
     }
 }
 
