@@ -20,6 +20,7 @@
 		EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0329E9F1370004ADA6 /* CancelButton.swift */; };
 		EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0729E9F3FF0004ADA6 /* Departments.swift */; };
 		EE366E0A29E9F4380004ADA6 /* DepartmentSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */; };
+		EE366E0C29E9F5680004ADA6 /* DepartmentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0B29E9F5680004ADA6 /* DepartmentsContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		EE366E0329E9F1370004ADA6 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		EE366E0729E9F3FF0004ADA6 /* Departments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departments.swift; sourceTree = "<group>"; };
 		EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentSegmentedControl.swift; sourceTree = "<group>"; };
+		EE366E0B29E9F5680004ADA6 /* DepartmentsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +124,9 @@
 		EE366E0629E9F3550004ADA6 /* DepartmentsNavigation */ = {
 			isa = PBXGroup;
 			children = (
-				EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */,
 				EE366E0729E9F3FF0004ADA6 /* Departments.swift */,
+				EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */,
+				EE366E0B29E9F5680004ADA6 /* DepartmentsContentView.swift */,
 			);
 			path = DepartmentsNavigation;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE366E0C29E9F5680004ADA6 /* DepartmentsContentView.swift in Sources */,
 				EE366E0A29E9F4380004ADA6 /* DepartmentSegmentedControl.swift in Sources */,
 				EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,

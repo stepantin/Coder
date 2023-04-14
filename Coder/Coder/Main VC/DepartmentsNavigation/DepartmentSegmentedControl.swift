@@ -46,7 +46,6 @@ class DepartmentSegmentedControl: UIView {
     }
     
     // MARK:  - Private Methods
-    
     private func setupView() {
         selectorIndicator.backgroundColor = UIColor(named: "violet")?.cgColor
         layer.addSublayer(selectorIndicator)
@@ -99,7 +98,7 @@ class DepartmentSegmentedControl: UIView {
         selectorIndicator.frame = CGRect(x: buttons[0].frame.minX, y: buttons[0].bounds.height, width: buttons[0].frame.width, height: 2)
     }
     
-    // MARK:  - Selectors
+    // MARK: - Selectors
     @objc func buttonAction(sender: UIButton) {
         for btn in buttons {
             btn.setTitleColor(textColor, for: .normal)
