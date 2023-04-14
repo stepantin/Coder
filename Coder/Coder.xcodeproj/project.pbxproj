@@ -18,6 +18,8 @@
 		EE366E0029E9E5940004ADA6 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFF29E9E5940004ADA6 /* SearchTextField.swift */; };
 		EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0129E9EEAE0004ADA6 /* Animation.swift */; };
 		EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0329E9F1370004ADA6 /* CancelButton.swift */; };
+		EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0729E9F3FF0004ADA6 /* Departments.swift */; };
+		EE366E0A29E9F4380004ADA6 /* DepartmentSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		EE366DFF29E9E5940004ADA6 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		EE366E0129E9EEAE0004ADA6 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		EE366E0329E9F1370004ADA6 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
+		EE366E0729E9F3FF0004ADA6 /* Departments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departments.swift; sourceTree = "<group>"; };
+		EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentSegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 		EE366DF229E9DDAE0004ADA6 /* Main VC */ = {
 			isa = PBXGroup;
 			children = (
+				EE366E0629E9F3550004ADA6 /* DepartmentsNavigation */,
 				EE366DF829E9DFA50004ADA6 /* SearchBar */,
 				EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */,
 			);
@@ -112,6 +117,15 @@
 				EE366E0329E9F1370004ADA6 /* CancelButton.swift */,
 			);
 			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		EE366E0629E9F3550004ADA6 /* DepartmentsNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */,
+				EE366E0729E9F3FF0004ADA6 /* Departments.swift */,
+			);
+			path = DepartmentsNavigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,9 +198,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE366E0A29E9F4380004ADA6 /* DepartmentSegmentedControl.swift in Sources */,
 				EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
 				EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */,
+				EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */,
 				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,
 				EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */,
 				EE366DFC29E9E0530004ADA6 /* SortSettingsView.swift in Sources */,
