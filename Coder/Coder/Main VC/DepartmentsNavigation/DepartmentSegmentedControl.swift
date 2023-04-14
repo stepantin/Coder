@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Enums
 enum FilteringMode {
     case android
     case ios
@@ -23,21 +24,22 @@ enum FilteringMode {
     case all
 }
 
+// MARK: - DepartmentSegmentedControl
 class DepartmentSegmentedControl: UIView {
     
-    // MARK:  - Properties
+    // MARK: - Properties
     let selectorIndicator = CALayer()
     
     var textColor: UIColor = UIColor.lightGray
     var selectorTextColor = UIColor.black
     var stackWidth: CGFloat = 0
         
-    // MARK:  - Private Properties
+    // MARK: - Private Properties
     private var buttonTitles: [String]!
     private var buttons = [UIButton]()
     private var selectorView: UIView!
     
-    // MARK:  - Initializers
+    // MARK: - Initializers
     convenience init(buttonTitles: [String]) {
         self.init(frame: .zero)
         self.buttonTitles = buttonTitles
@@ -45,7 +47,7 @@ class DepartmentSegmentedControl: UIView {
         setupView()
     }
     
-    // MARK:  - Private Methods
+    // MARK: - Private Methods
     private func setupView() {
         selectorIndicator.backgroundColor = UIColor(named: "violet")?.cgColor
         layer.addSublayer(selectorIndicator)
