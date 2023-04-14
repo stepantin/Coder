@@ -12,7 +12,8 @@ class EmployeesTableView: UITableView {
     // MARK: - Private Methods
     private func setupTableView() {
         backgroundColor = .clear
-               
+        register(EmployeesTableViewCell.self, forCellReuseIdentifier: "employeeCell")
+
     }
     
     // MARK: - Initializers

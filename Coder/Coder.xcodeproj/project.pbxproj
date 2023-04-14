@@ -28,6 +28,8 @@
 		EE366E1929E9FCF50004ADA6 /* EmployeesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1829E9FCF50004ADA6 /* EmployeesTableView.swift */; };
 		EE366E1B29E9FDB20004ADA6 /* EmployeesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */; };
 		EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */; };
+		EE366E1F29EA00590004ADA6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1E29EA00590004ADA6 /* LoadingView.swift */; };
+		EE366E2129EA00FB0004ADA6 /* NotFindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2029EA00FB0004ADA6 /* NotFindView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		EE366E1829E9FCF50004ADA6 /* EmployeesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableView.swift; sourceTree = "<group>"; };
 		EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableViewCell.swift; sourceTree = "<group>"; };
 		EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderDateFormatter.swift; sourceTree = "<group>"; };
+		EE366E1E29EA00590004ADA6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		EE366E2029EA00FB0004ADA6 /* NotFindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,8 @@
 			children = (
 				EE366E1829E9FCF50004ADA6 /* EmployeesTableView.swift */,
 				EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */,
+				EE366E1E29EA00590004ADA6 /* LoadingView.swift */,
+				EE366E2029EA00FB0004ADA6 /* NotFindView.swift */,
 			);
 			path = EmployeesList;
 			sourceTree = "<group>";
@@ -253,12 +259,14 @@
 				EE366E1629E9FAD20004ADA6 /* NetworkManager.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
 				EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */,
+				EE366E2129EA00FB0004ADA6 /* NotFindView.swift in Sources */,
 				EE366E1B29E9FDB20004ADA6 /* EmployeesTableViewCell.swift in Sources */,
 				EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */,
 				EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */,
 				EE366E0E29E9F5D40004ADA6 /* DepartmentScrollView.swift in Sources */,
 				EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */,
 				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,
+				EE366E1F29EA00590004ADA6 /* LoadingView.swift in Sources */,
 				EE366E1929E9FCF50004ADA6 /* EmployeesTableView.swift in Sources */,
 				EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */,
 				EE366DFC29E9E0530004ADA6 /* SortSettingsView.swift in Sources */,
