@@ -14,6 +14,7 @@
 		EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */; };
 		EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DF929E9DFBA0004ADA6 /* LensView.swift */; };
 		EE366DFC29E9E0530004ADA6 /* SortSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */; };
+		EE366DFE29E9E1A60004ADA6 /* CrossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EE366DF929E9DFBA0004ADA6 /* LensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensView.swift; sourceTree = "<group>"; };
 		EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSettingsView.swift; sourceTree = "<group>"; };
+		EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				EE366DF929E9DFBA0004ADA6 /* LensView.swift */,
 				EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */,
+				EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */,
 			);
 			path = SearchBar;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
 				EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */,
 				EE366DFC29E9E0530004ADA6 /* SortSettingsView.swift in Sources */,
+				EE366DFE29E9E1A60004ADA6 /* CrossButton.swift in Sources */,
 				EE366DD929E9DAD40004ADA6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
