@@ -7,9 +7,17 @@
 
 import UIKit
 
+// MARK: - Enums
+enum SortingMode {
+    case alphabet
+    case birthday
+}
+
+// MARK: - MainViewController
 class MainViewController: UIViewController {
     
     // MARK: - Properties
+    var sortingMode: SortingMode = .alphabet
     var defaultEmployeeList = [Employee]()
     var filteredEmployeesList = [Employee]()
     var defaultTableViewSections = [SectionModel]()
@@ -28,10 +36,13 @@ class MainViewController: UIViewController {
     private lazy var departmentScrollView = DepartmentScrollView()
     private lazy var employeesTableView = EmployeesTableView()
     private lazy var headerSectionView = HeaderSectionView()
+    private lazy var errorView = ErrorView(atView: view)
     private lazy var currentYear = Int(curentDate.year!)!
 
+    // MARK: - VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchDataForATableViewCell()
         setupView()
         addSubviews()
         setupLayouts()
@@ -46,6 +57,8 @@ extension MainViewController {
         navigationController?.navigationBar.isHidden = true
         
         searchTextField.delegate = self
+        employeesTableView.dataSource = self
+        employeesTableView.delegate = self
     }
 }
 
@@ -55,9 +68,10 @@ extension MainViewController {
         view.addSubview(searchTextField)
         view.addSubview(cancelButton)
         view.addSubview(departmentScrollView)
-        view.addSubview(employeesTableView)
-
         view.layer.addSublayer(sectionLine)
+        view.addSubview(employeesTableView)
+        view.addSubview(errorView)
+
     }
 }
 
@@ -69,7 +83,6 @@ extension MainViewController {
         departmentScrollView.frame = CGRect(x: 0, y: 114, width: view.frame.width, height: 38)
         sectionLine.frame = CGRect(x: 0, y: departmentScrollView.frame.maxY, width: view.frame.width, height: 0.33)
         employeesTableView.frame = CGRect(x: 0, y: sectionLine.frame.maxY, width: view.frame.width, height: view.frame.height - sectionLine.frame.maxY)
-
     }
 }
 
@@ -80,7 +93,7 @@ extension MainViewController {
         cancelButton.addTarget(self, action: #selector(cancelEditing), for: .allTouchEvents)
         sectionLine.backgroundColor = UIColor.lightGray.cgColor
         employeesTableView.refreshControl?.addTarget(self, action: #selector(reloadEmployeeTableView), for: .valueChanged)
-
+        errorView.tryAgainButton.addTarget(self, action: #selector(repeatRequest), for: .touchUpInside)
     }
 }
 
@@ -102,13 +115,21 @@ extension MainViewController {
         employeesTableView.notFindView.isHidden = true
         headerSectionView.isHidden = true
         fetchDataForATableViewCell()
+        employeesTableView.refreshControl?.endRefreshing()
+    }
+    
+    @objc private func repeatRequest() {
+        networkManager.requestValue = .dynamicTrue
+        fetchDataForATableViewCell()
+        searchTextFieldDidChangeSelection()
+        errorView.isHidden = true
+        employeesTableView.reloadData()
     }
 }
 
 // MARK: - Network
 extension MainViewController {
     func fetchDataForATableViewCell() {
-        networkManager.requestValue = .dynamicTrue
         employeesTableView.loadingView.isHidden = false
         employeesTableView.notFindView.isHidden = true
         headerSectionView.isHidden = true
@@ -129,11 +150,14 @@ extension MainViewController {
             self.filteredTableViewSections = self.defaultTableViewSections
                                     
             DispatchQueue.main.async {
+                self.checkEmployeesList()
                 self.employeesTableView.reloadData()
                 self.headerSectionView.isHidden = false
             }
         }, errorComplition: {
-            
+            DispatchQueue.main.async {
+                self.errorView.isHidden = false
+            }
         })
     }
 }
@@ -170,6 +194,77 @@ extension MainViewController: UISearchTextFieldDelegate {
     private func searchTextFieldDidChangeSelection() {
         if searchTextField.text!.isEmpty {
             animation.rightViewDisappears(inside: searchTextField)
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+    
+}
+
+// MARK: - UITableViewDataSource
+extension MainViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        employeesTableView.setViewForHeaderInSection(withView: headerSectionView, from: filteredTableViewSections, section: section, for: employeesTableView)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section > 0 {
+            return 68
+        } else {
+            return 22
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if sortingMode == .birthday {
+            return filteredTableViewSections.count
+        }
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if sortingMode == .birthday {
+            return filteredTableViewSections[section].sectionEmployees.count
+        }
+        
+        return filteredEmployeesList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = employeesTableView.setupCellForRowAt(indexPath: indexPath, for: employeesTableView, with: filteredTableViewSections, at: self)
+        employeesTableView.loadingView.isHidden = true
+        headerSectionView.isHidden = false
+
+        return cell
+    }
+
+    private func checkEmployeesList() {
+        switch sortingMode {
+        case .alphabet:
+            if filteredEmployeesList.isEmpty {
+                employeesTableView.notFindView.isHidden = false
+                employeesTableView.loadingView.isHidden = true
+            } else {
+                employeesTableView.notFindView.isHidden = true
+            }
+        case .birthday:
+            var arr = [Bool]()
+
+            filteredTableViewSections.forEach {section in
+                arr.append(section.sectionEmployees.isEmpty)
+            }
+            
+            if arr.contains(false) {
+                employeesTableView.notFindView.isHidden = true
+            } else if arr.contains(true){
+                employeesTableView.notFindView.isHidden = false
+                employeesTableView.loadingView.isHidden = true
+            }
         }
     }
 }

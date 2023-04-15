@@ -18,7 +18,7 @@ enum RequestValue {
 class NetworkManager {
     
     // MARK: - Properties
-    var requestValue: RequestValue = .dynamicTrue
+    var requestValue: RequestValue = .exampleError500
     
     // MARK: - Private Properties
     private let urlString = "https://stoplight.io/mocks/kode-education/trainee-test/25143926/users"
@@ -44,7 +44,10 @@ class NetworkManager {
         }
         
         session.dataTask(with: request) { data, _, error in
-            guard let data = data else { return }
+            guard let data = data else {
+                errorComplition()
+                return
+            }
                 
             do {
                 let workers = try decoder.decode(Employees.self, from: data)

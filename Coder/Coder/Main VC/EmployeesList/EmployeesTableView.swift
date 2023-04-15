@@ -33,6 +33,41 @@ class EmployeesTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+    func setupCellForRowAt(indexPath: IndexPath, for tableView: EmployeesTableView, with sections: [SectionModel], at viewController: MainViewController) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "employeeCell", for: indexPath) as! EmployeesTableViewCell
+
+        if viewController.sortingMode == .birthday {
+            let section = sections[indexPath.section]
+            let employees = section.sectionEmployees
+            cell.birthdayLabel.isHidden = false
+            cell.configureEmployeesCell(cell: cell, for: indexPath, with: employees)
+        } else {
+            cell.birthdayLabel.isHidden = true
+            cell.configureEmployeesCell(cell: cell, for: indexPath, with: viewController.filteredEmployeesList)
+        }
+                
+        return cell
+    }
+    
+    func setViewForHeaderInSection(withView view: HeaderSectionView, from sections: [SectionModel], section: Int, for tableView: EmployeesTableView) -> UIView? {
+        guard !sections.isEmpty else { return nil }
+                
+        if !sections[section].sectionEmployees.isEmpty {
+            if section > 0 {
+                view.yearLabel.text = sections[section].yearSection
+                return view
+            } else {
+                let view = UIView()
+                view.translatesAutoresizingMaskIntoConstraints = false
+                view.heightAnchor.constraint(equalToConstant: 0).isActive = true
+                return view
+            }
+        }
+        
+        return nil
+    }
+    
     // MARK: - Private Methods
     private func setupTableView() {
         backgroundColor = .clear
