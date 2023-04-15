@@ -37,6 +37,7 @@
 		EE366E2F29EB33230004ADA6 /* DotIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2E29EB33230004ADA6 /* DotIndicator.swift */; };
 		EE366E3229EB33B70004ADA6 /* SortingMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3129EB33B70004ADA6 /* SortingMethodView.swift */; };
 		EE366E3429EB36470004ADA6 /* BackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3329EB36470004ADA6 /* BackBarButtonItem.swift */; };
+		EE366E3729EB3F3A0004ADA6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3629EB3F3A0004ADA6 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		EE366E2E29EB33230004ADA6 /* DotIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotIndicator.swift; sourceTree = "<group>"; };
 		EE366E3129EB33B70004ADA6 /* SortingMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingMethodView.swift; sourceTree = "<group>"; };
 		EE366E3329EB36470004ADA6 /* BackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonItem.swift; sourceTree = "<group>"; };
+		EE366E3629EB3F3A0004ADA6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,8 @@
 			children = (
 				EE366DEA29E9DBC00004ADA6 /* Application */,
 				EE366DF229E9DDAE0004ADA6 /* Main VC */,
-				EE366E2929EB31B50004ADA6 /* ModalStackVC */,
+				EE366E2929EB31B50004ADA6 /* ModalStack VC */,
+				EE366E3529EB3EE70004ADA6 /* Detail VC */,
 				EE366E0F29E9F93A0004ADA6 /* NetworkService */,
 				EE366DEB29E9DBD60004ADA6 /* Supporting files */,
 			);
@@ -208,13 +211,13 @@
 			path = ErrorViews;
 			sourceTree = "<group>";
 		};
-		EE366E2929EB31B50004ADA6 /* ModalStackVC */ = {
+		EE366E2929EB31B50004ADA6 /* ModalStack VC */ = {
 			isa = PBXGroup;
 			children = (
 				EE366E3029EB33920004ADA6 /* Views */,
 				EE366E2A29EB32020004ADA6 /* ModalStackViewController.swift */,
 			);
-			path = ModalStackVC;
+			path = "ModalStack VC";
 			sourceTree = "<group>";
 		};
 		EE366E3029EB33920004ADA6 /* Views */ = {
@@ -225,6 +228,14 @@
 				EE366E3329EB36470004ADA6 /* BackBarButtonItem.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EE366E3529EB3EE70004ADA6 /* Detail VC */ = {
+			isa = PBXGroup;
+			children = (
+				EE366E3629EB3F3A0004ADA6 /* ProfileViewController.swift */,
+			);
+			path = "Detail VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +321,7 @@
 				EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */,
 				EE366E2829EA06330004ADA6 /* SectionModel.swift in Sources */,
 				EE366E0E29E9F5D40004ADA6 /* DepartmentScrollView.swift in Sources */,
+				EE366E3729EB3F3A0004ADA6 /* ProfileViewController.swift in Sources */,
 				EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */,
 				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,
 				EE366E1F29EA00590004ADA6 /* LoadingView.swift in Sources */,
