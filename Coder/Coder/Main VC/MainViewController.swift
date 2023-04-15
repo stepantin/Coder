@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
     private let sectionLine = CALayer()
     private let networkManager = NetworkManager()
     private let curentDate = CoderDateFormatter()
+    private let defaults = UserDefaults.standard
     
     //MARK: - Lazy Private Properties
     private lazy var searchTextField = SearchTextField(placeholder: placeholder)
@@ -37,15 +38,18 @@ class MainViewController: UIViewController {
     private lazy var employeesTableView = EmployeesTableView()
     private lazy var headerSectionView = HeaderSectionView()
     private lazy var errorView = ErrorView(atView: view)
+    private lazy var backButton = BackBarButtonItem()
     private lazy var currentYear = Int(curentDate.year!)!
 
     // MARK: - VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchDataForATableViewCell()
+        resetSortSettings()
         setupView()
         addSubviews()
         setupLayouts()
+        addGestures()
         applyViewsCustomization()
     }
 }
@@ -59,6 +63,11 @@ extension MainViewController {
         searchTextField.delegate = self
         employeesTableView.dataSource = self
         employeesTableView.delegate = self
+    }
+    
+    private func resetSortSettings() {
+        defaults.set(true, forKey: "alphabetSortingMethodViewState")
+        defaults.set(false, forKey: "birthdaySortingMethodViewState")
     }
 }
 
@@ -97,6 +106,15 @@ extension MainViewController {
     }
 }
 
+// MARK: - Gestures
+extension MainViewController {
+    private func addGestures() {
+        let sortSettingsViewGesture = UITapGestureRecognizer(target: self, action: #selector(presentModalStackVC))
+        searchTextField.sortSettingsView.addGestureRecognizer(sortSettingsViewGesture)
+        searchTextField.sortSettingsView.isUserInteractionEnabled = true
+    }
+}
+
 // MARK: - Selectors
 extension MainViewController {
     
@@ -121,9 +139,25 @@ extension MainViewController {
     @objc private func repeatRequest() {
         networkManager.requestValue = .dynamicTrue
         fetchDataForATableViewCell()
-        searchTextFieldDidChangeSelection()
         errorView.isHidden = true
         employeesTableView.reloadData()
+    }
+    
+    @objc fileprivate func presentModalStackVC() {
+        animation.tap(view: searchTextField.sortSettingsView)
+        
+        let nc = UINavigationController()
+        let modalStackViewController = ModalStackViewController()
+        modalStackViewController.navigationItem.leftBarButtonItem = backButton
+        backButton.target = self
+        backButton.action = #selector(backToMainVC)
+        nc.viewControllers = [modalStackViewController]
+        modalStackViewController.delegate = self
+        navigationController?.present(nc, animated: true)
+    }
+    
+    @objc fileprivate func backToMainVC() {
+        dismiss(animated: true)
     }
 }
 
@@ -266,5 +300,24 @@ extension MainViewController: UITableViewDataSource {
                 employeesTableView.loadingView.isHidden = true
             }
         }
+    }
+}
+
+// MARK: - ModalStackViewControllerDelegate
+extension MainViewController: ModalStackViewControllerDelegate {
+    func sorting(isOn: Bool) {
+        employeesTableView.loadingView.isHidden = false
+        headerSectionView.isHidden = true
+        
+        searchTextField.sortSettingsView.isOn = isOn
+        searchTextField.sortSettingsView.setImage()
+        
+        switch isOn {
+        case true: sortingMode = .birthday
+        case false: sortingMode = .alphabet
+        }
+        
+        checkEmployeesList()
+        employeesTableView.reloadData()
     }
 }
