@@ -103,6 +103,7 @@ extension ModalStackViewController {
         defaults.set(false, forKey: "birthdaySortingMethodViewState")
 
         dismiss(animated: true)
+        delegate?.sorting(isOn: false)
     }
     
     @objc func tapBirthdayView() {
@@ -115,5 +116,6 @@ extension ModalStackViewController {
         defaults.set(true, forKey: "birthdaySortingMethodViewState")
         
         dismiss(animated: true)
+        delegate?.sorting(isOn: true)
     }
 }

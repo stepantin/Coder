@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     var sortingMode: SortingMode = .alphabet
+    var departmentFilteringMode: FilteringMode = .all
     var defaultEmployeeList = [Employee]()
     var filteredEmployeesList = [Employee]()
     var defaultTableViewSections = [SectionModel]()
@@ -63,6 +64,7 @@ extension MainViewController {
         searchTextField.delegate = self
         employeesTableView.dataSource = self
         employeesTableView.delegate = self
+        departmentScrollView.contentView.segmentedControl.delegate = self
     }
     
     private func resetSortSettings() {
@@ -184,6 +186,7 @@ extension MainViewController {
             self.filteredTableViewSections = self.defaultTableViewSections
                                     
             DispatchQueue.main.async {
+                self.filterEmployeeList()
                 self.checkEmployeesList()
                 self.employeesTableView.reloadData()
                 self.headerSectionView.isHidden = false
@@ -229,6 +232,10 @@ extension MainViewController: UISearchTextFieldDelegate {
         if searchTextField.text!.isEmpty {
             animation.rightViewDisappears(inside: searchTextField)
         }
+        
+        filterEmployeeList()
+        employeesTableView.reloadData()
+        checkEmployeesList()
     }
 }
 
@@ -303,6 +310,39 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - DepartmentSegmentedControlDelegate
+extension MainViewController: DepartmentSegmentedControlDelegate {
+    func set(filteringMode: FilteringMode) {
+        employeesTableView.loadingView.isHidden = false
+        headerSectionView.isHidden = true
+        departmentFilteringMode = filteringMode
+        filterEmployeeList()
+        employeesTableView.reloadData()
+        headerSectionView.isHidden = false
+        checkEmployeesList()
+    }
+    
+    private func filterEmployeeList() {
+        let departmentSegmentedControl = departmentScrollView.contentView.segmentedControl
+
+        switch sortingMode {
+        case.alphabet:
+            filteredEmployeesList = departmentSegmentedControl.filterEmployeeList(self.defaultEmployeeList, withDepartmentFilteringMode: departmentFilteringMode, withTextFrom: searchTextField).sorted {$0.firstName < $1.firstName}
+        case .birthday:
+            var sections = [SectionModel]()
+            defaultTableViewSections.forEach { section in
+                var sec = section
+                var employees = sec.sectionEmployees
+                employees = departmentSegmentedControl.filterEmployeeList(employees, withDepartmentFilteringMode: departmentFilteringMode, withTextFrom: searchTextField)
+                sec.sectionEmployees = employees
+                sections.append(sec)
+            }
+            
+            filteredTableViewSections = sections
+        }
+    }
+}
+
 // MARK: - ModalStackViewControllerDelegate
 extension MainViewController: ModalStackViewControllerDelegate {
     func sorting(isOn: Bool) {
@@ -317,7 +357,9 @@ extension MainViewController: ModalStackViewControllerDelegate {
         case false: sortingMode = .alphabet
         }
         
+        filterEmployeeList()
         checkEmployeesList()
         employeesTableView.reloadData()
     }
 }
+
