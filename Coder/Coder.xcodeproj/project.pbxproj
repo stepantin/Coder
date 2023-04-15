@@ -34,6 +34,7 @@
 		EE366E2629EA02EE0004ADA6 /* HeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */; };
 		EE366E2829EA06330004ADA6 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2729EA06330004ADA6 /* SectionModel.swift */; };
 		EE366E2B29EB32020004ADA6 /* ModalStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2A29EB32020004ADA6 /* ModalStackViewController.swift */; };
+		EE366E2F29EB33230004ADA6 /* DotIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2E29EB33230004ADA6 /* DotIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionView.swift; sourceTree = "<group>"; };
 		EE366E2729EA06330004ADA6 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		EE366E2A29EB32020004ADA6 /* ModalStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalStackViewController.swift; sourceTree = "<group>"; };
+		EE366E2E29EB33230004ADA6 /* DotIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				EE366E2A29EB32020004ADA6 /* ModalStackViewController.swift */,
+				EE366E2E29EB33230004ADA6 /* DotIndicator.swift */,
 			);
 			path = ModalStackVC;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				EE366DD929E9DAD40004ADA6 /* SceneDelegate.swift in Sources */,
 				EE366E2629EA02EE0004ADA6 /* HeaderSectionView.swift in Sources */,
 				EE366E2429EA02410004ADA6 /* ErrorView.swift in Sources */,
+				EE366E2F29EB33230004ADA6 /* DotIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
