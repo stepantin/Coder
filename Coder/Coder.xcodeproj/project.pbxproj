@@ -39,6 +39,7 @@
 		EE366E3429EB36470004ADA6 /* BackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3329EB36470004ADA6 /* BackBarButtonItem.swift */; };
 		EE366E3729EB3F3A0004ADA6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3629EB3F3A0004ADA6 /* ProfileViewController.swift */; };
 		EE366E3A29EB3FC90004ADA6 /* ProfileTitleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3929EB3FC90004ADA6 /* ProfileTitleContentView.swift */; };
+		EE366E3C29EB40AC0004ADA6 /* ProfileDetailsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3B29EB40AC0004ADA6 /* ProfileDetailsContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		EE366E3329EB36470004ADA6 /* BackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonItem.swift; sourceTree = "<group>"; };
 		EE366E3629EB3F3A0004ADA6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EE366E3929EB3FC90004ADA6 /* ProfileTitleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleContentView.swift; sourceTree = "<group>"; };
+		EE366E3B29EB40AC0004ADA6 /* ProfileDetailsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				EE366E3929EB3FC90004ADA6 /* ProfileTitleContentView.swift */,
+				EE366E3B29EB40AC0004ADA6 /* ProfileDetailsContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */,
 				EE366E1229E9F9DC0004ADA6 /* Employee.swift in Sources */,
 				EE366E1629E9FAD20004ADA6 /* NetworkManager.swift in Sources */,
+				EE366E3C29EB40AC0004ADA6 /* ProfileDetailsContentView.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
 				EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */,
 				EE366E2129EA00FB0004ADA6 /* NotFindView.swift in Sources */,
