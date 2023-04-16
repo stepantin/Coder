@@ -78,9 +78,6 @@ final class Animation {
     
     func popUpErrorViewAppear(view: PopUpErrorView, atViewController vc: MainViewController) {
         UIView.animate(withDuration: 0.5) {
-            DispatchQueue.main.async {
-                vc.timerStart()
-            }
             view.frame = CGRect(x: 0, y: 0, width: vc.view.frame.width, height: 110)
             vc.view.window?.overrideUserInterfaceStyle = .dark
         }
