@@ -114,6 +114,7 @@ class EmployeesTableView: UITableView {
         register(EmployeesTableViewCell.self, forCellReuseIdentifier: "employeeCell")
         rowHeight = 86
         separatorStyle = .none
+        sectionFooterHeight = 0
         
         tableViewRefreshControl.tintColor = .black
         refreshControl = tableViewRefreshControl

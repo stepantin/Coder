@@ -31,6 +31,8 @@ class MainViewController: UIViewController {
     private let networkManager = NetworkManager()
     private let curentDate = CoderDateFormatter()
     private let defaults = UserDefaults.standard
+    private var timer: Timer? = Timer()
+    private var time = 0
     
     //MARK: - Lazy Private Properties
     private lazy var searchTextField = SearchTextField(placeholder: placeholder)
@@ -41,6 +43,7 @@ class MainViewController: UIViewController {
     private lazy var errorView = ErrorView(atView: view)
     private lazy var backButton = BackBarButtonItem()
     private lazy var currentYear = Int(curentDate.year!)!
+    private lazy var popUpErrorView = PopUpErrorView()
 
     // MARK: - VIEW DID LOAD
     override func viewDidLoad() {
@@ -82,7 +85,7 @@ extension MainViewController {
         view.layer.addSublayer(sectionLine)
         view.addSubview(employeesTableView)
         view.addSubview(errorView)
-
+        view.addSubview(popUpErrorView)
     }
 }
 
@@ -94,6 +97,7 @@ extension MainViewController {
         departmentScrollView.frame = CGRect(x: 0, y: 114, width: view.frame.width, height: 38)
         sectionLine.frame = CGRect(x: 0, y: departmentScrollView.frame.maxY, width: view.frame.width, height: 0.33)
         employeesTableView.frame = CGRect(x: 0, y: sectionLine.frame.maxY, width: view.frame.width, height: view.frame.height - sectionLine.frame.maxY)
+        popUpErrorView.frame = CGRect(x: 0, y: -110, width: view.frame.width, height: 110)
     }
 }
 
@@ -114,6 +118,10 @@ extension MainViewController {
         let sortSettingsViewGesture = UITapGestureRecognizer(target: self, action: #selector(presentModalStackVC))
         searchTextField.sortSettingsView.addGestureRecognizer(sortSettingsViewGesture)
         searchTextField.sortSettingsView.isUserInteractionEnabled = true
+        
+        let popUpErrorViewGesture = UITapGestureRecognizer(target: self, action: #selector(hidePopUpErrorView))
+        popUpErrorView.addGestureRecognizer(popUpErrorViewGesture)
+        popUpErrorView.isUserInteractionEnabled = true
     }
 }
 
@@ -161,6 +169,10 @@ extension MainViewController {
     @objc fileprivate func backToMainVC() {
         dismiss(animated: true)
     }
+    
+    @objc private func hidePopUpErrorView() {
+        animation.popUpErrorViewDisappear(view: popUpErrorView, atViewController: self)
+    }
 }
 
 // MARK: - Network
@@ -191,11 +203,23 @@ extension MainViewController {
                 self.employeesTableView.reloadData()
                 self.headerSectionView.isHidden = false
             }
-        }, errorComplition: {
-            DispatchQueue.main.async {
-                self.errorView.isHidden = false
+        }) { errorDescription in
+            switch errorDescription {
+            case .apiError: self.errorComplition(.apiError)
+            case .internetError: self.errorComplition(.internetError)
             }
-        })
+        }
+    }
+    
+    private func errorComplition(_ errorDescription: ErrorDescription) {
+        DispatchQueue.main.async {
+            self.errorView.isHidden = false
+            self.popUpErrorView.errorLabel.text = errorDescription.rawValue
+            self.popUpErrorView.errorLabel.sizeToFit()
+            self.employeesTableView.loadingView.isHidden = true
+            self.headerSectionView.isHidden = false
+            self.animation.popUpErrorViewAppear(view: self.popUpErrorView, atViewController: self)
+        }
     }
 }
 
@@ -376,3 +400,26 @@ extension MainViewController: ModalStackViewControllerDelegate {
     }
 }
 
+//MARK: Timer
+extension MainViewController {
+    func timerStart() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
+            DispatchQueue.main.async {
+                if self.time == 3 {
+                    self.animation.popUpErrorViewDisappear(view: self.popUpErrorView, atViewController: self)
+                    self.timerStop()
+                }
+                
+                self.time += 1
+                self.employeesTableView.loadingView.isHidden = true
+                self.checkEmployeesList()
+            }
+        }
+    }
+    
+    func timerStop() {
+        timer?.invalidate()
+        timer = nil
+        time = 0
+    }
+}

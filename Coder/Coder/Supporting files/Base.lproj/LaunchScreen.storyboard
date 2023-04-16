@@ -18,7 +18,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кодер" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiA-1t-L3d">
                                 <rect key="frame" x="95.666666666666686" y="396.66666666666669" width="202" height="84"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="202" id="ShK-t2-gqy"/>
                                     <constraint firstAttribute="height" constant="84" id="uAs-7S-8mD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="70"/>

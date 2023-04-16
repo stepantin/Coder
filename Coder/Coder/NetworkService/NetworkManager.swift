@@ -18,13 +18,13 @@ enum RequestValue {
 class NetworkManager {
     
     // MARK: - Properties
-    var requestValue: RequestValue = .dynamicTrue
+    var requestValue: RequestValue = .exampleError500
     
     // MARK: - Private Properties
     private let urlString = "https://stoplight.io/mocks/kode-education/trainee-test/25143926/users"
     
     // MARK: - Methods
-    func fetchData(successComplition: @escaping (Employees) -> Void, errorComplition: @escaping () -> Void) {
+    func fetchData(successComplition: @escaping (Employees) -> Void, errorComplition: @escaping (ErrorDescription) -> Void) {
         let url = URL(string: urlString)
         guard let url = url else { return }
         
@@ -45,7 +45,7 @@ class NetworkManager {
         
         session.dataTask(with: request) { data, _, error in
             guard let data = data else {
-                errorComplition()
+                errorComplition(.internetError)
                 return
             }
                 
@@ -53,7 +53,7 @@ class NetworkManager {
                 let workers = try decoder.decode(Employees.self, from: data)
                 successComplition(workers)
             } catch {
-                errorComplition()
+                errorComplition(.apiError)
             }
         }.resume()
     }
