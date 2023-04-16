@@ -41,6 +41,7 @@
 		EE366E3A29EB3FC90004ADA6 /* ProfileTitleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3929EB3FC90004ADA6 /* ProfileTitleContentView.swift */; };
 		EE366E3C29EB40AC0004ADA6 /* ProfileDetailsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3B29EB40AC0004ADA6 /* ProfileDetailsContentView.swift */; };
 		EE366E4429EC12680004ADA6 /* CoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4329EC12680004ADA6 /* CoderTests.swift */; };
+		EE366E4B29EC1CB10004ADA6 /* PopUpErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4A29EC1CB10004ADA6 /* PopUpErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		EE366E3B29EB40AC0004ADA6 /* ProfileDetailsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsContentView.swift; sourceTree = "<group>"; };
 		EE366E4129EC12680004ADA6 /* CoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE366E4329EC12680004ADA6 /* CoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderTests.swift; sourceTree = "<group>"; };
+		EE366E4A29EC1CB10004ADA6 /* PopUpErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				EE366E2329EA02410004ADA6 /* ErrorView.swift */,
+				EE366E4A29EC1CB10004ADA6 /* PopUpErrorView.swift */,
 			);
 			path = ErrorViews;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				EE366E3C29EB40AC0004ADA6 /* ProfileDetailsContentView.swift in Sources */,
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
 				EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */,
+				EE366E4B29EC1CB10004ADA6 /* PopUpErrorView.swift in Sources */,
 				EE366E2129EA00FB0004ADA6 /* NotFindView.swift in Sources */,
 				EE366E1B29E9FDB20004ADA6 /* EmployeesTableViewCell.swift in Sources */,
 				EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */,
@@ -571,9 +575,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Coder/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,9 +603,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Coder/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
