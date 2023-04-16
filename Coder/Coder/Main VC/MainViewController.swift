@@ -159,6 +159,7 @@ extension MainViewController {
         networkManager.requestValue = .dynamicTrue
         fetchDataForATableViewCell()
         errorView.isHidden = true
+        timerStop()
         employeesTableView.reloadData()
     }
     
