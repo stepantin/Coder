@@ -159,7 +159,6 @@ extension MainViewController {
         networkManager.requestValue = .dynamicTrue
         fetchDataForATableViewCell()
         errorView.isHidden = true
-        timerStop()
         employeesTableView.reloadData()
     }
     
@@ -192,6 +191,7 @@ extension MainViewController {
 // MARK: - Network
 extension MainViewController {
     func fetchDataForATableViewCell() {
+        restartTimer()
         employeesTableView.loadingView.isHidden = false
         employeesTableView.notFoundView.isHidden = true
         headerSectionView.isHidden = true
@@ -448,5 +448,10 @@ extension MainViewController {
         timer?.invalidate()
         timer = nil
         time = 0
+    }
+    
+    func restartTimer() {
+        timerStop()
+        timerStart()
     }
 }
