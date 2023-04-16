@@ -68,6 +68,46 @@ class EmployeesTableView: UITableView {
         return nil
     }
     
+    func didSelectRowAt(indexPath: IndexPath, employeeList: [Employee], vc: MainViewController) {
+        let index = indexPath.row
+        let employee = employeeList[index]
+        let profileViewController = ProfileViewController()
+        let birthday = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: "yyyy-MM-dd", outputDayFormat: .d, outputMonthFormat: .MMMM, outputYearFormat: .yyyy)
+        let birthdayForAge = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: "yyyy-MM-dd", outputDayFormat: .d, outputMonthFormat: .MM, outputYearFormat: .yyyy)
+        
+        let profileTitleContentView = profileViewController.profileTitleContentView
+        let profileDetailsContentView = profileViewController.profileDetailsContentView
+        
+        networkManager.downloadImage(url: employee.avatarUrl) { image in
+            profileTitleContentView.avatarImageView.image = image
+        }
+        profileTitleContentView.fullNameLabel.text = employee.fullName
+        profileTitleContentView.userTagLabel.text = employee.userTag.lowercased()
+        profileTitleContentView.updateSubviews()
+        
+        switch employee.department {
+        case "android": profileTitleContentView.departmentLabel.text = "Android"
+        case "ios": profileTitleContentView.departmentLabel.text = "iOS"
+        case "design": profileTitleContentView.departmentLabel.text = "Дизайн"
+        case "management": profileTitleContentView.departmentLabel.text = "Менеджмент"
+        case "qa": profileTitleContentView.departmentLabel.text = "QA"
+        case "back_office": profileTitleContentView.departmentLabel.text = "Бэк-офис"
+        case "frontend": profileTitleContentView.departmentLabel.text = "Frontend"
+        case "hr": profileTitleContentView.departmentLabel.text = "HR"
+        case "pr": profileTitleContentView.departmentLabel.text = "PR"
+        case "backend": profileTitleContentView.departmentLabel.text = "Backend"
+        case "support": profileTitleContentView.departmentLabel.text = "Техподдержка"
+        case "analytics": profileTitleContentView.departmentLabel.text = "Аналитика"
+        default: break
+        }
+        profileDetailsContentView.birthdayLabel.text = birthday.configureWith(dateElement: [birthday.day!, birthday.month!, birthday.year!])
+        profileDetailsContentView.ageLabel.text = birthdayForAge.calculateAge()
+        profileDetailsContentView.phoneButton.setTitle(employee.phone, for: .normal)
+        profileDetailsContentView.updateSubviews()
+        
+        vc.navigationController?.pushViewController(profileViewController, animated: true)
+    }
+    
     // MARK: - Private Methods
     private func setupTableView() {
         backgroundColor = .clear

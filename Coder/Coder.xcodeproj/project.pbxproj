@@ -146,8 +146,8 @@
 			children = (
 				EE366E0629E9F3550004ADA6 /* DepartmentsNavigation */,
 				EE366DF829E9DFA50004ADA6 /* SearchBar */,
-				EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */,
 				EE366E1729E9FC390004ADA6 /* EmployeesList */,
+				EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */,
 			);
 			path = "Main VC";
 			sourceTree = "<group>";

@@ -241,7 +241,20 @@ extension MainViewController: UISearchTextFieldDelegate {
 
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.2) {
+            self.employeesTableView.cellForRow(at: indexPath)?.backgroundColor = UIColor.systemGray6
+            self.employeesTableView.cellForRow(at: indexPath)?.backgroundColor = .clear
+        }
+        
+        if sortingMode == .birthday {
+            let section = filteredTableViewSections[indexPath.section]
+            let employees = section.sectionEmployees
+            employeesTableView.didSelectRowAt(indexPath: indexPath, employeeList: employees, vc: self)
+        } else {
+            employeesTableView.didSelectRowAt(indexPath: indexPath, employeeList: filteredEmployeesList, vc: self)
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource

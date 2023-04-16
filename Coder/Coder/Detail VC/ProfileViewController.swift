@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController {
         
         setupView()
         setupLayouts()
+        addTargets()
     }
 }
 
