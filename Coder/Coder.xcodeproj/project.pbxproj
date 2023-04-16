@@ -42,6 +42,7 @@
 		EE366E3C29EB40AC0004ADA6 /* ProfileDetailsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3B29EB40AC0004ADA6 /* ProfileDetailsContentView.swift */; };
 		EE366E4429EC12680004ADA6 /* CoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4329EC12680004ADA6 /* CoderTests.swift */; };
 		EE366E4B29EC1CB10004ADA6 /* PopUpErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4A29EC1CB10004ADA6 /* PopUpErrorView.swift */; };
+		EE366E4D29EC24FE0004ADA6 /* RefreshControlVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4C29EC24FE0004ADA6 /* RefreshControlVIew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		EE366E4129EC12680004ADA6 /* CoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE366E4329EC12680004ADA6 /* CoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderTests.swift; sourceTree = "<group>"; };
 		EE366E4A29EC1CB10004ADA6 /* PopUpErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpErrorView.swift; sourceTree = "<group>"; };
+		EE366E4C29EC24FE0004ADA6 /* RefreshControlVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlVIew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 				EE366E2029EA00FB0004ADA6 /* NotFindView.swift */,
 				EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */,
 				EE366E2729EA06330004ADA6 /* SectionModel.swift */,
+				EE366E4C29EC24FE0004ADA6 /* RefreshControlVIew.swift */,
 			);
 			path = EmployeesList;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				EE366DFE29E9E1A60004ADA6 /* CrossButton.swift in Sources */,
 				EE366E2B29EB32020004ADA6 /* ModalStackViewController.swift in Sources */,
 				EE366DD929E9DAD40004ADA6 /* SceneDelegate.swift in Sources */,
+				EE366E4D29EC24FE0004ADA6 /* RefreshControlVIew.swift in Sources */,
 				EE366E2629EA02EE0004ADA6 /* HeaderSectionView.swift in Sources */,
 				EE366E2429EA02410004ADA6 /* ErrorView.swift in Sources */,
 				EE366E2F29EB33230004ADA6 /* DotIndicator.swift in Sources */,
