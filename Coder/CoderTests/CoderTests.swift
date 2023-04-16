@@ -25,7 +25,7 @@ final class CoderTests: XCTestCase {
         sut.fetchData { employees in
             XCTAssert(!employees.items.isEmpty, "incorrect execution of the fetchData method")
             expactation.fulfill()
-        } errorComplition: {}
+        } errorComplition: { errorDescription in }
         
         wait(for: [expactation], timeout: 1)
     }

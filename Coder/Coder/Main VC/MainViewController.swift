@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
         setupLayouts()
         addGestures()
         applyViewsCustomization()
+        addNotifications()
     }
 }
 
@@ -73,6 +74,11 @@ extension MainViewController {
     private func resetSortSettings() {
         defaults.set(true, forKey: "alphabetSortingMethodViewState")
         defaults.set(false, forKey: "birthdaySortingMethodViewState")
+    }
+    
+    private func addNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData(_:)), name: UIApplication.willResignActiveNotification, object: nil)
     }
 }
 
@@ -175,6 +181,10 @@ extension MainViewController {
     
     @objc private func hidePopUpErrorView() {
         animation.popUpErrorViewDisappear(view: popUpErrorView, atViewController: self)
+    }
+    
+    @objc func reloadTableData(_ notification: Notification) {
+        employeesTableView.reloadData()
     }
 }
 
