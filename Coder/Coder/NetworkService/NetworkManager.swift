@@ -18,7 +18,7 @@ enum RequestValue {
 class NetworkManager {
     
     // MARK: - Properties
-    var requestValue: RequestValue = .exampleError500
+    var requestValue: RequestValue = .dynamicTrue
     
     // MARK: - Private Properties
     private let urlString = "https://stoplight.io/mocks/kode-education/trainee-test/25143926/users"

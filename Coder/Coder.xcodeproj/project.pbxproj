@@ -40,7 +40,18 @@
 		EE366E3729EB3F3A0004ADA6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3629EB3F3A0004ADA6 /* ProfileViewController.swift */; };
 		EE366E3A29EB3FC90004ADA6 /* ProfileTitleContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3929EB3FC90004ADA6 /* ProfileTitleContentView.swift */; };
 		EE366E3C29EB40AC0004ADA6 /* ProfileDetailsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3B29EB40AC0004ADA6 /* ProfileDetailsContentView.swift */; };
+		EE366E4429EC12680004ADA6 /* CoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4329EC12680004ADA6 /* CoderTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE366E4529EC12680004ADA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE366DCB29E9DAD40004ADA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE366DD229E9DAD40004ADA6;
+			remoteInfo = Coder;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EE366DD329E9DAD40004ADA6 /* Coder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,10 +89,19 @@
 		EE366E3629EB3F3A0004ADA6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EE366E3929EB3FC90004ADA6 /* ProfileTitleContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTitleContentView.swift; sourceTree = "<group>"; };
 		EE366E3B29EB40AC0004ADA6 /* ProfileDetailsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsContentView.swift; sourceTree = "<group>"; };
+		EE366E4129EC12680004ADA6 /* CoderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE366E4329EC12680004ADA6 /* CoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EE366DD029E9DAD40004ADA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE366E3E29EC12680004ADA6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -95,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				EE366DD529E9DAD40004ADA6 /* Coder */,
+				EE366E4229EC12680004ADA6 /* CoderTests */,
 				EE366DD429E9DAD40004ADA6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				EE366DD329E9DAD40004ADA6 /* Coder.app */,
+				EE366E4129EC12680004ADA6 /* CoderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -252,6 +274,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		EE366E4229EC12680004ADA6 /* CoderTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE366E4329EC12680004ADA6 /* CoderTests.swift */,
+			);
+			path = CoderTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +302,24 @@
 			productReference = EE366DD329E9DAD40004ADA6 /* Coder.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EE366E4029EC12680004ADA6 /* CoderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE366E4729EC12680004ADA6 /* Build configuration list for PBXNativeTarget "CoderTests" */;
+			buildPhases = (
+				EE366E3D29EC12680004ADA6 /* Sources */,
+				EE366E3E29EC12680004ADA6 /* Frameworks */,
+				EE366E3F29EC12680004ADA6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE366E4629EC12680004ADA6 /* PBXTargetDependency */,
+			);
+			name = CoderTests;
+			productName = CoderTests;
+			productReference = EE366E4129EC12680004ADA6 /* CoderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -284,6 +332,10 @@
 				TargetAttributes = {
 					EE366DD229E9DAD40004ADA6 = {
 						CreatedOnToolsVersion = 14.3;
+					};
+					EE366E4029EC12680004ADA6 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = EE366DD229E9DAD40004ADA6;
 					};
 				};
 			};
@@ -301,6 +353,7 @@
 			projectRoot = "";
 			targets = (
 				EE366DD229E9DAD40004ADA6 /* Coder */,
+				EE366E4029EC12680004ADA6 /* CoderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -312,6 +365,13 @@
 			files = (
 				EE366DE329E9DAD50004ADA6 /* LaunchScreen.storyboard in Resources */,
 				EE366DE029E9DAD50004ADA6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE366E3F29EC12680004ADA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +416,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EE366E3D29EC12680004ADA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE366E4429EC12680004ADA6 /* CoderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE366E4629EC12680004ADA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE366DD229E9DAD40004ADA6 /* Coder */;
+			targetProxy = EE366E4529EC12680004ADA6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EE366DE129E9DAD50004ADA6 /* LaunchScreen.storyboard */ = {
@@ -538,6 +614,42 @@
 			};
 			name = Release;
 		};
+		EE366E4829EC12680004ADA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78LJDLM89M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-stepantin-.CoderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Coder";
+			};
+			name = Debug;
+		};
+		EE366E4929EC12680004ADA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78LJDLM89M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-stepantin-.CoderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coder.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Coder";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -555,6 +667,15 @@
 			buildConfigurations = (
 				EE366DE829E9DAD50004ADA6 /* Debug */,
 				EE366DE929E9DAD50004ADA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE366E4729EC12680004ADA6 /* Build configuration list for PBXNativeTarget "CoderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE366E4829EC12680004ADA6 /* Debug */,
+				EE366E4929EC12680004ADA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
