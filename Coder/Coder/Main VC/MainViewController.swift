@@ -139,11 +139,14 @@ extension MainViewController {
     }
     
     @objc private func reloadEmployeeTableView() {
+        if employeesTableView.refreshControl!.isRefreshing {
+            employeesTableView.refreshControlView.startAnimating()
+        }
+        
         employeesTableView.loadingView.isHidden = false
-        employeesTableView.notFindView.isHidden = true
+        employeesTableView.notFoundView.isHidden = true
         headerSectionView.isHidden = true
         fetchDataForATableViewCell()
-        employeesTableView.refreshControl?.endRefreshing()
     }
     
     @objc private func repeatRequest() {
@@ -179,7 +182,7 @@ extension MainViewController {
 extension MainViewController {
     func fetchDataForATableViewCell() {
         employeesTableView.loadingView.isHidden = false
-        employeesTableView.notFindView.isHidden = true
+        employeesTableView.notFoundView.isHidden = true
         headerSectionView.isHidden = true
         
         networkManager.fetchData(successComplition: { employees in
@@ -279,6 +282,19 @@ extension MainViewController: UITableViewDelegate {
             employeesTableView.didSelectRowAt(indexPath: indexPath, employeeList: filteredEmployeesList, vc: self)
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let refresh = employeesTableView.refreshControl else { return }
+        guard !refresh.isRefreshing else { return }
+        
+        employeesTableView.refreshControlView.shapeLayer.strokeEnd = -refresh.frame.minY / 136
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        employeesTableView.refreshControlView.stopAnimating()
+        employeesTableView.refreshControlView.shapeLayer.strokeEnd = 0
+        employeesTableView.refreshControl?.endRefreshing()
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -325,10 +341,10 @@ extension MainViewController: UITableViewDataSource {
         switch sortingMode {
         case .alphabet:
             if filteredEmployeesList.isEmpty {
-                employeesTableView.notFindView.isHidden = false
+                employeesTableView.notFoundView.isHidden = false
                 employeesTableView.loadingView.isHidden = true
             } else {
-                employeesTableView.notFindView.isHidden = true
+                employeesTableView.notFoundView.isHidden = true
             }
         case .birthday:
             var arr = [Bool]()
@@ -338,9 +354,9 @@ extension MainViewController: UITableViewDataSource {
             }
             
             if arr.contains(false) {
-                employeesTableView.notFindView.isHidden = true
+                employeesTableView.notFoundView.isHidden = true
             } else if arr.contains(true){
-                employeesTableView.notFindView.isHidden = false
+                employeesTableView.notFoundView.isHidden = false
                 employeesTableView.loadingView.isHidden = true
             }
         }

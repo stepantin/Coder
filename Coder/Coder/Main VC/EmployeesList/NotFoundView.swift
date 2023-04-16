@@ -1,5 +1,5 @@
 //
-//  NotFindView.swift
+//  NotFoundView.swift
 //  Coder
 //
 //  Created by Константин Степанов on 14.04.2023.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class NotFindView: UIView {
+class NotFoundView: UIView {
     
     // MARK: - Private Properties
     private let imageView = UIImageView()
-    private let notFindLabel = UILabel()
+    private let notFoundLabel = UILabel()
     private let correctTheRequestLabel = UILabel()
 
     // MARK: - Initializers
@@ -31,7 +31,7 @@ class NotFindView: UIView {
         isHidden = true
                 
         addSubview(imageView)
-        addSubview(notFindLabel)
+        addSubview(notFoundLabel)
         addSubview(correctTheRequestLabel)
         
         imageView.image = UIImage(named: "lensNotFind")
@@ -41,21 +41,21 @@ class NotFindView: UIView {
         imageView.widthAnchor.constraint(equalToConstant: 56).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 56).isActive = true
        
-        notFindLabel.text = "Мы никого не нашли"
-        notFindLabel.font = .systemFont(ofSize: 17, weight: .init(0.25))
-        notFindLabel.textColor = .black
-        notFindLabel.sizeToFit()
-        notFindLabel.translatesAutoresizingMaskIntoConstraints = false
-        notFindLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
-        notFindLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        notFindLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        notFoundLabel.text = "Мы никого не нашли"
+        notFoundLabel.font = .systemFont(ofSize: 17, weight: .init(0.25))
+        notFoundLabel.textColor = .black
+        notFoundLabel.sizeToFit()
+        notFoundLabel.translatesAutoresizingMaskIntoConstraints = false
+        notFoundLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
+        notFoundLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        notFoundLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
         
         correctTheRequestLabel.text = "Попробуй скорректировать запрос"
         correctTheRequestLabel.font = .systemFont(ofSize: 16, weight: .init(0.15))
         correctTheRequestLabel.textColor = .lightGray
         correctTheRequestLabel.sizeToFit()
         correctTheRequestLabel.translatesAutoresizingMaskIntoConstraints = false
-        correctTheRequestLabel.topAnchor.constraint(equalTo: notFindLabel.bottomAnchor, constant: 12).isActive = true
+        correctTheRequestLabel.topAnchor.constraint(equalTo: notFoundLabel.bottomAnchor, constant: 12).isActive = true
         correctTheRequestLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         correctTheRequestLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }

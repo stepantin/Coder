@@ -12,7 +12,8 @@ class EmployeesTableView: UITableView {
     // MARK: - Properties
     let loadingView = UIView()
     let tableViewRefreshControl = UIRefreshControl()
-    let notFindView = NotFindView()
+    let notFoundView = NotFoundView()
+    let refreshControlView = RefreshControlView()
     
     // MARK: - Private Properties
     private let listLoadingStackView = UIStackView()
@@ -116,19 +117,26 @@ class EmployeesTableView: UITableView {
         separatorStyle = .none
         sectionFooterHeight = 0
         
-        tableViewRefreshControl.tintColor = .black
         refreshControl = tableViewRefreshControl
+        tableViewRefreshControl.tintColor = .clear
+        tableViewRefreshControl.addSubview(refreshControlView)
+        
+        refreshControlView.translatesAutoresizingMaskIntoConstraints = false
+        refreshControlView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        refreshControlView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        refreshControlView.centerXAnchor.constraint(equalTo: tableViewRefreshControl.centerXAnchor).isActive = true
+        refreshControlView.topAnchor.constraint(equalTo: tableViewRefreshControl.centerYAnchor).isActive = true
         
         configStackView()
 
-        addSubview(notFindView)
+        addSubview(notFoundView)
         addSubview(loadingView)
         
-        notFindView.translatesAutoresizingMaskIntoConstraints = false
-        notFindView.topAnchor.constraint(equalTo: self.topAnchor, constant: 80).isActive = true
-        notFindView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        notFindView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        notFindView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        notFoundView.translatesAutoresizingMaskIntoConstraints = false
+        notFoundView.topAnchor.constraint(equalTo: self.topAnchor, constant: 80).isActive = true
+        notFoundView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        notFoundView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        notFoundView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         loadingView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true

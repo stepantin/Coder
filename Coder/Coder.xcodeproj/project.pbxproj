@@ -29,7 +29,7 @@
 		EE366E1B29E9FDB20004ADA6 /* EmployeesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */; };
 		EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */; };
 		EE366E1F29EA00590004ADA6 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1E29EA00590004ADA6 /* LoadingView.swift */; };
-		EE366E2129EA00FB0004ADA6 /* NotFindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2029EA00FB0004ADA6 /* NotFindView.swift */; };
+		EE366E2129EA00FB0004ADA6 /* NotFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2029EA00FB0004ADA6 /* NotFoundView.swift */; };
 		EE366E2429EA02410004ADA6 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2329EA02410004ADA6 /* ErrorView.swift */; };
 		EE366E2629EA02EE0004ADA6 /* HeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */; };
 		EE366E2829EA06330004ADA6 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2729EA06330004ADA6 /* SectionModel.swift */; };
@@ -80,7 +80,7 @@
 		EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesTableViewCell.swift; sourceTree = "<group>"; };
 		EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderDateFormatter.swift; sourceTree = "<group>"; };
 		EE366E1E29EA00590004ADA6 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		EE366E2029EA00FB0004ADA6 /* NotFindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFindView.swift; sourceTree = "<group>"; };
+		EE366E2029EA00FB0004ADA6 /* NotFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundView.swift; sourceTree = "<group>"; };
 		EE366E2329EA02410004ADA6 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionView.swift; sourceTree = "<group>"; };
 		EE366E2729EA06330004ADA6 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 				EE366E1829E9FCF50004ADA6 /* EmployeesTableView.swift */,
 				EE366E1A29E9FDB20004ADA6 /* EmployeesTableViewCell.swift */,
 				EE366E1E29EA00590004ADA6 /* LoadingView.swift */,
-				EE366E2029EA00FB0004ADA6 /* NotFindView.swift */,
+				EE366E2029EA00FB0004ADA6 /* NotFoundView.swift */,
 				EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */,
 				EE366E2729EA06330004ADA6 /* SectionModel.swift */,
 				EE366E4C29EC24FE0004ADA6 /* RefreshControlVIew.swift */,
@@ -397,7 +397,7 @@
 				EE366DD729E9DAD40004ADA6 /* AppDelegate.swift in Sources */,
 				EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */,
 				EE366E4B29EC1CB10004ADA6 /* PopUpErrorView.swift in Sources */,
-				EE366E2129EA00FB0004ADA6 /* NotFindView.swift in Sources */,
+				EE366E2129EA00FB0004ADA6 /* NotFoundView.swift in Sources */,
 				EE366E1B29E9FDB20004ADA6 /* EmployeesTableViewCell.swift in Sources */,
 				EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */,
 				EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */,
