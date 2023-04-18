@@ -80,7 +80,10 @@ class EmployeesTableViewCell: UITableViewCell {
         
         cell.avatarImageView.image = UIImage(named: "goose")
         networkManager.downloadImage(url: employee.avatarUrl) { image in
-            cell.avatarImageView.image = image
+            let path = indexPath
+            if path == indexPath {
+                cell.avatarImageView.image = image
+            }
         }
         avatarImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         avatarImageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16).isActive = true
