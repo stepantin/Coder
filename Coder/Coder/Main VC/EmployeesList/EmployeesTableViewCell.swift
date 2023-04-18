@@ -79,9 +79,6 @@ class EmployeesTableViewCell: UITableViewCell {
         let birthday = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: "yyyy-MM-dd", outputDayFormat: .d, outputMonthFormat: .MMM, outputYearFormat: .yyyy)
         
         cell.avatarImageView.image = UIImage(named: "goose")
-        networkManager.downloadImage(url: employee.avatarUrl) { image in
-            cell.avatarImageView.image = image
-        }
         avatarImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         avatarImageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16).isActive = true
         avatarImageView.widthAnchor.constraint(equalToConstant: 72).isActive = true

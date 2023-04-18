@@ -42,9 +42,17 @@ class EmployeesTableView: UITableView {
             let section = sections[indexPath.section]
             let employees = section.sectionEmployees
             cell.birthdayLabel.isHidden = false
+            networkManager.downloadImage(url: employees[indexPath.row].avatarUrl) { image in
+                let c = tableView.cellForRow(at: indexPath) as? EmployeesTableViewCell
+                c?.avatarImageView.image = image
+            }
             cell.configureEmployeesCell(cell: cell, for: indexPath, with: employees)
         } else {
             cell.birthdayLabel.isHidden = true
+            networkManager.downloadImage(url: viewController.filteredEmployeesList[indexPath.row].avatarUrl) { image in
+                let c = tableView.cellForRow(at: indexPath) as? EmployeesTableViewCell
+                c?.avatarImageView.image = image
+            }
             cell.configureEmployeesCell(cell: cell, for: indexPath, with: viewController.filteredEmployeesList)
         }
                 
