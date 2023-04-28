@@ -25,6 +25,6 @@ class DotIndicator: UIView {
     private func setupView() {
         frame = CGRect(x: 0, y: 0, width: 20, height: 20)
         layer.cornerRadius = 10
-        layer.borderColor = UIColor(named: "violet")?.cgColor
+        layer.borderColor = UIColor.setupCustomColor(.violet).cgColor
     }
 }

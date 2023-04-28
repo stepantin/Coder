@@ -41,8 +41,8 @@ class SortingMethodView: UIView {
         
         titleSortingMethod.frame = CGRect(x: 34, y: 0, width: 150, height: 20)
         titleSortingMethod.text = title
-        titleSortingMethod.font = .systemFont(ofSize: 16)
-        titleSortingMethod.textColor = .black
+        titleSortingMethod.font = UIFont(name: "Inter-Medium", size: 16)
+        titleSortingMethod.textColor = UIColor.setupCustomColor(.black)
         dotIndicator.layer.borderWidth = isOn ? 6 : 2
     }
 }

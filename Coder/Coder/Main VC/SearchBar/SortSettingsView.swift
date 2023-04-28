@@ -32,9 +32,9 @@ class SortSettingsView: UIView {
     // MARK: - Methods
     func setImage() {
         if self.isOn {
-            imageView.image = UIImage(named: "menuButton")?.withTintColor(UIColor(named: "violet")!)
+            imageView.image = UIImage(named: "menuButton")?.withTintColor(UIColor.setupCustomColor(.violet))
         } else {
-            imageView.image = UIImage(named: "menuButton")?.withTintColor(.lightGray)
+            imageView.image = UIImage(named: "menuButton")?.withTintColor(UIColor.setupCustomColor(.lightGray))
         }
     }
     

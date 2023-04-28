@@ -24,32 +24,32 @@ class EmployeesTableViewCell: UITableViewCell {
     
     lazy var fullNameLabel: UILabel = {
         let fullNameLabel = UILabel()
-        fullNameLabel.font = .systemFont(ofSize: 16, weight: .init(0.20))
-        fullNameLabel.textColor = .black
+        fullNameLabel.font = UIFont(name: "Inter-Medium", size: 16)
+        fullNameLabel.textColor = UIColor.setupCustomColor(.black)
         fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
         return fullNameLabel
     }()
     
     lazy var departmentLabel: UILabel = {
         let departmentLabel = UILabel()
-        departmentLabel.font = .systemFont(ofSize: 13, weight: .init(0.15))
-        departmentLabel.textColor = .darkGray
+        departmentLabel.font = UIFont(name: "Inter-Regular", size: 13)
+        departmentLabel.textColor = UIColor.setupCustomColor(.darkGray)
         departmentLabel.translatesAutoresizingMaskIntoConstraints = false
         return departmentLabel
     }()
     
     lazy var userTagLabel: UILabel = {
         let userTagLabel = UILabel()
-        userTagLabel.font = .systemFont(ofSize: 14, weight: .init(0.20))
-        userTagLabel.textColor = .lightGray
+        userTagLabel.font = UIFont(name: "Inter-Medium", size: 14)
+        userTagLabel.textColor = UIColor.setupCustomColor(.gray)
         userTagLabel.translatesAutoresizingMaskIntoConstraints = false
         return userTagLabel
     }()
     
     lazy var birthdayLabel: UILabel = {
         let birthdayLabel = UILabel()
-        birthdayLabel.font = .systemFont(ofSize: 15, weight: .init(0.15))
-        birthdayLabel.textColor = .darkGray
+        birthdayLabel.font = UIFont(name: "Inter-Regular", size: 15)
+        birthdayLabel.textColor = UIColor.setupCustomColor(.darkGray)
         birthdayLabel.translatesAutoresizingMaskIntoConstraints = false
         return birthdayLabel
     }()

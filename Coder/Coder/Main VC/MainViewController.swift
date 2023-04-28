@@ -112,7 +112,7 @@ extension MainViewController {
     private func applyViewsCustomization() {
         searchTextField.crossButton.addTarget(self, action: #selector(clear), for: .allTouchEvents)
         cancelButton.addTarget(self, action: #selector(cancelEditing), for: .allTouchEvents)
-        sectionLine.backgroundColor = UIColor.lightGray.cgColor
+        sectionLine.backgroundColor = UIColor.setupCustomColor(.lightGray).cgColor
         employeesTableView.refreshControl?.addTarget(self, action: #selector(reloadEmployeeTableView), for: .valueChanged)
         errorView.tryAgainButton.addTarget(self, action: #selector(repeatRequest), for: .touchUpInside)
     }

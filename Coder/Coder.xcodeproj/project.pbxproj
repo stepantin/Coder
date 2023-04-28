@@ -46,6 +46,26 @@
 		EE9EA32D29FC458200FC60B2 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA32C29FC458200FC60B2 /* Localizable.stringsdict */; };
 		EE9EA34029FC5F0100FC60B2 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA33F29FC5F0100FC60B2 /* Inter.ttf */; };
 		EE9EA34129FC5F0100FC60B2 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA33F29FC5F0100FC60B2 /* Inter.ttf */; };
+		EE9EA34D29FC653C00FC60B2 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34429FC653B00FC60B2 /* Inter-Bold.ttf */; };
+		EE9EA34E29FC653C00FC60B2 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34429FC653B00FC60B2 /* Inter-Bold.ttf */; };
+		EE9EA34F29FC653C00FC60B2 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34529FC653B00FC60B2 /* Inter-Regular.ttf */; };
+		EE9EA35029FC653C00FC60B2 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34529FC653B00FC60B2 /* Inter-Regular.ttf */; };
+		EE9EA35129FC653C00FC60B2 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34629FC653B00FC60B2 /* Inter-SemiBold.ttf */; };
+		EE9EA35229FC653C00FC60B2 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34629FC653B00FC60B2 /* Inter-SemiBold.ttf */; };
+		EE9EA35329FC653C00FC60B2 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34729FC653B00FC60B2 /* Inter-Black.ttf */; };
+		EE9EA35429FC653C00FC60B2 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34729FC653B00FC60B2 /* Inter-Black.ttf */; };
+		EE9EA35529FC653C00FC60B2 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34829FC653B00FC60B2 /* Inter-Thin.ttf */; };
+		EE9EA35629FC653C00FC60B2 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34829FC653B00FC60B2 /* Inter-Thin.ttf */; };
+		EE9EA35729FC653C00FC60B2 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34929FC653B00FC60B2 /* Inter-ExtraBold.ttf */; };
+		EE9EA35829FC653C00FC60B2 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34929FC653B00FC60B2 /* Inter-ExtraBold.ttf */; };
+		EE9EA35929FC653C00FC60B2 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34A29FC653B00FC60B2 /* Inter-Medium.ttf */; };
+		EE9EA35A29FC653C00FC60B2 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34A29FC653B00FC60B2 /* Inter-Medium.ttf */; };
+		EE9EA35B29FC653C00FC60B2 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34B29FC653B00FC60B2 /* Inter-ExtraLight.ttf */; };
+		EE9EA35C29FC653C00FC60B2 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34B29FC653B00FC60B2 /* Inter-ExtraLight.ttf */; };
+		EE9EA35D29FC653C00FC60B2 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34C29FC653C00FC60B2 /* Inter-Light.ttf */; };
+		EE9EA35E29FC653C00FC60B2 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34C29FC653C00FC60B2 /* Inter-Light.ttf */; };
+		EE9EA36629FC745C00FC60B2 /* CoderColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EA36529FC745C00FC60B2 /* CoderColors.swift */; };
+		EE9EA36729FC745C00FC60B2 /* CoderColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EA36529FC745C00FC60B2 /* CoderColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +84,7 @@
 		EE366DD829E9DAD40004ADA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EE366DDF29E9DAD50004ADA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE366DE229E9DAD50004ADA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EE366DE429E9DAD50004ADA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE366DE429E9DAD50004ADA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.plist; sourceTree = "<group>"; };
 		EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EE366DF929E9DFBA0004ADA6 /* LensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensView.swift; sourceTree = "<group>"; };
 		EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSettingsView.swift; sourceTree = "<group>"; };
@@ -100,6 +120,16 @@
 		EE366E4C29EC24FE0004ADA6 /* RefreshControlVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlVIew.swift; sourceTree = "<group>"; };
 		EE9EA32C29FC458200FC60B2 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		EE9EA33F29FC5F0100FC60B2 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Inter.ttf; path = ../../../../Fonts/Inter/Inter.ttf; sourceTree = "<group>"; };
+		EE9EA34429FC653B00FC60B2 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		EE9EA34529FC653B00FC60B2 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		EE9EA34629FC653B00FC60B2 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		EE9EA34729FC653B00FC60B2 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		EE9EA34829FC653B00FC60B2 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		EE9EA34929FC653B00FC60B2 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		EE9EA34A29FC653B00FC60B2 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		EE9EA34B29FC653B00FC60B2 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		EE9EA34C29FC653C00FC60B2 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		EE9EA36529FC745C00FC60B2 /* CoderColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +188,7 @@
 				EE366DD829E9DAD40004ADA6 /* SceneDelegate.swift */,
 				EE366E0129E9EEAE0004ADA6 /* Animation.swift */,
 				EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */,
+				EE9EA36529FC745C00FC60B2 /* CoderColors.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -299,6 +330,15 @@
 			isa = PBXGroup;
 			children = (
 				EE9EA33F29FC5F0100FC60B2 /* Inter.ttf */,
+				EE9EA34729FC653B00FC60B2 /* Inter-Black.ttf */,
+				EE9EA34429FC653B00FC60B2 /* Inter-Bold.ttf */,
+				EE9EA34929FC653B00FC60B2 /* Inter-ExtraBold.ttf */,
+				EE9EA34B29FC653B00FC60B2 /* Inter-ExtraLight.ttf */,
+				EE9EA34C29FC653C00FC60B2 /* Inter-Light.ttf */,
+				EE9EA34A29FC653B00FC60B2 /* Inter-Medium.ttf */,
+				EE9EA34529FC653B00FC60B2 /* Inter-Regular.ttf */,
+				EE9EA34629FC653B00FC60B2 /* Inter-SemiBold.ttf */,
+				EE9EA34829FC653B00FC60B2 /* Inter-Thin.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -385,9 +425,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE9EA34029FC5F0100FC60B2 /* Inter.ttf in Resources */,
+				EE9EA34D29FC653C00FC60B2 /* Inter-Bold.ttf in Resources */,
+				EE9EA35529FC653C00FC60B2 /* Inter-Thin.ttf in Resources */,
 				EE366DE329E9DAD50004ADA6 /* LaunchScreen.storyboard in Resources */,
 				EE366DE029E9DAD50004ADA6 /* Assets.xcassets in Resources */,
+				EE9EA35D29FC653C00FC60B2 /* Inter-Light.ttf in Resources */,
+				EE9EA35729FC653C00FC60B2 /* Inter-ExtraBold.ttf in Resources */,
+				EE9EA34F29FC653C00FC60B2 /* Inter-Regular.ttf in Resources */,
+				EE9EA35B29FC653C00FC60B2 /* Inter-ExtraLight.ttf in Resources */,
 				EE9EA32D29FC458200FC60B2 /* Localizable.stringsdict in Resources */,
+				EE9EA35129FC653C00FC60B2 /* Inter-SemiBold.ttf in Resources */,
+				EE9EA35929FC653C00FC60B2 /* Inter-Medium.ttf in Resources */,
+				EE9EA35329FC653C00FC60B2 /* Inter-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +444,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9EA35E29FC653C00FC60B2 /* Inter-Light.ttf in Resources */,
+				EE9EA35229FC653C00FC60B2 /* Inter-SemiBold.ttf in Resources */,
+				EE9EA34E29FC653C00FC60B2 /* Inter-Bold.ttf in Resources */,
+				EE9EA35629FC653C00FC60B2 /* Inter-Thin.ttf in Resources */,
+				EE9EA35829FC653C00FC60B2 /* Inter-ExtraBold.ttf in Resources */,
+				EE9EA35A29FC653C00FC60B2 /* Inter-Medium.ttf in Resources */,
+				EE9EA35429FC653C00FC60B2 /* Inter-Black.ttf in Resources */,
+				EE9EA35029FC653C00FC60B2 /* Inter-Regular.ttf in Resources */,
+				EE9EA35C29FC653C00FC60B2 /* Inter-ExtraLight.ttf in Resources */,
 				EE9EA34129FC5F0100FC60B2 /* Inter.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +467,7 @@
 				EE366E0C29E9F5680004ADA6 /* DepartmentsContentView.swift in Sources */,
 				EE366E0A29E9F4380004ADA6 /* DepartmentSegmentedControl.swift in Sources */,
 				EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */,
+				EE9EA36629FC745C00FC60B2 /* CoderColors.swift in Sources */,
 				EE366E1229E9F9DC0004ADA6 /* Employee.swift in Sources */,
 				EE366E1629E9FAD20004ADA6 /* NetworkManager.swift in Sources */,
 				EE366E3C29EB40AC0004ADA6 /* ProfileDetailsContentView.swift in Sources */,
@@ -447,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE366E4429EC12680004ADA6 /* CoderTests.swift in Sources */,
+				EE9EA36729FC745C00FC60B2 /* CoderColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

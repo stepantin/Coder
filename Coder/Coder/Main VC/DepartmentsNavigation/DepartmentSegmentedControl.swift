@@ -37,8 +37,8 @@ class DepartmentSegmentedControl: UIView {
     
     // MARK: - Properties
     let selectorIndicator = CALayer()
-    var textColor: UIColor = UIColor.lightGray
-    var selectorTextColor = UIColor.black
+    var textColor: UIColor = UIColor.setupCustomColor(.gray)
+    var selectorTextColor = UIColor.setupCustomColor(.black)
     var stackWidth: CGFloat = 0
         
     // MARK: - Private Properties
@@ -111,7 +111,7 @@ class DepartmentSegmentedControl: UIView {
     
     // MARK: - Private Methods
     private func setupView() {
-        selectorIndicator.backgroundColor = UIColor(named: "violet")?.cgColor
+        selectorIndicator.backgroundColor = UIColor.setupCustomColor(.violet).cgColor
         layer.addSublayer(selectorIndicator)
         
         createButtons()
@@ -144,7 +144,7 @@ class DepartmentSegmentedControl: UIView {
             let button = UIButton()
             
             button.setTitle(buttonTitle.rawValue, for: .normal)
-            button.titleLabel?.font = .systemFont(ofSize: 15, weight: .init(0.2))
+            button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
             button.sizeToFit()
             button.frame.size.width += 24
             button.frame.size.height = 36
@@ -157,7 +157,7 @@ class DepartmentSegmentedControl: UIView {
         }
         
         buttons[0].setTitleColor(selectorTextColor, for: .normal)
-        buttons[0].titleLabel?.font = .systemFont(ofSize: 15, weight: .init(0.30))
+        buttons[0].titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 15)
         
         selectorIndicator.frame = CGRect(x: buttons[0].frame.minX, y: buttons[0].bounds.height, width: buttons[0].frame.width, height: 2)
     }
@@ -168,7 +168,7 @@ class DepartmentSegmentedControl: UIView {
             btn.setTitleColor(textColor, for: .normal)
             if btn == sender {
                 btn.setTitleColor(selectorTextColor, for: .normal)
-                btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .init(0.30))
+                btn.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 15)
                 selectorIndicator.frame = CGRect(x: btn.frame.minX, y: btn.bounds.height, width: btn.frame.width, height: 2)
                 
                 switch btn.titleLabel?.text {
@@ -188,7 +188,7 @@ class DepartmentSegmentedControl: UIView {
                 default: break
                 }
             } else {
-                btn.titleLabel?.font = .systemFont(ofSize: 15, weight: .init(0.20))
+                btn.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
             }
         }
     }

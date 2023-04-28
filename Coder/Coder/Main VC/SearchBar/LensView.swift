@@ -28,7 +28,7 @@ class LensView: UIView {
 
     // MARK: - Private Methods
     private func setupView() {
-        let image = UIImage(named: "lens")?.withTintColor(.black)
+        let image = UIImage(named: "lens")?.withTintColor(UIColor.setupCustomColor(.black))
         
         imageView.image = image
         imageView.frame = frameImageView

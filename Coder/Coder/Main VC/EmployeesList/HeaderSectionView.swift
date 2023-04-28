@@ -62,7 +62,7 @@ class HeaderSectionView: UIView {
         yearLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         yearLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         yearLabel.textColor = viewColor
-        yearLabel.font = .systemFont(ofSize: 15, weight: .init(0.2))
+        yearLabel.font = UIFont(name: "Inter-Medium", size: 15)
         yearLabel.textAlignment = .center
     }
 }

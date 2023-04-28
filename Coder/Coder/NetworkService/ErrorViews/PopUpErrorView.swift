@@ -18,10 +18,7 @@ class PopUpErrorView: UIView {
 
     // MARK: - Properties
     var errorLabel = UILabel()
-    
-    // MARK: - Private Properties
-    private let viewBackgroundColor = UIColor(red: 244/255, green: 67/255, blue: 54/255, alpha: 1)
-    
+        
     // MARK: - Initializers
     init() {
         super.init(frame: .zero)
@@ -36,12 +33,12 @@ class PopUpErrorView: UIView {
     
     // MARK: - Private Methods
     private func setupView() {
-        backgroundColor = viewBackgroundColor
+        backgroundColor = UIColor.setupCustomColor(.red)
         addSubview(errorLabel)
         
         errorLabel.textAlignment = .left
         errorLabel.numberOfLines = 2
-        errorLabel.font = .systemFont(ofSize: 13, weight: .init(0.30))
+        errorLabel.font = UIFont(name: "Inter-Medium", size: 13)
         errorLabel.textColor = .white
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -12).isActive = true

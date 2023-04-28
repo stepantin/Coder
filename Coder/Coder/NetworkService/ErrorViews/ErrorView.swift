@@ -50,8 +50,8 @@ class ErrorView: UIView {
         UFOimageView.heightAnchor.constraint(equalToConstant: 56).isActive = true
 
         someOneBrokeItLabel.text = "Какой-то сверхразум все сломал"
-        someOneBrokeItLabel.font = .systemFont(ofSize: 17, weight: .init(0.25))
-        someOneBrokeItLabel.textColor = .black
+        someOneBrokeItLabel.font = UIFont(name: "Inter-SemiBold", size: 17)
+        someOneBrokeItLabel.textColor = UIColor.setupCustomColor(.black)
         someOneBrokeItLabel.sizeToFit()
         someOneBrokeItLabel.translatesAutoresizingMaskIntoConstraints = false
         someOneBrokeItLabel.topAnchor.constraint(equalTo: UFOimageView.bottomAnchor, constant: 8).isActive = true
@@ -59,8 +59,8 @@ class ErrorView: UIView {
         someOneBrokeItLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
 
         weWillTryToFixLabel.text = "Постараемся быстро починить"
-        weWillTryToFixLabel.font = .systemFont(ofSize: 16, weight: .init(0.15))
-        weWillTryToFixLabel.textColor = .lightGray
+        weWillTryToFixLabel.font = UIFont(name: "Inter-Regular", size: 16)
+        weWillTryToFixLabel.textColor = UIColor.setupCustomColor(.gray)
         weWillTryToFixLabel.sizeToFit()
         weWillTryToFixLabel.translatesAutoresizingMaskIntoConstraints = false
         weWillTryToFixLabel.topAnchor.constraint(equalTo: someOneBrokeItLabel.bottomAnchor, constant: 12).isActive = true
@@ -68,9 +68,9 @@ class ErrorView: UIView {
         weWillTryToFixLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
         tryAgainButton.setTitle("Попробовать снова", for: .normal)
-        tryAgainButton.setTitleColor(UIColor(named: "violet"), for: .normal)
+        tryAgainButton.setTitleColor(UIColor.setupCustomColor(.violet), for: .normal)
         tryAgainButton.setTitleColor(.lightGray, for: .highlighted)
-        tryAgainButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .init(0.25))
+        tryAgainButton.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 16)
         tryAgainButton.sizeToFit()
         tryAgainButton.translatesAutoresizingMaskIntoConstraints = false
         tryAgainButton.topAnchor.constraint(equalTo: weWillTryToFixLabel.bottomAnchor, constant: 5).isActive = true
