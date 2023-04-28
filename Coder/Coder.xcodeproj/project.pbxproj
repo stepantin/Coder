@@ -43,6 +43,7 @@
 		EE366E4429EC12680004ADA6 /* CoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4329EC12680004ADA6 /* CoderTests.swift */; };
 		EE366E4B29EC1CB10004ADA6 /* PopUpErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4A29EC1CB10004ADA6 /* PopUpErrorView.swift */; };
 		EE366E4D29EC24FE0004ADA6 /* RefreshControlVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4C29EC24FE0004ADA6 /* RefreshControlVIew.swift */; };
+		EE9EA32D29FC458200FC60B2 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA32C29FC458200FC60B2 /* Localizable.stringsdict */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		EE366E4329EC12680004ADA6 /* CoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderTests.swift; sourceTree = "<group>"; };
 		EE366E4A29EC1CB10004ADA6 /* PopUpErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpErrorView.swift; sourceTree = "<group>"; };
 		EE366E4C29EC24FE0004ADA6 /* RefreshControlVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlVIew.swift; sourceTree = "<group>"; };
+		EE9EA32C29FC458200FC60B2 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				EE366DDF29E9DAD50004ADA6 /* Assets.xcassets */,
 				EE366DE129E9DAD50004ADA6 /* LaunchScreen.storyboard */,
 				EE366DE429E9DAD50004ADA6 /* Info.plist */,
+				EE9EA32C29FC458200FC60B2 /* Localizable.stringsdict */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			files = (
 				EE366DE329E9DAD50004ADA6 /* LaunchScreen.storyboard in Resources */,
 				EE366DE029E9DAD50004ADA6 /* Assets.xcassets in Resources */,
+				EE9EA32D29FC458200FC60B2 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
