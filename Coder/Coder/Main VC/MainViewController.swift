@@ -134,11 +134,11 @@ extension MainViewController {
 // MARK: - Selectors
 extension MainViewController {
     
-    @objc fileprivate func clear() {
+    @objc private func clear() {
         searchTextField.text = ""
     }
     
-    @objc fileprivate func cancelEditing() {
+    @objc private func cancelEditing() {
         searchTextField.text = ""
         searchTextField.placeholder = placeholder
         searchTextField.endEditing(true)
@@ -162,7 +162,7 @@ extension MainViewController {
         employeesTableView.reloadData()
     }
     
-    @objc fileprivate func presentModalStackVC() {
+    @objc private func presentModalStackVC() {
         animation.tap(view: searchTextField.sortSettingsView)
         
         let nc = UINavigationController()
@@ -175,7 +175,7 @@ extension MainViewController {
         navigationController?.present(nc, animated: true)
     }
     
-    @objc fileprivate func backToMainVC() {
+    @objc private func backToMainVC() {
         dismiss(animated: true)
     }
     

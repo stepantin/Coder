@@ -20,7 +20,7 @@ enum FilteringMode {
     case management
     case qa
     case backOffice
-    case fronted
+    case frontend
     case hr
     case pr
     case backend
@@ -42,12 +42,12 @@ class DepartmentSegmentedControl: UIView {
     var stackWidth: CGFloat = 0
         
     // MARK: - Private Properties
-    private var buttonTitles: [String]!
+    private var buttonTitles: [Departments]!
     private var buttons = [UIButton]()
     private var selectorView: UIView!
     
     // MARK: - Initializers
-    convenience init(buttonTitles: [String]) {
+    convenience init(buttonTitles: [Departments]) {
         self.init(frame: .zero)
         self.buttonTitles = buttonTitles
         
@@ -60,13 +60,14 @@ class DepartmentSegmentedControl: UIView {
 
         if let inputText = textField.text?.uppercased() {
             
-            func filteredByDepartment(_ department: String) {
-                filteredEmployeesList = filteredEmployeesList.filter { $0.department == department }
+            func filteredByDepartment(_ department: Departments) {
+                filteredEmployeesList = filteredEmployeesList.filter { $0.department == String(describing: department.self) }
             }
             
-            func filteredByInputText(withDepartment department: String) {
+            func filteredByInputText(withDepartment department: Departments) {
                 filteredByDepartment(department)
-                filteredEmployeesList = filteredEmployeesList.filter {$0.firstName.uppercased().hasPrefix(inputText) ||
+                filteredEmployeesList = filteredEmployeesList.filter {
+                    $0.firstName.uppercased().hasPrefix(inputText) ||
                     $0.lastName.uppercased().hasPrefix(inputText) ||
                     $0.userTag.uppercased().hasPrefix(inputText)}
             }
@@ -74,34 +75,34 @@ class DepartmentSegmentedControl: UIView {
             if inputText == "" {
                 switch mode {
                 case .all: return employeeList
-                case .android: filteredByDepartment("android")
-                case .ios: filteredByDepartment("ios")
-                case .design: filteredByDepartment("design")
-                case .management: filteredByDepartment("management")
-                case .qa: filteredByDepartment("qa")
-                case .backOffice: filteredByDepartment("back_office")
-                case .fronted: filteredByDepartment("frontend")
-                case .hr: filteredByDepartment("hr")
-                case .pr: filteredByDepartment("pr")
-                case .backend: filteredByDepartment("backend")
-                case .support: filteredByDepartment("support")
-                case .analytics: filteredByDepartment("analytics")
+                case .android: filteredByDepartment(.android)
+                case .ios: filteredByDepartment(.ios)
+                case .design: filteredByDepartment(.design)
+                case .management: filteredByDepartment(.management)
+                case .qa: filteredByDepartment(.qa)
+                case .backOffice: filteredByDepartment(.backOffice)
+                case .frontend: filteredByDepartment(.frontend)
+                case .hr: filteredByDepartment(.hr)
+                case .pr: filteredByDepartment(.pr)
+                case .backend: filteredByDepartment(.backend)
+                case .support: filteredByDepartment(.support)
+                case .analytics: filteredByDepartment(.analytics)
                 }
             } else {
                 switch mode {
                 case .all: return employeeList.filter {$0.firstName.uppercased().hasPrefix(inputText) || $0.lastName.uppercased().hasPrefix(inputText) || $0.userTag.uppercased().hasPrefix(inputText)}
-                case .android: filteredByInputText(withDepartment: "android")
-                case .ios: filteredByInputText(withDepartment: "ios")
-                case .design: filteredByInputText(withDepartment: "design")
-                case .management: filteredByInputText(withDepartment: "management")
-                case .qa: filteredByInputText(withDepartment: "qa")
-                case .backOffice: filteredByInputText(withDepartment: "back_office")
-                case .fronted: filteredByInputText(withDepartment: "frontend")
-                case .hr: filteredByInputText(withDepartment: "hr")
-                case .pr: filteredByInputText(withDepartment: "pr")
-                case .backend: filteredByInputText(withDepartment: "backend")
-                case .support: filteredByInputText(withDepartment: "support")
-                case .analytics: filteredByInputText(withDepartment: "analytics")
+                case .android: filteredByInputText(withDepartment: .android)
+                case .ios: filteredByInputText(withDepartment: .ios)
+                case .design: filteredByInputText(withDepartment: .design)
+                case .management: filteredByInputText(withDepartment: .management)
+                case .qa: filteredByInputText(withDepartment: .qa)
+                case .backOffice: filteredByInputText(withDepartment: .backOffice)
+                case .frontend: filteredByInputText(withDepartment: .frontend)
+                case .hr: filteredByInputText(withDepartment: .hr)
+                case .pr: filteredByInputText(withDepartment: .pr)
+                case .backend: filteredByInputText(withDepartment: .backend)
+                case .support: filteredByInputText(withDepartment: .support)
+                case .analytics: filteredByInputText(withDepartment: .analytics)
                 }
             }
         }
@@ -142,7 +143,7 @@ class DepartmentSegmentedControl: UIView {
         for buttonTitle in buttonTitles {
             let button = UIButton()
             
-            button.setTitle(buttonTitle, for: .normal)
+            button.setTitle(buttonTitle.rawValue, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 15, weight: .init(0.2))
             button.sizeToFit()
             button.frame.size.width += 24
@@ -171,19 +172,19 @@ class DepartmentSegmentedControl: UIView {
                 selectorIndicator.frame = CGRect(x: btn.frame.minX, y: btn.bounds.height, width: btn.frame.width, height: 2)
                 
                 switch btn.titleLabel?.text {
-                case "Все": self.delegate?.set(filteringMode: .all)
-                case "Дизайн": self.delegate?.set(filteringMode: .design)
-                case "Аналитика": self.delegate?.set(filteringMode: .analytics)
-                case "Менеджмент": self.delegate?.set(filteringMode: .management)
-                case "iOS": self.delegate?.set(filteringMode: .ios)
-                case "Android": self.delegate?.set(filteringMode: .android)
-                case "QA": self.delegate?.set(filteringMode: .qa)
-                case "Backend": self.delegate?.set(filteringMode: .backend)
-                case "Frontend": self.delegate?.set(filteringMode: .fronted)
-                case "HR": self.delegate?.set(filteringMode: .hr)
-                case "PR": self.delegate?.set(filteringMode: .pr)
-                case "Бэк-офис": self.delegate?.set(filteringMode: .backOffice)
-                case "Техподдержка": self.delegate?.set(filteringMode: .support)
+                case Departments.all.rawValue : self.delegate?.set(filteringMode: .all)
+                case Departments.design.rawValue: self.delegate?.set(filteringMode: .design)
+                case Departments.analytics.rawValue: self.delegate?.set(filteringMode: .analytics)
+                case Departments.management.rawValue: self.delegate?.set(filteringMode: .management)
+                case Departments.ios.rawValue: self.delegate?.set(filteringMode: .ios)
+                case Departments.android.rawValue: self.delegate?.set(filteringMode: .android)
+                case Departments.qa.rawValue: self.delegate?.set(filteringMode: .qa)
+                case Departments.backend.rawValue: self.delegate?.set(filteringMode: .backend)
+                case Departments.frontend.rawValue: self.delegate?.set(filteringMode: .frontend)
+                case Departments.hr.rawValue: self.delegate?.set(filteringMode: .hr)
+                case Departments.pr.rawValue: self.delegate?.set(filteringMode: .pr)
+                case Departments.backOffice.rawValue: self.delegate?.set(filteringMode: .backOffice)
+                case Departments.support.rawValue: self.delegate?.set(filteringMode: .support)
                 default: break
                 }
             } else {
