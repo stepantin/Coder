@@ -44,6 +44,8 @@
 		EE366E4B29EC1CB10004ADA6 /* PopUpErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4A29EC1CB10004ADA6 /* PopUpErrorView.swift */; };
 		EE366E4D29EC24FE0004ADA6 /* RefreshControlVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E4C29EC24FE0004ADA6 /* RefreshControlVIew.swift */; };
 		EE9EA32D29FC458200FC60B2 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA32C29FC458200FC60B2 /* Localizable.stringsdict */; };
+		EE9EA34029FC5F0100FC60B2 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA33F29FC5F0100FC60B2 /* Inter.ttf */; };
+		EE9EA34129FC5F0100FC60B2 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA33F29FC5F0100FC60B2 /* Inter.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,7 @@
 		EE366E4A29EC1CB10004ADA6 /* PopUpErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpErrorView.swift; sourceTree = "<group>"; };
 		EE366E4C29EC24FE0004ADA6 /* RefreshControlVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControlVIew.swift; sourceTree = "<group>"; };
 		EE9EA32C29FC458200FC60B2 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		EE9EA33F29FC5F0100FC60B2 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Inter.ttf; path = ../../../../Fonts/Inter/Inter.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,7 @@
 		EE366DEB29E9DBD60004ADA6 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				EE9EA33E29FC5EE200FC60B2 /* Fonts */,
 				EE366DDF29E9DAD50004ADA6 /* Assets.xcassets */,
 				EE366DE129E9DAD50004ADA6 /* LaunchScreen.storyboard */,
 				EE366DE429E9DAD50004ADA6 /* Info.plist */,
@@ -291,6 +295,14 @@
 			path = CoderTests;
 			sourceTree = "<group>";
 		};
+		EE9EA33E29FC5EE200FC60B2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EE9EA33F29FC5F0100FC60B2 /* Inter.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,6 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9EA34029FC5F0100FC60B2 /* Inter.ttf in Resources */,
 				EE366DE329E9DAD50004ADA6 /* LaunchScreen.storyboard in Resources */,
 				EE366DE029E9DAD50004ADA6 /* Assets.xcassets in Resources */,
 				EE9EA32D29FC458200FC60B2 /* Localizable.stringsdict in Resources */,
@@ -382,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9EA34129FC5F0100FC60B2 /* Inter.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
