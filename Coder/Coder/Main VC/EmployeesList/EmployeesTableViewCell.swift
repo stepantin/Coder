@@ -11,7 +11,7 @@ class EmployeesTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     var nextBirthdayYear = Int()
-        
+    
     // MARK: - Lazy Properties
     lazy var avatarImageView: UIImageView = {
         let avatarImageView = UIImageView()
@@ -24,7 +24,7 @@ class EmployeesTableViewCell: UITableViewCell {
     
     lazy var fullNameLabel: UILabel = {
         let fullNameLabel = UILabel()
-        fullNameLabel.font = UIFont(name: "Inter-Medium", size: 16)
+        fullNameLabel.font = .Inter(.medium, withSize: 16)
         fullNameLabel.textColor = UIColor.setupCustomColor(.black)
         fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
         return fullNameLabel
@@ -32,7 +32,7 @@ class EmployeesTableViewCell: UITableViewCell {
     
     lazy var departmentLabel: UILabel = {
         let departmentLabel = UILabel()
-        departmentLabel.font = UIFont(name: "Inter-Regular", size: 13)
+        departmentLabel.font = .Inter(.regular, withSize: 13)
         departmentLabel.textColor = UIColor.setupCustomColor(.darkGray)
         departmentLabel.translatesAutoresizingMaskIntoConstraints = false
         return departmentLabel
@@ -40,7 +40,7 @@ class EmployeesTableViewCell: UITableViewCell {
     
     lazy var userTagLabel: UILabel = {
         let userTagLabel = UILabel()
-        userTagLabel.font = UIFont(name: "Inter-Medium", size: 14)
+        userTagLabel.font = .Inter(.medium, withSize: 14)
         userTagLabel.textColor = UIColor.setupCustomColor(.gray)
         userTagLabel.translatesAutoresizingMaskIntoConstraints = false
         return userTagLabel
@@ -48,7 +48,7 @@ class EmployeesTableViewCell: UITableViewCell {
     
     lazy var birthdayLabel: UILabel = {
         let birthdayLabel = UILabel()
-        birthdayLabel.font = UIFont(name: "Inter-Regular", size: 15)
+        birthdayLabel.font = .Inter(.regular, withSize: 15)
         birthdayLabel.textColor = UIColor.setupCustomColor(.darkGray)
         birthdayLabel.translatesAutoresizingMaskIntoConstraints = false
         return birthdayLabel
@@ -67,63 +67,6 @@ class EmployeesTableViewCell: UITableViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Methods
-    func configureEmployeesCell(cell: EmployeesTableViewCell, for indexPath: IndexPath, with employees: [Employee]) {
-        let animation = Animation()
-        cell.avatarImageView.alpha = 0
-        
-        let employee = employees[indexPath.row]
-        
-        let birthday = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: "yyyy-MM-dd", outputDayFormat: .d, outputMonthFormat: .MMM, outputYearFormat: .yyyy)
-        
-        cell.avatarImageView.image = UIImage(named: "goose")
-        networkManager.downloadImage(url: employee.avatarUrl) { image in
-            cell.avatarImageView.image = image
-        }
-        avatarImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-        avatarImageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 16).isActive = true
-        avatarImageView.widthAnchor.constraint(equalToConstant: 72).isActive = true
-        avatarImageView.heightAnchor.constraint(equalToConstant: 72).isActive = true
-        
-        cell.fullNameLabel.text = employee.fullName
-        fullNameLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 104).isActive = true
-        fullNameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 22).isActive = true
-        fullNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        cell.userTagLabel.text = employee.userTag.lowercased()
-        userTagLabel.leftAnchor.constraint(equalTo: fullNameLabel.rightAnchor, constant: 4).isActive = true
-        userTagLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 24).isActive = true
-        userTagLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
-         
-        cell.birthdayLabel.text = birthday.configureWith(dateElement: [birthday.day!, birthday.month!])
-        birthdayLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-        birthdayLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -19).isActive = true
-        birthdayLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        switch employee.department {
-        case "android": cell.departmentLabel.text = "Android"
-        case "ios": cell.departmentLabel.text = "iOS"
-        case "design": cell.departmentLabel.text = "Дизайн"
-        case "management": cell.departmentLabel.text = "Менеджмент"
-        case "qa": cell.departmentLabel.text = "QA"
-        case "back_office": cell.departmentLabel.text = "Бэк-офис"
-        case "frontend": cell.departmentLabel.text = "Frontend"
-        case "hr": cell.departmentLabel.text = "HR"
-        case "pr": cell.departmentLabel.text = "PR"
-        case "backend": cell.departmentLabel.text = "Backend"
-        case "support": cell.departmentLabel.text = "Техподдержка"
-        case "analytics": cell.departmentLabel.text = "Аналитика"
-        default: break
-        }
-        
-        departmentLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 104).isActive = true
-        departmentLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 45).isActive = true
-        departmentLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        
-        cell.backgroundColor = .clear
-        animation.viewAppearWithAnimating(view: cell.avatarImageView, duration: 0.1)
     }
     
     // MARK: - Private Methods

@@ -66,6 +66,8 @@
 		EE9EA35E29FC653C00FC60B2 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE9EA34C29FC653C00FC60B2 /* Inter-Light.ttf */; };
 		EE9EA36629FC745C00FC60B2 /* CoderColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EA36529FC745C00FC60B2 /* CoderColors.swift */; };
 		EE9EA36729FC745C00FC60B2 /* CoderColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EA36529FC745C00FC60B2 /* CoderColors.swift */; };
+		EE9EA36D2A02DCF200FC60B2 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EA36C2A02DCF200FC60B2 /* Helper.swift */; };
+		EE9EA36F2A02DD3A00FC60B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EA36E2A02DD3A00FC60B2 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,8 @@
 		EE9EA34B29FC653B00FC60B2 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
 		EE9EA34C29FC653C00FC60B2 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
 		EE9EA36529FC745C00FC60B2 /* CoderColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderColors.swift; sourceTree = "<group>"; };
+		EE9EA36C2A02DCF200FC60B2 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		EE9EA36E2A02DD3A00FC60B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,8 @@
 				EE366E0129E9EEAE0004ADA6 /* Animation.swift */,
 				EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */,
 				EE9EA36529FC745C00FC60B2 /* CoderColors.swift */,
+				EE9EA36C2A02DCF200FC60B2 /* Helper.swift */,
+				EE9EA36E2A02DD3A00FC60B2 /* Extensions.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -483,9 +489,11 @@
 				EE366E3729EB3F3A0004ADA6 /* ProfileViewController.swift in Sources */,
 				EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */,
 				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,
+				EE9EA36F2A02DD3A00FC60B2 /* Extensions.swift in Sources */,
 				EE366E1F29EA00590004ADA6 /* LoadingView.swift in Sources */,
 				EE366E1929E9FCF50004ADA6 /* EmployeesTableView.swift in Sources */,
 				EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */,
+				EE9EA36D2A02DCF200FC60B2 /* Helper.swift in Sources */,
 				EE366DFC29E9E0530004ADA6 /* SortSettingsView.swift in Sources */,
 				EE366E3429EB36470004ADA6 /* BackBarButtonItem.swift in Sources */,
 				EE366E3229EB33B70004ADA6 /* SortingMethodView.swift in Sources */,

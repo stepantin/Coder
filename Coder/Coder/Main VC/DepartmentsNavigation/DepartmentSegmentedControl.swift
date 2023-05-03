@@ -61,7 +61,7 @@ class DepartmentSegmentedControl: UIView {
         if let inputText = textField.text?.uppercased() {
             
             func filteredByDepartment(_ department: Departments) {
-                filteredEmployeesList = filteredEmployeesList.filter { $0.department == String(describing: department.self) }
+                filteredEmployeesList = filteredEmployeesList.filter { $0.department == .describing(department.self) }
             }
             
             func filteredByInputText(withDepartment department: Departments) {
