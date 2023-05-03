@@ -38,7 +38,7 @@ class ProfileTitleContentView: UIView {
     
     // MARK: - Private Methods
     private func setupView() {
-        backgroundColor = UIColor(named: "coderLightGray")
+        backgroundColor = UIColor.setupCustomColor(.extraLightGray)
         
         addSubviews()
         applyViewsCustomization()
@@ -59,14 +59,14 @@ class ProfileTitleContentView: UIView {
         avatarImageView.layer.cornerRadius = 51
         avatarImageView.clipsToBounds = true
         
-        fullNameLabel.font = .systemFont(ofSize: 24, weight: .init(0.3))
-        fullNameLabel.textColor = .black
+        fullNameLabel.font = UIFont(name: "Inter-Bold", size: 24)
+        fullNameLabel.textColor = UIColor.setupCustomColor(.black)
         
-        userTagLabel.font = .systemFont(ofSize: 17, weight: .init(0.15))
-        userTagLabel.textColor = .lightGray
+        userTagLabel.font = UIFont(name: "Inter-Regular", size: 17)
+        userTagLabel.textColor = UIColor.setupCustomColor(.gray)
         
-        departmentLabel.font = .systemFont(ofSize: 13, weight: .init(0.15))
-        departmentLabel.textColor = .darkGray
+        departmentLabel.font = UIFont(name: "Inter-Regular", size: 13)
+        departmentLabel.textColor = UIColor.setupCustomColor(.darkGray)
         
         backButton.setImage(UIImage(named: "back"), for: .normal)
         backButton.setImage(UIImage(named: "back")?.withTintColor(.lightGray), for: .highlighted)

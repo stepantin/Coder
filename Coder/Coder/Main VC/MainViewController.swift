@@ -112,7 +112,7 @@ extension MainViewController {
     private func applyViewsCustomization() {
         searchTextField.crossButton.addTarget(self, action: #selector(clear), for: .allTouchEvents)
         cancelButton.addTarget(self, action: #selector(cancelEditing), for: .allTouchEvents)
-        sectionLine.backgroundColor = UIColor.lightGray.cgColor
+        sectionLine.backgroundColor = UIColor.setupCustomColor(.lightGray).cgColor
         employeesTableView.refreshControl?.addTarget(self, action: #selector(reloadEmployeeTableView), for: .valueChanged)
         errorView.tryAgainButton.addTarget(self, action: #selector(repeatRequest), for: .touchUpInside)
     }
@@ -134,11 +134,11 @@ extension MainViewController {
 // MARK: - Selectors
 extension MainViewController {
     
-    @objc fileprivate func clear() {
+    @objc private func clear() {
         searchTextField.text = ""
     }
     
-    @objc fileprivate func cancelEditing() {
+    @objc private func cancelEditing() {
         searchTextField.text = ""
         searchTextField.placeholder = placeholder
         searchTextField.endEditing(true)
@@ -162,7 +162,7 @@ extension MainViewController {
         employeesTableView.reloadData()
     }
     
-    @objc fileprivate func presentModalStackVC() {
+    @objc private func presentModalStackVC() {
         animation.tap(view: searchTextField.sortSettingsView)
         
         let nc = UINavigationController()
@@ -175,7 +175,7 @@ extension MainViewController {
         navigationController?.present(nc, animated: true)
     }
     
-    @objc fileprivate func backToMainVC() {
+    @objc private func backToMainVC() {
         dismiss(animated: true)
     }
     
@@ -196,20 +196,22 @@ extension MainViewController {
         employeesTableView.notFoundView.isHidden = true
         headerSectionView.isHidden = true
         
-        networkManager.fetchData(successComplition: { employees in
-            self.defaultEmployeeList = employees.items
-            self.filteredEmployeesList = self.defaultEmployeeList
+        networkManager.fetchData(successComplition: { [weak self] employees in
+            guard let self = self else { return }
             
-            var firstSection = SectionModel(yearSection: "", sectionEmployees: self.defaultEmployeeList)
-            var secondSection = SectionModel(yearSection: "\(self.currentYear + 1)", sectionEmployees: self.defaultEmployeeList)
+            defaultEmployeeList = employees.items
+            filteredEmployeesList = defaultEmployeeList
+            
+            var firstSection = SectionModel(yearSection: "", sectionEmployees: defaultEmployeeList)
+            var secondSection = SectionModel(yearSection: "\(currentYear + 1)", sectionEmployees: defaultEmployeeList)
             firstSection.sectionEmployees = firstSection.getCurrentBirthdayYear()
             secondSection.sectionEmployees = secondSection.getNextBirthdayYearList()
             
-            self.defaultTableViewSections.removeAll()
-            self.defaultTableViewSections.append(firstSection)
-            self.defaultTableViewSections.append(secondSection)
+            defaultTableViewSections.removeAll()
+            defaultTableViewSections.append(firstSection)
+            defaultTableViewSections.append(secondSection)
             
-            self.filteredTableViewSections = self.defaultTableViewSections
+            filteredTableViewSections = defaultTableViewSections
                                     
             DispatchQueue.main.async {
                 self.filterEmployeeList()
@@ -217,10 +219,12 @@ extension MainViewController {
                 self.employeesTableView.reloadData()
                 self.headerSectionView.isHidden = false
             }
-        }) { errorDescription in
+        }) { [weak self] errorDescription in
+            guard let self = self else { return }
+
             switch errorDescription {
-            case .apiError: self.errorComplition(.apiError)
-            case .internetError: self.errorComplition(.internetError)
+            case .apiError: errorComplition(.apiError)
+            case .internetError: errorComplition(.internetError)
             }
         }
     }

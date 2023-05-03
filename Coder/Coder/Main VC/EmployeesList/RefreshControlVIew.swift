@@ -34,7 +34,7 @@ class RefreshControlView: UIView {
 
         ovalPath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
         shapeLayer.path = ovalPath.cgPath
-        shapeLayer.strokeColor = UIColor(named: "violet")?.cgColor
+        shapeLayer.strokeColor = UIColor.setupCustomColor(.violet).cgColor
         shapeLayer.lineWidth = 2
         shapeLayer.strokeStart = 0
         shapeLayer.strokeEnd = strokeEnd

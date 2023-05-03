@@ -23,7 +23,7 @@ class BackBarButtonItem: UIBarButtonItem {
     
     // MARK: - Private Methods
     private func setupBarButtonItem() {
-        image = UIImage(named: "back")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+        image = UIImage(named: "back")?.withTintColor(UIColor.setupCustomColor(.black), renderingMode: .alwaysOriginal)
         imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
     }
 }

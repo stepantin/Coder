@@ -120,32 +120,9 @@ final class CoderDateFormatter {
         if currentMonth < month {
             age -= 1
         }
-        
-        var stringAge = String()
-        
-        switch (age, String(age).last) {
-        case (10, _): stringAge = "\(age) лет"
-        case (11, _): stringAge = "\(age) лет"
-        case (12, _): stringAge = "\(age) лет"
-        case (13, _): stringAge = "\(age) лет"
-        case (14, _): stringAge = "\(age) лет"
-        case (15, _): stringAge = "\(age) лет"
-        case (16, _): stringAge = "\(age) лет"
-        case (17, _): stringAge = "\(age) лет"
-        case (18, _): stringAge = "\(age) лет"
-        case (19, _): stringAge = "\(age) лет"
-        case (_, "1"): stringAge = "\(age) год"
-        case (_, "2"): stringAge = "\(age) года"
-        case (_, "3"): stringAge = "\(age) года"
-        case (_, "4"): stringAge = "\(age) года"
-        case (_, "5"): stringAge = "\(age) лет"
-        case (_, "6"): stringAge = "\(age) лет"
-        case (_, "7"): stringAge = "\(age) лет"
-        case (_, "8"): stringAge = "\(age) лет"
-        case (_, "9"): stringAge = "\(age) лет"
-        case (_, "0"): stringAge = "\(age) лет"
-        default: break
-        }
+            
+        let formatString: String = NSLocalizedString("count age", comment: "Age count string format to be found in Localized.stringsdict")
+        let stringAge: String = String.localizedStringWithFormat(formatString, age)
     
         return stringAge
     }

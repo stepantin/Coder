@@ -64,12 +64,12 @@ class SearchTextField: UITextField {
     
     // MARK: - Private Methods
     private func setupTextField(placeholder: String) {
-        backgroundColor = UIColor(named: "coderLightGray")
+        backgroundColor = UIColor.setupCustomColor(.extraLightGray)
         layer.cornerRadius = 16
         autocorrectionType = .no
         
-        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        font = .systemFont(ofSize: 15, weight: .init(rawValue: 0.2))
+        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.setupCustomColor(.lightGray)])
+        font = UIFont(name: "Inter-Medium", size: 15)
         
         leftView = lensView
         leftViewMode = .always

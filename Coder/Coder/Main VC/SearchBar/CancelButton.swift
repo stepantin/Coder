@@ -26,10 +26,10 @@ class CancelButton: UIButton {
     
         setTitle("Отмена", for: .normal)
         
-        setTitleColor(UIColor(named: "violet"), for: .normal)
+        setTitleColor(UIColor.setupCustomColor(.violet), for: .normal)
         setTitleColor(.lightGray, for: .highlighted)
         
-        titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 14)
 
         alpha = 0
     }

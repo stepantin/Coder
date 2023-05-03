@@ -14,7 +14,7 @@ class DepartmentsContentView: UIView {
     lazy var segmentedControl = DepartmentSegmentedControl(buttonTitles: buttonTitles)
     
     // MARK:  - Private Properties
-    private let buttonTitles = ["Все", "Дизайн", "Аналитика", "Менеджмент", "iOS", "Android", "QA", "Backend", "Frontend", "HR", "PR", "Бэк-офис", "Техподдержка"]
+    private let buttonTitles: [Departments] = [.all, .design, .analytics, .management, .ios, .android, .qa, .backend, .frontend, .hr, .pr, .backOffice, .support]
           
     // MARK:  - Initializers
     init() {

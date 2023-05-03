@@ -42,8 +42,8 @@ class NotFoundView: UIView {
         imageView.heightAnchor.constraint(equalToConstant: 56).isActive = true
        
         notFoundLabel.text = "Мы никого не нашли"
-        notFoundLabel.font = .systemFont(ofSize: 17, weight: .init(0.25))
-        notFoundLabel.textColor = .black
+        notFoundLabel.font = UIFont(name: "Inter-SemiBold", size: 17)
+        notFoundLabel.textColor = UIColor.setupCustomColor(.black)
         notFoundLabel.sizeToFit()
         notFoundLabel.translatesAutoresizingMaskIntoConstraints = false
         notFoundLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8).isActive = true
@@ -51,8 +51,8 @@ class NotFoundView: UIView {
         notFoundLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
         
         correctTheRequestLabel.text = "Попробуй скорректировать запрос"
-        correctTheRequestLabel.font = .systemFont(ofSize: 16, weight: .init(0.15))
-        correctTheRequestLabel.textColor = .lightGray
+        correctTheRequestLabel.font = UIFont(name: "Inter-Regular", size: 16)
+        correctTheRequestLabel.textColor = UIColor.setupCustomColor(.gray)
         correctTheRequestLabel.sizeToFit()
         correctTheRequestLabel.translatesAutoresizingMaskIntoConstraints = false
         correctTheRequestLabel.topAnchor.constraint(equalTo: notFoundLabel.bottomAnchor, constant: 12).isActive = true

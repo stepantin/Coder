@@ -61,17 +61,17 @@ class ProfileDetailsContentView: UIView {
     }
     
     private func applyViewsCustomization() {
-        birthdayLabel.font = .systemFont(ofSize: 16, weight: .init(0.20))
-        birthdayLabel.textColor = .black
+        birthdayLabel.font = UIFont(name: "Inter-Medium", size: 16)
+        birthdayLabel.textColor = UIColor.setupCustomColor(.black)
         
-        ageLabel.font = .systemFont(ofSize: 16, weight: .init(0.20))
-        ageLabel.textColor = .lightGray
+        ageLabel.font = UIFont(name: "Inter-Medium", size: 16)
+        ageLabel.textColor = UIColor.setupCustomColor(.gray)
         
-        phoneButton.setTitleColor(.black, for: .normal)
+        phoneButton.setTitleColor(UIColor.setupCustomColor(.black), for: .normal)
         phoneButton.setTitleColor(.lightGray, for: .highlighted)
-        phoneButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .init(0.20))
+        phoneButton.titleLabel?.font = UIFont(name: "Inter-Medium", size: 16)
         
-        sectionLine.backgroundColor = UIColor(named: "coderLightGray")
+        sectionLine.backgroundColor = UIColor.setupCustomColor(.extraLightGray)
 
     }
     
