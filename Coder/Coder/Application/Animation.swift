@@ -62,12 +62,6 @@ final class Animation {
         }
     }
     
-    func viewAppearWithAnimating(view: UIView, duration: Double) {
-        UIView.animate(withDuration: duration) {
-            view.alpha = 1
-        }
-    }
-    
     func listLoadingAnimation(view: UIStackView) {
         UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat]) {
             for v in view.arrangedSubviews {

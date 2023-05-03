@@ -289,13 +289,7 @@ extension MainViewController: UITableViewDelegate {
             self.employeesTableView.cellForRow(at: indexPath)?.backgroundColor = .clear
         }
         
-        if sortingMode == .birthday {
-            let section = filteredTableViewSections[indexPath.section]
-            let employees = section.sectionEmployees
-            employeesTableView.didSelectRowAt(indexPath: indexPath, employeeList: employees, vc: self)
-        } else {
-            employeesTableView.didSelectRowAt(indexPath: indexPath, employeeList: filteredEmployeesList, vc: self)
-        }
+        didSelectRowAt(indexPath: indexPath)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -310,13 +304,90 @@ extension MainViewController: UITableViewDelegate {
         employeesTableView.refreshControlView.shapeLayer.strokeEnd = 0
         employeesTableView.refreshControl?.endRefreshing()
     }
+    
+    private func didSelectRowAt(indexPath: IndexPath) {
+        var employeeList = [Employee]()
+        
+        if sortingMode == .birthday {
+            let section = filteredTableViewSections[indexPath.section]
+            employeeList = section.sectionEmployees
+        } else {
+            employeeList = filteredEmployeesList
+        }
+        
+        let inputDateFormat = "yyyy-MM-dd"
+        let index = indexPath.row
+        let employee = employeeList[index]
+        let profileViewController = ProfileViewController()
+        let birthday = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: inputDateFormat, outputDayFormat: .d, outputMonthFormat: .MMMM, outputYearFormat: .yyyy)
+        let birthdayForAge = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: inputDateFormat, outputDayFormat: .d, outputMonthFormat: .MM, outputYearFormat: .yyyy)
+        
+        let profileTitleContentView = profileViewController.profileTitleContentView
+        let profileDetailsContentView = profileViewController.profileDetailsContentView
+        
+        networkManager.downloadImage(url: employee.avatarUrl) { image in
+            profileTitleContentView.avatarImageView.image = image
+        }
+        profileTitleContentView.fullNameLabel.text = employee.fullName
+        profileTitleContentView.userTagLabel.text = employee.userTag.lowercased()
+        profileTitleContentView.updateSubviews()
+        
+        switch employee.department {
+        case .describing(Departments.android):
+            profileTitleContentView.departmentLabel.text = Departments.android.rawValue
+        case .describing(Departments.ios):
+            profileTitleContentView.departmentLabel.text = Departments.ios.rawValue
+        case .describing(Departments.design):
+            profileTitleContentView.departmentLabel.text = Departments.design.rawValue
+        case .describing(Departments.management):
+            profileTitleContentView.departmentLabel.text = Departments.management.rawValue
+        case .describing(Departments.qa):
+            profileTitleContentView.departmentLabel.text = Departments.qa.rawValue
+        case .describing(Departments.backOffice):
+            profileTitleContentView.departmentLabel.text = Departments.backOffice.rawValue
+        case .describing(Departments.frontend):
+            profileTitleContentView.departmentLabel.text = Departments.frontend.rawValue
+        case .describing(Departments.hr):
+            profileTitleContentView.departmentLabel.text = Departments.hr.rawValue
+        case .describing(Departments.pr):
+            profileTitleContentView.departmentLabel.text = Departments.pr.rawValue
+        case .describing(Departments.android):
+            profileTitleContentView.departmentLabel.text = Departments.android.rawValue
+        case .describing(Departments.backend):
+            profileTitleContentView.departmentLabel.text = Departments.backend.rawValue
+        case .describing(Departments.analytics):
+            profileTitleContentView.departmentLabel.text = Departments.analytics.rawValue
+        default: break
+        }
+        
+        profileDetailsContentView.birthdayLabel.text = birthday.configureWith(dateElement: [birthday.day!, birthday.month!, birthday.year!])
+        profileDetailsContentView.ageLabel.text = birthdayForAge.calculateAge()
+        profileDetailsContentView.phoneButton.setTitle(employee.phone, for: .normal)
+        profileDetailsContentView.updateSubviews()
+        
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        employeesTableView.setViewForHeaderInSection(withView: headerSectionView, from: filteredTableViewSections, section: section, for: employeesTableView)
+        guard !filteredTableViewSections.isEmpty else { return nil }
+
+        if !filteredTableViewSections[section].sectionEmployees.isEmpty {
+            if section > 0 {
+                headerSectionView.yearLabel.text = filteredTableViewSections[section].yearSection
+                return headerSectionView
+            } else {
+                let view = UIView()
+                view.translatesAutoresizingMaskIntoConstraints = false
+                view.heightAnchor.constraint(equalToConstant: 0).isActive = true
+                return view
+            }
+        }
+
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -345,10 +416,80 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = employeesTableView.setupCellForRowAt(indexPath: indexPath, for: employeesTableView, with: filteredTableViewSections, at: self)
         employeesTableView.loadingView.isHidden = true
         headerSectionView.isHidden = false
-
+        
+        return configureEmployeesCell(for: indexPath)
+    }
+    
+    private func configureEmployeesCell(for indexPath: IndexPath) -> UITableViewCell {
+        let cell = employeesTableView.dequeueReusableCell(withIdentifier: "employeeCell", for: indexPath) as! EmployeesTableViewCell
+        let inputDateFormat = "yyyy-MM-dd"
+        let defaultImageName = "goose"
+        var employees = [Employee]()
+        
+        if sortingMode == .birthday {
+            let section = filteredTableViewSections[indexPath.section]
+            employees = section.sectionEmployees
+            cell.birthdayLabel.isHidden = false
+        } else {
+            employees = filteredEmployeesList
+            cell.birthdayLabel.isHidden = true
+        }
+        
+        let employee = employees[indexPath.row]
+        
+        let birthday = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: inputDateFormat, outputDayFormat: .d, outputMonthFormat: .MMM, outputYearFormat: .yyyy)
+        
+        cell.avatarImageView.image = UIImage(named: defaultImageName)
+        networkManager.downloadImage(url: employees[indexPath.row].avatarUrl) { [weak self] image in
+            guard let self = self else { return }
+            
+            let c = employeesTableView.cellForRow(at: indexPath) as? EmployeesTableViewCell
+            c?.avatarImageView.image = image
+        }
+        cell.avatarImageView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+        cell.avatarImageView.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 16).isActive = true
+        cell.avatarImageView.widthAnchor.constraint(equalToConstant: 72).isActive = true
+        cell.avatarImageView.heightAnchor.constraint(equalToConstant: 72).isActive = true
+        
+        cell.fullNameLabel.text = employee.fullName
+        cell.fullNameLabel.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 104).isActive = true
+        cell.fullNameLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 22).isActive = true
+        cell.fullNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        cell.userTagLabel.text = employee.userTag.lowercased()
+        cell.userTagLabel.leftAnchor.constraint(equalTo: cell.fullNameLabel.rightAnchor, constant: 4).isActive = true
+        cell.userTagLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 24).isActive = true
+        cell.userTagLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        
+        cell.birthdayLabel.text = birthday.configureWith(dateElement: [birthday.day!, birthday.month!])
+        cell.birthdayLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+        cell.birthdayLabel.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -19).isActive = true
+        cell.birthdayLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        switch employee.department {
+        case .describing(Departments.android): cell.departmentLabel.text = Departments.android.rawValue
+        case .describing(Departments.ios): cell.departmentLabel.text = Departments.ios.rawValue
+        case .describing(Departments.design): cell.departmentLabel.text = Departments.design.rawValue
+        case .describing(Departments.management): cell.departmentLabel.text = Departments.management.rawValue
+        case .describing(Departments.qa): cell.departmentLabel.text = Departments.qa.rawValue
+        case .describing(Departments.backOffice): cell.departmentLabel.text = Departments.backOffice.rawValue
+        case .describing(Departments.frontend): cell.departmentLabel.text = Departments.frontend.rawValue
+        case .describing(Departments.hr): cell.departmentLabel.text = Departments.hr.rawValue
+        case .describing(Departments.pr): cell.departmentLabel.text = Departments.pr.rawValue
+        case .describing(Departments.android): cell.departmentLabel.text = Departments.android.rawValue
+        case .describing(Departments.backend): cell.departmentLabel.text = Departments.backend.rawValue
+        case .describing(Departments.analytics): cell.departmentLabel.text = Departments.analytics.rawValue
+        default: break
+        }
+        
+        cell.departmentLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 104).isActive = true
+        cell.departmentLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 45).isActive = true
+        cell.departmentLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        
+        cell.backgroundColor = .clear
+        
         return cell
     }
 
@@ -395,7 +536,7 @@ extension MainViewController: DepartmentSegmentedControlDelegate {
 
         switch sortingMode {
         case.alphabet:
-            filteredEmployeesList = departmentSegmentedControl.filterEmployeeList(self.defaultEmployeeList, withDepartmentFilteringMode: departmentFilteringMode, withTextFrom: searchTextField).sorted {$0.firstName < $1.firstName}
+            filteredEmployeesList = departmentSegmentedControl.filterEmployeeList(defaultEmployeeList, withDepartmentFilteringMode: departmentFilteringMode, withTextFrom: searchTextField).sorted {$0.firstName < $1.firstName}
         case .birthday:
             var sections = [SectionModel]()
             defaultTableViewSections.forEach { section in

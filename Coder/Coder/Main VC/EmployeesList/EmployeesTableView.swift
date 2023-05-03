@@ -16,6 +16,7 @@ class EmployeesTableView: UITableView {
     let refreshControlView = RefreshControlView()
     
     // MARK: - Private Properties
+    private let cellReuseIdentifier = "employeeCell"
     private let listLoadingStackView = UIStackView()
     private let animation = Animation()
     private let networkManager = NetworkManager()
@@ -34,93 +35,10 @@ class EmployeesTableView: UITableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Methods
-    func setupCellForRowAt(indexPath: IndexPath, for tableView: EmployeesTableView, with sections: [SectionModel], at viewController: MainViewController) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "employeeCell", for: indexPath) as! EmployeesTableViewCell
-
-        if viewController.sortingMode == .birthday {
-            let section = sections[indexPath.section]
-            let employees = section.sectionEmployees
-            cell.birthdayLabel.isHidden = false
-            networkManager.downloadImage(url: employees[indexPath.row].avatarUrl) { image in
-                let c = tableView.cellForRow(at: indexPath) as? EmployeesTableViewCell
-                c?.avatarImageView.image = image
-            }
-            cell.configureEmployeesCell(cell: cell, for: indexPath, with: employees)
-        } else {
-            cell.birthdayLabel.isHidden = true
-            networkManager.downloadImage(url: viewController.filteredEmployeesList[indexPath.row].avatarUrl) { image in
-                let c = tableView.cellForRow(at: indexPath) as? EmployeesTableViewCell
-                c?.avatarImageView.image = image
-            }
-            cell.configureEmployeesCell(cell: cell, for: indexPath, with: viewController.filteredEmployeesList)
-        }
-                
-        return cell
-    }
-    
-    func setViewForHeaderInSection(withView view: HeaderSectionView, from sections: [SectionModel], section: Int, for tableView: EmployeesTableView) -> UIView? {
-        guard !sections.isEmpty else { return nil }
-                
-        if !sections[section].sectionEmployees.isEmpty {
-            if section > 0 {
-                view.yearLabel.text = sections[section].yearSection
-                return view
-            } else {
-                let view = UIView()
-                view.translatesAutoresizingMaskIntoConstraints = false
-                view.heightAnchor.constraint(equalToConstant: 0).isActive = true
-                return view
-            }
-        }
-        
-        return nil
-    }
-    
-    func didSelectRowAt(indexPath: IndexPath, employeeList: [Employee], vc: MainViewController) {
-        let index = indexPath.row
-        let employee = employeeList[index]
-        let profileViewController = ProfileViewController()
-        let birthday = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: "yyyy-MM-dd", outputDayFormat: .d, outputMonthFormat: .MMMM, outputYearFormat: .yyyy)
-        let birthdayForAge = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: "yyyy-MM-dd", outputDayFormat: .d, outputMonthFormat: .MM, outputYearFormat: .yyyy)
-        
-        let profileTitleContentView = profileViewController.profileTitleContentView
-        let profileDetailsContentView = profileViewController.profileDetailsContentView
-        
-        networkManager.downloadImage(url: employee.avatarUrl) { image in
-            profileTitleContentView.avatarImageView.image = image
-        }
-        profileTitleContentView.fullNameLabel.text = employee.fullName
-        profileTitleContentView.userTagLabel.text = employee.userTag.lowercased()
-        profileTitleContentView.updateSubviews()
-        
-        switch employee.department {
-        case "android": profileTitleContentView.departmentLabel.text = "Android"
-        case "ios": profileTitleContentView.departmentLabel.text = "iOS"
-        case "design": profileTitleContentView.departmentLabel.text = "Дизайн"
-        case "management": profileTitleContentView.departmentLabel.text = "Менеджмент"
-        case "qa": profileTitleContentView.departmentLabel.text = "QA"
-        case "back_office": profileTitleContentView.departmentLabel.text = "Бэк-офис"
-        case "frontend": profileTitleContentView.departmentLabel.text = "Frontend"
-        case "hr": profileTitleContentView.departmentLabel.text = "HR"
-        case "pr": profileTitleContentView.departmentLabel.text = "PR"
-        case "backend": profileTitleContentView.departmentLabel.text = "Backend"
-        case "support": profileTitleContentView.departmentLabel.text = "Техподдержка"
-        case "analytics": profileTitleContentView.departmentLabel.text = "Аналитика"
-        default: break
-        }
-        profileDetailsContentView.birthdayLabel.text = birthday.configureWith(dateElement: [birthday.day!, birthday.month!, birthday.year!])
-        profileDetailsContentView.ageLabel.text = birthdayForAge.calculateAge()
-        profileDetailsContentView.phoneButton.setTitle(employee.phone, for: .normal)
-        profileDetailsContentView.updateSubviews()
-        
-        vc.navigationController?.pushViewController(profileViewController, animated: true)
-    }
-    
     // MARK: - Private Methods
     private func setupTableView() {
         backgroundColor = .clear
-        register(EmployeesTableViewCell.self, forCellReuseIdentifier: "employeeCell")
+        register(EmployeesTableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         rowHeight = 86
         separatorStyle = .none
         sectionFooterHeight = 0
@@ -168,5 +86,4 @@ class EmployeesTableView: UITableView {
         listLoadingStackView.layer.position.y = 12
         listLoadingStackView.frame.size.height = 1634
     }
-    
 }
