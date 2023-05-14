@@ -10,8 +10,6 @@ import UIKit
 class LensView: UIView {
 
     // MARK: - Private Properties
-    private let frameView = CGRect(x: 0, y: 0, width: 44, height: 40)
-    private let frameImageView = CGRect(x: 14, y: 10, width: 20.01, height: 20)
     private let imageView = UIImageView()
     
     // MARK: - Initializers
@@ -30,11 +28,17 @@ class LensView: UIView {
     private func setupView() {
         let image = UIImage(named: "lens")?.withTintColor(UIColor.setupCustomColor(.black))
         
-        imageView.image = image
-        imageView.frame = frameImageView
-        
         addSubview(imageView)
+
+        imageView.image = image
+    
+        widthAnchor.constraint(equalToConstant: 44).isActive = true
+        heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        frame = frameView
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 14).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 20.1).isActive = true        
     }
 }

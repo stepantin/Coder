@@ -14,14 +14,11 @@
 		EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */; };
 		EE366DFA29E9DFBA0004ADA6 /* LensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DF929E9DFBA0004ADA6 /* LensView.swift */; };
 		EE366DFC29E9E0530004ADA6 /* SortSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */; };
-		EE366DFE29E9E1A60004ADA6 /* CrossButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */; };
+		EE366DFE29E9E1A60004ADA6 /* CrossButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFD29E9E1A60004ADA6 /* CrossButtonView.swift */; };
 		EE366E0029E9E5940004ADA6 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366DFF29E9E5940004ADA6 /* SearchTextField.swift */; };
-		EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0129E9EEAE0004ADA6 /* Animation.swift */; };
 		EE366E0429E9F1370004ADA6 /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0329E9F1370004ADA6 /* CancelButton.swift */; };
 		EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0729E9F3FF0004ADA6 /* Departments.swift */; };
 		EE366E0A29E9F4380004ADA6 /* DepartmentSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */; };
-		EE366E0C29E9F5680004ADA6 /* DepartmentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0B29E9F5680004ADA6 /* DepartmentsContentView.swift */; };
-		EE366E0E29E9F5D40004ADA6 /* DepartmentScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E0D29E9F5D40004ADA6 /* DepartmentScrollView.swift */; };
 		EE366E1229E9F9DC0004ADA6 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1129E9F9DC0004ADA6 /* Employee.swift */; };
 		EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1329E9FA120004ADA6 /* Employees.swift */; };
 		EE366E1629E9FAD20004ADA6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E1529E9FAD20004ADA6 /* NetworkManager.swift */; };
@@ -34,7 +31,6 @@
 		EE366E2629EA02EE0004ADA6 /* HeaderSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */; };
 		EE366E2829EA06330004ADA6 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2729EA06330004ADA6 /* SectionModel.swift */; };
 		EE366E2B29EB32020004ADA6 /* ModalStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2A29EB32020004ADA6 /* ModalStackViewController.swift */; };
-		EE366E2F29EB33230004ADA6 /* DotIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E2E29EB33230004ADA6 /* DotIndicator.swift */; };
 		EE366E3229EB33B70004ADA6 /* SortingMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3129EB33B70004ADA6 /* SortingMethodView.swift */; };
 		EE366E3429EB36470004ADA6 /* BackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3329EB36470004ADA6 /* BackBarButtonItem.swift */; };
 		EE366E3729EB3F3A0004ADA6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE366E3629EB3F3A0004ADA6 /* ProfileViewController.swift */; };
@@ -90,14 +86,11 @@
 		EE366DF329E9DDBD0004ADA6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EE366DF929E9DFBA0004ADA6 /* LensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LensView.swift; sourceTree = "<group>"; };
 		EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortSettingsView.swift; sourceTree = "<group>"; };
-		EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButton.swift; sourceTree = "<group>"; };
+		EE366DFD29E9E1A60004ADA6 /* CrossButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossButtonView.swift; sourceTree = "<group>"; };
 		EE366DFF29E9E5940004ADA6 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
-		EE366E0129E9EEAE0004ADA6 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		EE366E0329E9F1370004ADA6 /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		EE366E0729E9F3FF0004ADA6 /* Departments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departments.swift; sourceTree = "<group>"; };
 		EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentSegmentedControl.swift; sourceTree = "<group>"; };
-		EE366E0B29E9F5680004ADA6 /* DepartmentsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentsContentView.swift; sourceTree = "<group>"; };
-		EE366E0D29E9F5D40004ADA6 /* DepartmentScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentScrollView.swift; sourceTree = "<group>"; };
 		EE366E1129E9F9DC0004ADA6 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		EE366E1329E9FA120004ADA6 /* Employees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employees.swift; sourceTree = "<group>"; };
 		EE366E1529E9FAD20004ADA6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -110,7 +103,6 @@
 		EE366E2529EA02EE0004ADA6 /* HeaderSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionView.swift; sourceTree = "<group>"; };
 		EE366E2729EA06330004ADA6 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		EE366E2A29EB32020004ADA6 /* ModalStackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalStackViewController.swift; sourceTree = "<group>"; };
-		EE366E2E29EB33230004ADA6 /* DotIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotIndicator.swift; sourceTree = "<group>"; };
 		EE366E3129EB33B70004ADA6 /* SortingMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingMethodView.swift; sourceTree = "<group>"; };
 		EE366E3329EB36470004ADA6 /* BackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonItem.swift; sourceTree = "<group>"; };
 		EE366E3629EB3F3A0004ADA6 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +182,6 @@
 			children = (
 				EE366DD629E9DAD40004ADA6 /* AppDelegate.swift */,
 				EE366DD829E9DAD40004ADA6 /* SceneDelegate.swift */,
-				EE366E0129E9EEAE0004ADA6 /* Animation.swift */,
 				EE366E1C29E9FE9E0004ADA6 /* CoderDateFormatter.swift */,
 				EE9EA36529FC745C00FC60B2 /* CoderColors.swift */,
 				EE9EA36C2A02DCF200FC60B2 /* Helper.swift */,
@@ -228,7 +219,7 @@
 				EE366DFF29E9E5940004ADA6 /* SearchTextField.swift */,
 				EE366DF929E9DFBA0004ADA6 /* LensView.swift */,
 				EE366DFB29E9E0530004ADA6 /* SortSettingsView.swift */,
-				EE366DFD29E9E1A60004ADA6 /* CrossButton.swift */,
+				EE366DFD29E9E1A60004ADA6 /* CrossButtonView.swift */,
 				EE366E0329E9F1370004ADA6 /* CancelButton.swift */,
 			);
 			path = SearchBar;
@@ -239,8 +230,6 @@
 			children = (
 				EE366E0729E9F3FF0004ADA6 /* Departments.swift */,
 				EE366E0929E9F4380004ADA6 /* DepartmentSegmentedControl.swift */,
-				EE366E0B29E9F5680004ADA6 /* DepartmentsContentView.swift */,
-				EE366E0D29E9F5D40004ADA6 /* DepartmentScrollView.swift */,
 			);
 			path = DepartmentsNavigation;
 			sourceTree = "<group>";
@@ -299,7 +288,6 @@
 		EE366E3029EB33920004ADA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EE366E2E29EB33230004ADA6 /* DotIndicator.swift */,
 				EE366E3129EB33B70004ADA6 /* SortingMethodView.swift */,
 				EE366E3329EB36470004ADA6 /* BackBarButtonItem.swift */,
 			);
@@ -470,7 +458,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE366E0C29E9F5680004ADA6 /* DepartmentsContentView.swift in Sources */,
 				EE366E0A29E9F4380004ADA6 /* DepartmentSegmentedControl.swift in Sources */,
 				EE366DF429E9DDBD0004ADA6 /* MainViewController.swift in Sources */,
 				EE9EA36629FC745C00FC60B2 /* CoderColors.swift in Sources */,
@@ -485,10 +472,8 @@
 				EE366E0829E9F3FF0004ADA6 /* Departments.swift in Sources */,
 				EE366E1429E9FA120004ADA6 /* Employees.swift in Sources */,
 				EE366E2829EA06330004ADA6 /* SectionModel.swift in Sources */,
-				EE366E0E29E9F5D40004ADA6 /* DepartmentScrollView.swift in Sources */,
 				EE366E3729EB3F3A0004ADA6 /* ProfileViewController.swift in Sources */,
 				EE366E1D29E9FE9E0004ADA6 /* CoderDateFormatter.swift in Sources */,
-				EE366E0229E9EEAE0004ADA6 /* Animation.swift in Sources */,
 				EE9EA36F2A02DD3A00FC60B2 /* Extensions.swift in Sources */,
 				EE366E1F29EA00590004ADA6 /* LoadingView.swift in Sources */,
 				EE366E1929E9FCF50004ADA6 /* EmployeesTableView.swift in Sources */,
@@ -498,13 +483,12 @@
 				EE366E3429EB36470004ADA6 /* BackBarButtonItem.swift in Sources */,
 				EE366E3229EB33B70004ADA6 /* SortingMethodView.swift in Sources */,
 				EE366E0029E9E5940004ADA6 /* SearchTextField.swift in Sources */,
-				EE366DFE29E9E1A60004ADA6 /* CrossButton.swift in Sources */,
+				EE366DFE29E9E1A60004ADA6 /* CrossButtonView.swift in Sources */,
 				EE366E2B29EB32020004ADA6 /* ModalStackViewController.swift in Sources */,
 				EE366DD929E9DAD40004ADA6 /* SceneDelegate.swift in Sources */,
 				EE366E4D29EC24FE0004ADA6 /* RefreshControlVIew.swift in Sources */,
 				EE366E2629EA02EE0004ADA6 /* HeaderSectionView.swift in Sources */,
 				EE366E2429EA02410004ADA6 /* ErrorView.swift in Sources */,
-				EE366E2F29EB33230004ADA6 /* DotIndicator.swift in Sources */,
 				EE366E3A29EB3FC90004ADA6 /* ProfileTitleContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

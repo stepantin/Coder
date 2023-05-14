@@ -16,18 +16,24 @@ enum SortingMode {
 // MARK: - MainViewController
 class MainViewController: UIViewController {
     
-    // MARK: - Properties
-    var sortingMode: SortingMode = .alphabet
-    var departmentFilteringMode: FilteringMode = .all
-    var defaultEmployeeList = [Employee]()
-    var filteredEmployeesList = [Employee]()
-    var defaultTableViewSections = [SectionModel]()
-    var filteredTableViewSections = [SectionModel]()
-    
     // MARK: - Private Properties
+    private var sortingMode: SortingMode = .alphabet
+    private var departmentFilteringMode: FilteringMode = .all
+    private var defaultEmployeeList = [Employee]()
+    private var filteredEmployeesList = [Employee]()
+    private var defaultTableViewSections = [SectionModel]()
+    private var filteredTableViewSections = [SectionModel]()
+    private var cancelButton = CancelButton()
+    private var departmentSegmentedControl = DepartmentSegmentedControl()
+    private var employeesTableView = EmployeesTableView()
+    private var headerSectionView = HeaderSectionView()
+    private var errorView = ErrorView()
+    private var backButton = BackBarButtonItem()
+    private var popUpErrorView = PopUpErrorView()
     private let placeholder = "Введи имя, тег, почту..."
-    private let animation = Animation()
-    private let sectionLine = CALayer()
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    private let dividingLine = UIView()
     private let networkManager = NetworkManager()
     private let curentDate = CoderDateFormatter()
     private let defaults = UserDefaults.standard
@@ -36,15 +42,50 @@ class MainViewController: UIViewController {
     
     //MARK: - Lazy Private Properties
     private lazy var searchTextField = SearchTextField(placeholder: placeholder)
-    private lazy var cancelButton = CancelButton()
-    private lazy var departmentScrollView = DepartmentScrollView()
-    private lazy var employeesTableView = EmployeesTableView()
-    private lazy var headerSectionView = HeaderSectionView()
-    private lazy var errorView = ErrorView(atView: view)
-    private lazy var backButton = BackBarButtonItem()
     private lazy var currentYear = Int(curentDate.year!)!
-    private lazy var popUpErrorView = PopUpErrorView()
+    
+    // MARK: - Constraints
+    private lazy var searchTextFieldLeftAnchor = searchTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16)
+    private lazy var searchTextFieldTopAnchor = searchTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 60)
+    private lazy var searchTextFieldWidthAnchor = searchTextField.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -32)
+    private lazy var searchTextFieldDecreaseWidthAnchor = searchTextField.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -110)
+    private lazy var searchTextFieldHeightAnchor = searchTextField.heightAnchor.constraint(equalToConstant: 40)
+    
+    private lazy var cancelButtonLeftAnchor = cancelButton.leftAnchor.constraint(equalTo: searchTextField.rightAnchor, constant: 12)
+    private lazy var cancelButtonTopAnchor = cancelButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 71)
+    private lazy var cancelButtonWidthAnchor = cancelButton.widthAnchor.constraint(equalToConstant: 54)
+    private lazy var cancelButtonHeightAnchor = cancelButton.heightAnchor.constraint(equalToConstant: 18)
+    
+    private lazy var scrollViewBottomAnchor = scrollView.bottomAnchor.constraint(equalTo: dividingLine.topAnchor)
+    private lazy var scrollViewLeftAnchor = scrollView.leftAnchor.constraint(equalTo: view.leftAnchor)
+    private lazy var scrollViewRightAnchor = scrollView.rightAnchor.constraint(equalTo: view.rightAnchor)
+    private lazy var scrollViewHeightAnchor = scrollView.heightAnchor.constraint(equalToConstant: 36)
+    
+    private lazy var contentViewLeftAnchor = contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 16)
+    private lazy var contentViewRightAnchor = contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor, constant: -16)
+    private lazy var contentViewWidthAnchor = contentView.widthAnchor.constraint(equalTo: departmentSegmentedControl.widthAnchor)
+    private lazy var contentViewHeightAnchor = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+    
+    private lazy var dividingLineTopAnchor = dividingLine.topAnchor.constraint(equalTo: view.topAnchor, constant: 150)
+    private lazy var dividingLineHeightAnchor = dividingLine.heightAnchor.constraint(equalToConstant: 0.33)
+    private lazy var dividingLineWidthAnchor = dividingLine.widthAnchor.constraint(equalTo: view.widthAnchor)
+    
+    private lazy var employeesTableViewTopAnchor = employeesTableView.topAnchor.constraint(equalTo: dividingLine.bottomAnchor)
+    private lazy var employeesTableViewBottomAnchor = employeesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    private lazy var employeesTableViewLeftAnchor = employeesTableView.leftAnchor.constraint(equalTo: view.leftAnchor)
+    private lazy var employeesTableViewWidthAnchor = employeesTableView.widthAnchor.constraint(equalTo: view.widthAnchor)
+    
+    private lazy var errorViewLeftAnchor = errorView.leftAnchor.constraint(equalTo: view.leftAnchor)
+    private lazy var errorViewTopAnchor = errorView.topAnchor.constraint(equalTo: view.topAnchor)
+    private lazy var errorViewWidthAnchor = errorView.widthAnchor.constraint(equalTo: view.widthAnchor)
+    private lazy var errorViewHeightAnchor = errorView.heightAnchor.constraint(equalTo: view.heightAnchor)
 
+    private lazy var popUpErrorViewLeftAnchor = popUpErrorView.leftAnchor.constraint(equalTo: view.leftAnchor)
+    private lazy var popUpErrorViewTopAnchorWhenAppear = popUpErrorView.topAnchor.constraint(equalTo: view.topAnchor)
+    private lazy var popUpErrorViewTopAnchorWhenDisappear = popUpErrorView.topAnchor.constraint(equalTo: view.topAnchor, constant: -110)
+    private lazy var popUpErrorViewWidthAnchor = popUpErrorView.widthAnchor.constraint(equalTo: view.widthAnchor)
+    private lazy var popUpErrorViewHeightAnchor = popUpErrorView.heightAnchor.constraint(equalToConstant: 110)
+    
     // MARK: - VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +109,7 @@ extension MainViewController {
         searchTextField.delegate = self
         employeesTableView.dataSource = self
         employeesTableView.delegate = self
-        departmentScrollView.contentView.segmentedControl.delegate = self
+        departmentSegmentedControl.delegate = self
     }
     
     private func resetSortSettings() {
@@ -87,8 +128,10 @@ extension MainViewController {
     private func addSubviews() {
         view.addSubview(searchTextField)
         view.addSubview(cancelButton)
-        view.addSubview(departmentScrollView)
-        view.layer.addSublayer(sectionLine)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(departmentSegmentedControl)
+        view.addSubview(dividingLine)
         view.addSubview(employeesTableView)
         view.addSubview(errorView)
         view.addSubview(popUpErrorView)
@@ -98,23 +141,71 @@ extension MainViewController {
 // MARK: - Setup Layouts
 extension MainViewController {
     private func setupLayouts() {
-        searchTextField.frame = CGRect(x: 16, y: 60, width: view.bounds.width - 32, height: 40)
-        cancelButton.frame = CGRect(x: searchTextField.bounds.width + 40, y: 71, width: 54, height: 18)
-        departmentScrollView.frame = CGRect(x: 0, y: 114, width: view.frame.width, height: 38)
-        sectionLine.frame = CGRect(x: 0, y: departmentScrollView.frame.maxY, width: view.frame.width, height: 0.33)
-        employeesTableView.frame = CGRect(x: 0, y: sectionLine.frame.maxY, width: view.frame.width, height: view.frame.height - sectionLine.frame.maxY)
-        popUpErrorView.frame = CGRect(x: 0, y: -110, width: view.frame.width, height: 110)
+        searchTextField.translatesAutoresizingMaskIntoConstraints = false
+        searchTextFieldTopAnchor.isActive = true
+        searchTextFieldLeftAnchor.isActive = true
+        searchTextFieldWidthAnchor.isActive = true
+        searchTextFieldHeightAnchor.isActive = true
+        
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButtonTopAnchor.isActive = true
+        cancelButtonLeftAnchor.isActive = true
+        cancelButtonWidthAnchor.isActive = true
+        cancelButtonHeightAnchor.isActive = true
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollViewLeftAnchor.isActive = true
+        scrollViewRightAnchor.isActive = true
+        scrollViewBottomAnchor.isActive = true
+        scrollViewHeightAnchor.isActive = true
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentViewLeftAnchor.isActive = true
+        contentViewRightAnchor.isActive = true
+        contentViewWidthAnchor.isActive = true
+        contentViewHeightAnchor.isActive = true
+        
+        dividingLine.translatesAutoresizingMaskIntoConstraints = false
+        dividingLineTopAnchor.isActive = true
+        dividingLineWidthAnchor.isActive = true
+        dividingLineHeightAnchor.isActive = true
+        
+        employeesTableView.translatesAutoresizingMaskIntoConstraints = false
+        employeesTableViewTopAnchor.isActive = true
+        employeesTableViewLeftAnchor.isActive = true
+        employeesTableViewWidthAnchor.isActive = true
+        employeesTableViewBottomAnchor.isActive = true
+        
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        errorViewTopAnchor.isActive = true
+        errorViewLeftAnchor.isActive = true
+        errorViewWidthAnchor.isActive = true
+        errorViewHeightAnchor.isActive = true
+        
+        popUpErrorView.translatesAutoresizingMaskIntoConstraints = false
+        popUpErrorViewLeftAnchor.isActive = true
+        popUpErrorViewTopAnchorWhenDisappear.isActive = true
+        popUpErrorViewWidthAnchor.isActive = true
+        popUpErrorViewHeightAnchor.isActive = true
     }
 }
 
 // MARK: - Views Customization
 extension MainViewController {
     private func applyViewsCustomization() {
-        searchTextField.crossButton.addTarget(self, action: #selector(clear), for: .allTouchEvents)
-        cancelButton.addTarget(self, action: #selector(cancelEditing), for: .allTouchEvents)
-        sectionLine.backgroundColor = UIColor.setupCustomColor(.lightGray).cgColor
-        employeesTableView.refreshControl?.addTarget(self, action: #selector(reloadEmployeeTableView), for: .valueChanged)
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.bounces = false
+        
+        dividingLine.backgroundColor = UIColor.setupCustomColor(.lightGray)
+        
+        addTargets()
+    }
+    
+    private func addTargets() {
+        searchTextField.crossButton.button.addTarget(self, action: #selector(clear), for: .allTouchEvents)
         errorView.tryAgainButton.addTarget(self, action: #selector(repeatRequest), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(cancelEditing), for: .touchUpInside)
+        employeesTableView.refreshControl?.addTarget(self, action: #selector(reloadEmployeeTableView), for: .valueChanged)
     }
 }
 
@@ -163,7 +254,10 @@ extension MainViewController {
     }
     
     @objc private func presentModalStackVC() {
-        animation.tap(view: searchTextField.sortSettingsView)
+        UIView.animate(withDuration: 0.3) {
+            self.searchTextField.sortSettingsView.alpha = 0
+            self.searchTextField.sortSettingsView.alpha = 1
+        }
         
         let nc = UINavigationController()
         let modalStackViewController = ModalStackViewController()
@@ -180,7 +274,13 @@ extension MainViewController {
     }
     
     @objc private func hidePopUpErrorView() {
-        animation.popUpErrorViewDisappear(view: popUpErrorView, atViewController: self)
+        popUpErrorViewTopAnchorWhenAppear.isActive = false
+        popUpErrorViewTopAnchorWhenDisappear.isActive = true
+
+        UIView.animate(withDuration: 0.2) {
+            self.popUpErrorView.superview?.layoutIfNeeded()
+            self.view.window?.overrideUserInterfaceStyle = .light
+        }
     }
     
     @objc func reloadTableData(_ notification: Notification) {
@@ -236,7 +336,17 @@ extension MainViewController {
             self.popUpErrorView.errorLabel.sizeToFit()
             self.employeesTableView.loadingView.isHidden = true
             self.headerSectionView.isHidden = false
-            self.animation.popUpErrorViewAppear(view: self.popUpErrorView, atViewController: self)
+            self.popUpErrorViewAppear()
+        }
+    }
+    
+    private func popUpErrorViewAppear() {
+        popUpErrorViewTopAnchorWhenDisappear.isActive = false
+        popUpErrorViewTopAnchorWhenAppear.isActive = true
+
+        UIView.animate(withDuration: 0.5) {
+            self.view.window?.overrideUserInterfaceStyle = .dark
+            self.popUpErrorView.superview?.layoutIfNeeded()
         }
     }
 }
@@ -253,8 +363,21 @@ extension MainViewController: UISearchTextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         searchTextField.placeholder = ""
-        animation.decreaseTextFieldWidth(textField: searchTextField, view: view)
-        animation.move(cancelButton: cancelButton, bindXTo: searchTextField)
+        searchTextField.sortSettingsView.alpha = 0
+
+        // Decrease searchTextField width
+        searchTextFieldWidthAnchor.isActive = false
+        searchTextFieldDecreaseWidthAnchor.isActive = true
+        
+        UIView.animate(withDuration: 0.2) {
+            self.searchTextField.leftView?.alpha = 1
+            self.searchTextField.superview?.layoutIfNeeded()
+         }
+        
+        // CancelButton appear
+        UIView.animate(withDuration: 0.4) {
+            self.cancelButton.alpha = 1
+        }
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -266,13 +389,32 @@ extension MainViewController: UISearchTextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         searchTextField.setup(rightView: .sortSettingsView)
         searchTextField.text = ""
-        animation.restoreTextFieldWidth(textField: searchTextField, view: view)
-        animation.remove(cancelButton: cancelButton, bindXTo: searchTextField)
+        
+        //Restore searchTextField width
+        searchTextFieldDecreaseWidthAnchor.isActive = false
+        searchTextFieldWidthAnchor.isActive = true
+        
+        UIView.animate(withDuration: 0.1, delay: 0.1) {
+            self.searchTextField.leftView?.alpha = 0.3
+            self.searchTextField.superview?.layoutIfNeeded()
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0.1) {
+            self.searchTextField.rightView?.alpha = 1
+        }
+
+        //CancelButton disappear
+        UIView.animate(withDuration: 0.2) {
+            self.cancelButton.alpha = 0
+        }
     }
     
     private func searchTextFieldDidChangeSelection() {
         if searchTextField.text!.isEmpty {
-            animation.rightViewDisappears(inside: searchTextField)
+            searchTextField.rightView?.alpha = 1
+            UIView.animate(withDuration: 0.1) {
+                self.searchTextField.rightView?.alpha = 0
+            }
         }
         
         filterEmployeeList()
@@ -316,6 +458,7 @@ extension MainViewController: UITableViewDelegate {
         }
         
         let inputDateFormat = "yyyy-MM-dd"
+
         let index = indexPath.row
         let employee = employeeList[index]
         let profileViewController = ProfileViewController()
@@ -325,6 +468,7 @@ extension MainViewController: UITableViewDelegate {
         let profileTitleContentView = profileViewController.profileTitleContentView
         let profileDetailsContentView = profileViewController.profileDetailsContentView
         
+        profileTitleContentView.avatarImageView.image = UIImage(named: "goose")
         networkManager.downloadImage(url: employee.avatarUrl) { image in
             profileTitleContentView.avatarImageView.image = image
         }
@@ -357,6 +501,8 @@ extension MainViewController: UITableViewDelegate {
             profileTitleContentView.departmentLabel.text = Departments.backend.rawValue
         case .describing(Departments.analytics):
             profileTitleContentView.departmentLabel.text = Departments.analytics.rawValue
+        case .describing(Departments.support):
+            profileTitleContentView.departmentLabel.text = Departments.support.rawValue
         default: break
         }
         
@@ -425,7 +571,6 @@ extension MainViewController: UITableViewDataSource {
     private func configureEmployeesCell(for indexPath: IndexPath) -> UITableViewCell {
         let cell = employeesTableView.dequeueReusableCell(withIdentifier: "employeeCell", for: indexPath) as! EmployeesTableViewCell
         let inputDateFormat = "yyyy-MM-dd"
-        let defaultImageName = "goose"
         var employees = [Employee]()
         
         if sortingMode == .birthday {
@@ -441,32 +586,17 @@ extension MainViewController: UITableViewDataSource {
         
         let birthday = CoderDateFormatter(dateString: employee.birthday, inputDateFormat: inputDateFormat, outputDayFormat: .d, outputMonthFormat: .MMM, outputYearFormat: .yyyy)
         
-        cell.avatarImageView.image = UIImage(named: defaultImageName)
+        cell.avatarImageView.image = UIImage(named: "goose")
         networkManager.downloadImage(url: employees[indexPath.row].avatarUrl) { [weak self] image in
             guard let self = self else { return }
             
             let c = employeesTableView.cellForRow(at: indexPath) as? EmployeesTableViewCell
             c?.avatarImageView.image = image
         }
-        cell.avatarImageView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
-        cell.avatarImageView.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 16).isActive = true
-        cell.avatarImageView.widthAnchor.constraint(equalToConstant: 72).isActive = true
-        cell.avatarImageView.heightAnchor.constraint(equalToConstant: 72).isActive = true
-        
+
         cell.fullNameLabel.text = employee.fullName
-        cell.fullNameLabel.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 104).isActive = true
-        cell.fullNameLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 22).isActive = true
-        cell.fullNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
         cell.userTagLabel.text = employee.userTag.lowercased()
-        cell.userTagLabel.leftAnchor.constraint(equalTo: cell.fullNameLabel.rightAnchor, constant: 4).isActive = true
-        cell.userTagLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 24).isActive = true
-        cell.userTagLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        
         cell.birthdayLabel.text = birthday.configureWith(dateElement: [birthday.day!, birthday.month!])
-        cell.birthdayLabel.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
-        cell.birthdayLabel.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -19).isActive = true
-        cell.birthdayLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         switch employee.department {
         case .describing(Departments.android): cell.departmentLabel.text = Departments.android.rawValue
@@ -481,14 +611,9 @@ extension MainViewController: UITableViewDataSource {
         case .describing(Departments.android): cell.departmentLabel.text = Departments.android.rawValue
         case .describing(Departments.backend): cell.departmentLabel.text = Departments.backend.rawValue
         case .describing(Departments.analytics): cell.departmentLabel.text = Departments.analytics.rawValue
+        case .describing(Departments.support): cell.departmentLabel.text = Departments.support.rawValue
         default: break
         }
-        
-        cell.departmentLabel.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 104).isActive = true
-        cell.departmentLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 45).isActive = true
-        cell.departmentLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        
-        cell.backgroundColor = .clear
         
         return cell
     }
@@ -532,8 +657,6 @@ extension MainViewController: DepartmentSegmentedControlDelegate {
     }
     
     private func filterEmployeeList() {
-        let departmentSegmentedControl = departmentScrollView.contentView.segmentedControl
-
         switch sortingMode {
         case.alphabet:
             filteredEmployeesList = departmentSegmentedControl.filterEmployeeList(defaultEmployeeList, withDepartmentFilteringMode: departmentFilteringMode, withTextFrom: searchTextField).sorted {$0.firstName < $1.firstName}
@@ -575,16 +698,25 @@ extension MainViewController: ModalStackViewControllerDelegate {
 //MARK: Timer
 extension MainViewController {
     func timerStart() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
             DispatchQueue.main.async {
                 if self.time == 3 {
-                    self.animation.popUpErrorViewDisappear(view: self.popUpErrorView, atViewController: self)
+                    self.popUpErrorViewTopAnchorWhenAppear.isActive = false
+                    self.popUpErrorViewTopAnchorWhenDisappear.isActive = true
+                    
+                    //PopUpErrorView disappear
+                    UIView.animate(withDuration: 0.2) {
+                        self.popUpErrorView.superview?.layoutIfNeeded()
+                        self.view.window?.overrideUserInterfaceStyle = .light
+                    }
                     self.timerStop()
                 }
-                
                 self.time += 1
                 self.employeesTableView.loadingView.isHidden = true
                 self.checkEmployeesList()
+                print(self.time)
             }
         }
     }

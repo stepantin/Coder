@@ -22,7 +22,7 @@ enum RightView {
 class SearchTextField: UITextField {
     
     // MARK: - Properties
-    let crossButton = CrossButton()
+    let crossButton = CrossButtonView()
     let lensView = LensView()
     let sortSettingsView = SortSettingsView()
     
@@ -44,7 +44,7 @@ class SearchTextField: UITextField {
     // MARK: - Methods
     func setup(rightView: RightView) {
         switch rightView {
-        case .crossButton: self.rightView = crossButton.toView()
+        case .crossButton: self.rightView = crossButton
         case .sortSettingsView: self.rightView = sortSettingsView
         }
     }
