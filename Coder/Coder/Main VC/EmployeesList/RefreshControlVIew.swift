@@ -43,55 +43,6 @@ class RefreshControlView: UIView {
     }
     
     // MARK: - Methods
-    func rotation() {
-        let rotaionAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        rotaionAnimation.duration = 1.6
-        rotaionAnimation.toValue = 6.28
-        rotaionAnimation.fillMode = CAMediaTimingFillMode.forwards
-        rotaionAnimation.isRemovedOnCompletion = false
-        rotaionAnimation.repeatCount = .infinity
-        
-        layer.add(rotaionAnimation, forKey: nil)
-    }
-    
-    func startAnimating() {
-        shapeLayer.strokeEnd = 0.8
-
-        rotation()
-        
-        var animations = [CABasicAnimation]()
-        
-        let increaseAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        increaseAnimation.duration = 0.8
-        increaseAnimation.fromValue = 0.05
-        increaseAnimation.toValue = 0.8
-        increaseAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-        increaseAnimation.isRemovedOnCompletion = false
-        animations.append(increaseAnimation)
-
-        let decreaseAnimation = CABasicAnimation(keyPath: "strokeStart")
-        decreaseAnimation.beginTime = 0.8
-        decreaseAnimation.duration = 0.8
-        decreaseAnimation.fromValue = 0
-        decreaseAnimation.toValue = 0.75
-        decreaseAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        decreaseAnimation.isRemovedOnCompletion = false
-        animations.append(decreaseAnimation)
-        
-        let group = CAAnimationGroup()
-        group.duration = 1.6
-        group.animations = animations
-        group.fillMode = CAMediaTimingFillMode.forwards
-        group.isRemovedOnCompletion = false
-        group.repeatCount = .infinity
-        shapeLayer.add(group, forKey: nil)
-    }
-    
-    func stopAnimating() {
-        shapeLayer.strokeEnd = 0.0
-        shapeLayer.removeAllAnimations()
-        layer.removeAllAnimations()
-    }
     
     // MARK: - Private Methods
     private func setupView() {

@@ -10,31 +10,87 @@ import UIKit
 class EmployeesTableView: UITableView {
     
     // MARK: - Properties
-    let loadingView = UIView()
     let tableViewRefreshControl = UIRefreshControl()
     let notFoundView = NotFoundView()
     let refreshControlView = RefreshControlView()
     
     // MARK: - Private Properties
+    private let loadingView = UIView()
     private let cellReuseIdentifier = "employeeCell"
     private let listLoadingStackView = UIStackView()
     private let networkManager = NetworkManager()
+    private let animation: CABasicAnimation = {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.duration = 0.5
+        animation.fromValue = 1
+        animation.toValue = 0.2
+        animation.repeatCount = .infinity
+        animation.autoreverses = true
+        return animation
+    }()
     
     // MARK: - Initializers
     init() {
         super.init(frame: .zero, style: .grouped)
         
         setupTableView()
-        UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat]) {
-            for v in self.listLoadingStackView.arrangedSubviews {
-                v.alpha = 0.2
-            }
-        }
+        startLoadingAnimating()
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Methods
+    func startRefreshAnimating() {
+        refreshControlView.shapeLayer.strokeEnd = 0.8
+
+        rotation()
+        
+        var animations = [CABasicAnimation]()
+        
+        let increaseAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        increaseAnimation.duration = 0.8
+        increaseAnimation.fromValue = 0.05
+        increaseAnimation.toValue = 0.8
+        increaseAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+        increaseAnimation.isRemovedOnCompletion = false
+        animations.append(increaseAnimation)
+
+        let decreaseAnimation = CABasicAnimation(keyPath: "strokeStart")
+        decreaseAnimation.beginTime = 0.8
+        decreaseAnimation.duration = 0.8
+        decreaseAnimation.fromValue = 0
+        decreaseAnimation.toValue = 0.75
+        decreaseAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        decreaseAnimation.isRemovedOnCompletion = false
+        animations.append(decreaseAnimation)
+        
+        let group = CAAnimationGroup()
+        group.duration = 1.6
+        group.animations = animations
+        group.fillMode = CAMediaTimingFillMode.forwards
+        group.isRemovedOnCompletion = false
+        group.repeatCount = .infinity
+        refreshControlView.shapeLayer.add(group, forKey: nil)
+    }
+    
+    func stopRefreshAnimating() {
+        refreshControlView.shapeLayer.strokeEnd = 0.0
+        refreshControlView.shapeLayer.removeAllAnimations()
+        refreshControlView.layer.removeAllAnimations()
+    }
+    
+    
+    func startLoadingAnimating() {
+        loadingView.isHidden = false
+        listLoadingStackView.layer.add(animation, forKey: nil)
+    }
+    
+    func stopLoadingAnimating() {
+        loadingView.isHidden = true
+        listLoadingStackView.layer.removeAllAnimations()
     }
     
     // MARK: - Private Methods
@@ -86,5 +142,16 @@ class EmployeesTableView: UITableView {
         
         listLoadingStackView.layer.position.y = 12
         listLoadingStackView.frame.size.height = 1634
+    }
+    
+    private func rotation() {
+        let rotaionAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotaionAnimation.duration = 1.6
+        rotaionAnimation.toValue = 6.28
+        rotaionAnimation.fillMode = CAMediaTimingFillMode.forwards
+        rotaionAnimation.isRemovedOnCompletion = false
+        rotaionAnimation.repeatCount = .infinity
+        
+        refreshControlView.layer.add(rotaionAnimation, forKey: nil)
     }
 }
