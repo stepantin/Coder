@@ -102,6 +102,5 @@ class EmployeesTableViewCell: UITableViewCell {
         birthdayLabel.centerYAnchor.constraint(equalTo:contentView.centerYAnchor).isActive = true
         birthdayLabel.rightAnchor.constraint(equalTo:contentView.rightAnchor, constant: -19).isActive = true
         birthdayLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
     }
 }

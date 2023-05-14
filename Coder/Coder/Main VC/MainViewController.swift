@@ -237,10 +237,10 @@ extension MainViewController {
     
     @objc private func reloadEmployeeTableView() {
         if employeesTableView.refreshControl!.isRefreshing {
-            employeesTableView.refreshControlView.startAnimating()
+            employeesTableView.startRefreshAnimating()
         }
         
-        employeesTableView.loadingView.isHidden = false
+        employeesTableView.startLoadingAnimating()
         employeesTableView.notFoundView.isHidden = true
         headerSectionView.isHidden = true
         fetchDataForATableViewCell()
@@ -291,8 +291,12 @@ extension MainViewController {
 // MARK: - Network
 extension MainViewController {
     func fetchDataForATableViewCell() {
+        filteredEmployeesList.removeAll()
+        filteredTableViewSections.removeAll()
+        employeesTableView.reloadData()
+        
         restartTimer()
-        employeesTableView.loadingView.isHidden = false
+        employeesTableView.startLoadingAnimating()
         employeesTableView.notFoundView.isHidden = true
         headerSectionView.isHidden = true
         
@@ -334,7 +338,7 @@ extension MainViewController {
             self.errorView.isHidden = false
             self.popUpErrorView.errorLabel.text = errorDescription.rawValue
             self.popUpErrorView.errorLabel.sizeToFit()
-            self.employeesTableView.loadingView.isHidden = true
+            self.employeesTableView.stopLoadingAnimating()
             self.headerSectionView.isHidden = false
             self.popUpErrorViewAppear()
         }
@@ -442,7 +446,7 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        employeesTableView.refreshControlView.stopAnimating()
+        employeesTableView.stopRefreshAnimating()
         employeesTableView.refreshControlView.shapeLayer.strokeEnd = 0
         employeesTableView.refreshControl?.endRefreshing()
     }
@@ -562,7 +566,7 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        employeesTableView.loadingView.isHidden = true
+        employeesTableView.stopLoadingAnimating()
         headerSectionView.isHidden = false
         
         return configureEmployeesCell(for: indexPath)
@@ -623,7 +627,7 @@ extension MainViewController: UITableViewDataSource {
         case .alphabet:
             if filteredEmployeesList.isEmpty {
                 employeesTableView.notFoundView.isHidden = false
-                employeesTableView.loadingView.isHidden = true
+                employeesTableView.stopLoadingAnimating()
             } else {
                 employeesTableView.notFoundView.isHidden = true
             }
@@ -638,7 +642,7 @@ extension MainViewController: UITableViewDataSource {
                 employeesTableView.notFoundView.isHidden = true
             } else if arr.contains(true){
                 employeesTableView.notFoundView.isHidden = false
-                employeesTableView.loadingView.isHidden = true
+                employeesTableView.stopLoadingAnimating()
             }
         }
     }
@@ -647,7 +651,7 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - DepartmentSegmentedControlDelegate
 extension MainViewController: DepartmentSegmentedControlDelegate {
     func set(filteringMode: FilteringMode) {
-        employeesTableView.loadingView.isHidden = false
+        employeesTableView.startLoadingAnimating()
         headerSectionView.isHidden = true
         departmentFilteringMode = filteringMode
         filterEmployeeList()
@@ -678,7 +682,7 @@ extension MainViewController: DepartmentSegmentedControlDelegate {
 // MARK: - ModalStackViewControllerDelegate
 extension MainViewController: ModalStackViewControllerDelegate {
     func sorting(isOn: Bool) {
-        employeesTableView.loadingView.isHidden = false
+        employeesTableView.startLoadingAnimating()
         headerSectionView.isHidden = true
         
         searchTextField.sortSettingsView.isOn = isOn
@@ -714,9 +718,6 @@ extension MainViewController {
                     self.timerStop()
                 }
                 self.time += 1
-                self.employeesTableView.loadingView.isHidden = true
-                self.checkEmployeesList()
-                print(self.time)
             }
         }
     }
