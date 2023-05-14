@@ -62,6 +62,7 @@ class EmployeesTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         addSubviews()
+        setupConstraints()
     }
     
     @available(*, unavailable)
@@ -72,12 +73,35 @@ class EmployeesTableViewCell: UITableViewCell {
     // MARK: - Private Methods
     private func addSubviews() {
         selectionStyle = .none
+        backgroundColor = .clear
         contentView.addSubview(avatarImageView)
         contentView.addSubview(fullNameLabel)
         contentView.addSubview(departmentLabel)
         contentView.addSubview(userTagLabel)
         contentView.addSubview(birthdayLabel)
     }
+    
+    private func setupConstraints() {
+        departmentLabel.leadingAnchor.constraint(equalTo:contentView.leadingAnchor, constant: 104).isActive = true
+        departmentLabel.topAnchor.constraint(equalTo:contentView.topAnchor, constant: 45).isActive = true
+        departmentLabel.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        
+        avatarImageView.centerYAnchor.constraint(equalTo:contentView.centerYAnchor).isActive = true
+        avatarImageView.leftAnchor.constraint(equalTo:contentView.leftAnchor, constant: 16).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: 72).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: 72).isActive = true
+        
+        fullNameLabel.leftAnchor.constraint(equalTo:contentView.leftAnchor, constant: 104).isActive = true
+        fullNameLabel.topAnchor.constraint(equalTo:contentView.topAnchor, constant: 22).isActive = true
+        fullNameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        userTagLabel.leftAnchor.constraint(equalTo:fullNameLabel.rightAnchor, constant: 4).isActive = true
+        userTagLabel.topAnchor.constraint(equalTo:contentView.topAnchor, constant: 24).isActive = true
+        userTagLabel.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        
+        birthdayLabel.centerYAnchor.constraint(equalTo:contentView.centerYAnchor).isActive = true
+        birthdayLabel.rightAnchor.constraint(equalTo:contentView.rightAnchor, constant: -19).isActive = true
+        birthdayLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+    }
 }
-
-

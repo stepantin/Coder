@@ -39,17 +39,14 @@ class DepartmentSegmentedControl: UIView {
     let selectorIndicator = CALayer()
     var textColor: UIColor = UIColor.setupCustomColor(.gray)
     var selectorTextColor = UIColor.setupCustomColor(.black)
-    var stackWidth: CGFloat = 0
         
     // MARK: - Private Properties
-    private var buttonTitles: [Departments]!
+    private var buttonTitles: [Departments] = [.all, .design, .analytics, .management, .ios, .android, .qa, .backend, .frontend, .hr, .pr, .backOffice, .support]
     private var buttons = [UIButton]()
-    private var selectorView: UIView!
     
     // MARK: - Initializers
-    convenience init(buttonTitles: [Departments]) {
+    convenience init() {
         self.init(frame: .zero)
-        self.buttonTitles = buttonTitles
         
         setupView()
     }
@@ -118,6 +115,28 @@ class DepartmentSegmentedControl: UIView {
         configStackView()
     }
     
+    private func createButtons() {
+        for buttonTitle in buttonTitles {
+            let button = UIButton()
+            
+            button.setTitle(buttonTitle.rawValue, for: .normal)
+            button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
+            button.sizeToFit()
+            button.frame.size.width += 24
+            button.frame.size.height = 36
+            button.setTitleColor(textColor, for: .normal)
+            
+            button.addTarget(self, action: #selector(DepartmentSegmentedControl.buttonAction(sender:)), for: .touchUpInside)
+            
+            buttons.append(button)
+        }
+        
+        buttons[0].setTitleColor(selectorTextColor, for: .normal)
+        buttons[0].titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 15)
+        
+        selectorIndicator.frame = CGRect(x: buttons[0].frame.minX, y: buttons[0].bounds.height - 2, width: buttons[0].frame.width, height: 2)
+    }
+    
     private func configStackView() {
         let stackView = UIStackView(arrangedSubviews: buttons)
         stackView.axis = .horizontal
@@ -137,29 +156,10 @@ class DepartmentSegmentedControl: UIView {
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             stackView.leftAnchor.constraint(equalTo: self.leftAnchor)
         ])
-    }
-    
-    private func createButtons() {
-        for buttonTitle in buttonTitles {
-            let button = UIButton()
-            
-            button.setTitle(buttonTitle.rawValue, for: .normal)
-            button.titleLabel?.font = UIFont(name: "Inter-Medium", size: 15)
-            button.sizeToFit()
-            button.frame.size.width += 24
-            button.frame.size.height = 36
-            button.setTitleColor(textColor, for: .normal)
-            
-            button.addTarget(self, action: #selector(DepartmentSegmentedControl.buttonAction(sender:)), for: .touchUpInside)
-            
-            buttons.append(button)
-            stackWidth += button.frame.size.width
-        }
         
-        buttons[0].setTitleColor(selectorTextColor, for: .normal)
-        buttons[0].titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 15)
-        
-        selectorIndicator.frame = CGRect(x: buttons[0].frame.minX, y: buttons[0].bounds.height, width: buttons[0].frame.width, height: 2)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 36).isActive = true
     }
     
     // MARK: - Selectors
@@ -169,7 +169,7 @@ class DepartmentSegmentedControl: UIView {
             if btn == sender {
                 btn.setTitleColor(selectorTextColor, for: .normal)
                 btn.titleLabel?.font = UIFont(name: "Inter-SemiBold", size: 15)
-                selectorIndicator.frame = CGRect(x: btn.frame.minX, y: btn.bounds.height, width: btn.frame.width, height: 2)
+                selectorIndicator.frame = CGRect(x: btn.frame.minX, y: btn.bounds.height - 2, width: btn.frame.width, height: 2)
                 
                 switch btn.titleLabel?.text {
                 case Departments.all.rawValue : self.delegate?.set(filteringMode: .all)

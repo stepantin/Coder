@@ -21,7 +21,6 @@ class ModalStackViewController: UIViewController {
     // MARK: - Private Properties
     private let alphabetSortingMethodView = SortingMethodView(withTitle: "По алфавиту")
     private let birthdaySortingMethodView = SortingMethodView(withTitle: "По дню рождения")
-    private let animation = Animation()
     private let defaults = UserDefaults.standard
     
     // MARK: - VIEW DID LOAD
@@ -46,9 +45,6 @@ extension ModalStackViewController {
     private func updateSortingMethod(_ alphabet: SortingMethodView, _ birthday: SortingMethodView) {
         alphabet.isOn = UserDefaults.standard.bool(forKey: "alphabetSortingMethodViewState")
         birthday.isOn = UserDefaults.standard.bool(forKey: "birthdaySortingMethodViewState")
-        
-        alphabet.updateIndicatorState()
-        birthday.updateIndicatorState()
     }
 }
 
@@ -94,11 +90,6 @@ extension ModalStackViewController {
 // MARK: - Selectors
 extension ModalStackViewController {
     @objc func tapAlphabetView() {
-        UIView.animate(withDuration: 0.1) {
-            self.alphabetSortingMethodView.dotIndicator.layer.borderWidth = 6
-            self.birthdaySortingMethodView.dotIndicator.layer.borderWidth = 2
-        }
-        
         defaults.set(true, forKey: "alphabetSortingMethodViewState")
         defaults.set(false, forKey: "birthdaySortingMethodViewState")
 
@@ -107,11 +98,6 @@ extension ModalStackViewController {
     }
     
     @objc func tapBirthdayView() {
-        UIView.animate(withDuration: 0.08) {
-            self.alphabetSortingMethodView.dotIndicator.layer.borderWidth = 2
-            self.birthdaySortingMethodView.dotIndicator.layer.borderWidth = 6
-        }
-        
         defaults.set(false, forKey: "alphabetSortingMethodViewState")
         defaults.set(true, forKey: "birthdaySortingMethodViewState")
         

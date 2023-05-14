@@ -18,7 +18,6 @@ class EmployeesTableView: UITableView {
     // MARK: - Private Properties
     private let cellReuseIdentifier = "employeeCell"
     private let listLoadingStackView = UIStackView()
-    private let animation = Animation()
     private let networkManager = NetworkManager()
     
     // MARK: - Initializers
@@ -26,8 +25,11 @@ class EmployeesTableView: UITableView {
         super.init(frame: .zero, style: .grouped)
         
         setupTableView()
-        animation.listLoadingAnimation(view: listLoadingStackView)
-
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.autoreverse, .repeat]) {
+            for v in self.listLoadingStackView.arrangedSubviews {
+                v.alpha = 0.2
+            }
+        }
     }
     
     @available(*, unavailable)
@@ -69,7 +71,6 @@ class EmployeesTableView: UITableView {
         loadingView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         loadingView.bottomAnchor.constraint(equalTo: listLoadingStackView.bottomAnchor).isActive = true
         loadingView.backgroundColor = .white
-
     }
     
     private func configStackView() {

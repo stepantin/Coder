@@ -14,8 +14,6 @@ class SortSettingsView: UIView {
     
     // MARK: - Private Properties
     private let imageView = UIImageView()
-    private let frameView = CGRect(x: 0, y: 0, width: 44, height: 40)
-    private let frameImageView = CGRect(x: 10, y: 14, width: 20, height: 12)
     
     // MARK: - Initializers
     init() {
@@ -50,20 +48,20 @@ class SortSettingsView: UIView {
         setImage()
     }
     
-    func toogleSortingState() {
-        (self.isOn == true) ? (self.isOn = false) : (self.isOn = true)
-        
-        setImage()
-    }
-    
     // MARK: - Private Methods
     private func setupView() {
         setImage()
-        imageView.frame = frameImageView
         
         addSubview(imageView)
-                
-        frame = frameView
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
+        imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 14).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 12).isActive = true
+        
         layer.cornerRadius = 16
+        widthAnchor.constraint(equalToConstant: 44).isActive = true
+        heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
 }

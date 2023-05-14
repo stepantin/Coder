@@ -29,7 +29,7 @@ class LoadingView: UIView {
     private func setupView() {
         addSubviews()
         setupLayouts()
-        applyCustomizationsView()
+        applyCustomizationViews()
     }
     
     private func setupLayouts() {
@@ -44,7 +44,7 @@ class LoadingView: UIView {
         addSubview(departmentView)
     }
     
-    private func applyCustomizationsView() {
+    private func applyCustomizationViews() {
         avatarView.layer.cornerRadius = 36
         avatarView.clipsToBounds = true
         avatarView.layer.addSublayer(gradientLayer(to: avatarView))
