@@ -84,7 +84,17 @@
 ## Deadline?
 По моим оптимистичным подсчетам на разработку проекта уйдет примерно 50 часов чистого времени, без учета финальной сборки и полировки проекта. При работе над проектом по 2 часа в день, ориентируемся на 25 дней + две недели на финальную сборку и полировку проекта + человеческий фактор (заболел, затупил и т.д.). Итого - **2 месяца**. 
 
-
+**Результат**: 
+![IMG_5186](https://github.com/stepantin/Coder/assets/120519389/12ff3c7b-88f0-4337-a069-1247aac818a7)
+![IMG_5188](https://github.com/stepantin/Coder/assets/120519389/27c2a45a-967a-4494-bb9e-05145fb79553)
+![IMG_5189](https://github.com/stepantin/Coder/assets/120519389/5a3ba503-53a2-4f57-9c42-a0e3d5e40a8d)
+![IMG_5190](https://github.com/stepantin/Coder/assets/120519389/0cf5f5de-1705-49cd-b5d0-34feb7d0c05b)
+![IMG_5191](https://github.com/stepantin/Coder/assets/120519389/3935e5a3-02b8-4ae3-a350-278f70d414ce)
+![IMG_5193](https://github.com/stepantin/Coder/assets/120519389/9acf8fcf-001d-4e14-b495-d9b441744de9)
+![IMG_5194](https://github.com/stepantin/Coder/assets/120519389/ab330256-80c0-4bbb-b2ef-44f676ef9d25)
+![IMG_5195](https://github.com/stepantin/Coder/assets/120519389/4b43fb0e-a435-4544-87ea-f746f7626cb2)
+![IMG_5196](https://github.com/stepantin/Coder/assets/120519389/1082ec73-e594-4ac5-ac75-185946bd9f30)
+![IMG_5197 (1)](https://github.com/stepantin/Coder/assets/120519389/00ec7e84-3516-47c7-a675-547f548ccab4)
 
 
 
